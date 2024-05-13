@@ -14,3 +14,5 @@ WCore - ядро сайта для php
 
 # МОДУЛИ
 USER VIEW ADMIN SEO TEST HASH LOADFILE URL IP WEBP
+
+@test@
