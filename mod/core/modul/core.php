@@ -13,10 +13,11 @@ Class Core{
         $h['sql']["db_connect"] = new \Mod\Core\Modul\Sql;
 
         //Установка
-        if(true){
+        if(false){
             $h["install"] = [];
             $h =  new \Mod\Core\Modul\Install($h);
         }
+
 /*
         //юзер        
         $h["cookie"] = [];

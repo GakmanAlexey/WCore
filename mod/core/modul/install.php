@@ -90,7 +90,7 @@ Class Install {
             $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `router` WHERE `url` = ? LIMIT 1");
             $sth1->execute(array($sting_sql["url"]));
             $res = $sth1->fetch(\PDO::FETCH_ASSOC);
-            if(!isset($res["id"]) and ($res["id"] <1)){
+            if(isset($res["id"]) ){
                 $sth = $h["sql"]["db_connect"]->db_connect->prepare('INSERT INTO `router` (
                     url,
                     class,
@@ -132,6 +132,33 @@ Class Install {
                 $sth2 = $h["sql"]["db_connect"]->db_connect->prepare("UPDATE `heads` SET  title_q = ?, description_q = ?, keys_q = ?, name_q = ? WHERE `url` = ? ");
                 $sth2->execute(array($sting_sql["title"], $sting_sql["description"], $sting_sql["keys"], $sting_sql["name"], $sting_sql["url"]));
                 $h["install"]["msg"] [] ="[ ! ] " .$sting_sql["url"] ." Обнавлен heads!";
+            }
+
+            if($sting_sql["add_to_sitemap"]){
+                $sth_smap = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `sitemap` WHERE `url` = ? LIMIT 1");
+                $sth_smap ->execute(array($sting_sql["url"]));
+                $res_smap = $sth_smap ->fetch(\PDO::FETCH_ASSOC);  
+
+                if(!isset($res_smap["id"])){ 
+                    $sth = $h["sql"]["db_connect"]->db_connect->prepare('INSERT INTO `sitemap` (
+                        url,
+                        lastmod_s,
+                        change_s,
+                        priority_s
+                        ) VALUES ( ?,?,?,?)');
+                    $sth->execute(array(
+                        $sting_sql["url"],
+                        $sting_sql["lastmod_s"],
+                        $sting_sql["change_s"],
+                        $sting_sql["priority_s"]
+                    ));
+                    $h["install"]["msg"] [] ="[ + ] " .$sting_sql["url"] ." Установлен  sitemap";
+
+                }else{
+                    $sth2 = $h["sql"]["db_connect"]->db_connect->prepare("UPDATE `sitemap` SET  lastmod_s = ?, change_s = ?, priority_s = ? WHERE `url` = ? ");
+                    $sth2->execute(array($sting_sql["lastmod_s"], $sting_sql["change_s"], $sting_sql["priority_s"],  $sting_sql["url"]));
+                    $h["install"]["msg"] [] ="[ ! ] " .$sting_sql["url"] ." Обнавлен sitemap!";
+                }
             }
         }
 

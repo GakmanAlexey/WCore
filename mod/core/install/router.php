@@ -26,6 +26,10 @@ Class Router extends \Mod\Abstract\Install{
             "description"   => "Описание главной страницы",
             "keys"          => "Главная страница ключ",
             "name"          => "Главная страница",
+            "add_to_sitemap"=> true,
+            "lastmod_s"     => time(),
+            "change_s"      => "monthly",
+            "priority_s"    => 0.5
         ];
         $h["install"]["line"][] = $array;
         return $h;
