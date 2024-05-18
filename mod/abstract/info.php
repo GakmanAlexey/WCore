@@ -1,6 +1,6 @@
 <?php
 
-namespace Mod\Core;
+namespace Mod\Abstract;
 
 Class Info{
     public $name        = "Абстракт";
