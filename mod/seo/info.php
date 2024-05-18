@@ -3,10 +3,10 @@
 namespace Mod\Core;
 
 Class Info{
-    public $name        = "Ядро";
-    public $version     = "0.0.2";
+    public $name        = "Сео";
+    public $version     = "0.0.1";
     public $author      = "GakMan";
     public $site        = "gakman.ru";
-    public $sub         = "Основное ядро сайта.";
+    public $sub         = "Отвечает за метаданные и sitemap";
     public $ico         = "ico.png"; // view/ico.png
 }
