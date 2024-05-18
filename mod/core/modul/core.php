@@ -13,8 +13,7 @@ Class Core{
 
         //Установка
         if(False){
-            $inst =  new \Mod\Core\Modul\Install;
-            $h = $inst->start($h);
+            $h =  new \Mod\Core\Modul\Install($h);
         }
 
         //юзер        
