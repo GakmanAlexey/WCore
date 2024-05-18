@@ -4,18 +4,20 @@ namespace Mod\Core\Modul;
 
 Class Core{
     public function __construct(){
-        $h = "";
-        $h = $this->get_url_page($h);  
+        $h = [];
+        $h = $this->get_url_page($h); 
+        $h["error"] = []; 
 
         //Вызов sql
         $h['sql'] = [];
         $h['sql']["db_connect"] = new \Mod\Core\Modul\Sql;
 
         //Установка
-        if(False){
+        if(true){
+            $h["install"] = [];
             $h =  new \Mod\Core\Modul\Install($h);
         }
-
+/*
         //юзер        
         $h["cookie"] = [];
         $usr = new \Mod\User\Modul\User;        
@@ -29,7 +31,7 @@ Class Core{
         $fw = new \Mod\Core\Modul\Router();
         $h = $fw->main($h);    
         
-        
+    */    
 
         return $h;
     }
