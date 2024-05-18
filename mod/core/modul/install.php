@@ -54,7 +54,7 @@ Class Install {
             }
             $stadiya++;
         }
-        
+
         echo "<br>";
         var_dump("<pre>",$h["install"]["error"],"</pre>");
         echo "<br>";
@@ -107,10 +107,32 @@ Class Install {
                 $sth2->execute(array($sting_sql["class"],$sting_sql["function"],$sting_sql["url"]));
                 $h["install"]["msg"] [] ="[ ! ] " .$sting_sql["url"] ." Обнавлен!";
             }
-/*
+
+
             $sth_head = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `heads` WHERE `url` = ? LIMIT 1");
             $sth_head ->execute(array($sting_sql["url"]));
-            $res_head = $sth_head ->fetch(\PDO::FETCH_ASSOC);*/
+            $res_head = $sth_head ->fetch(\PDO::FETCH_ASSOC);  
+            if(!isset($res_head["id"])){ 
+                $sth = $h["sql"]["db_connect"]->db_connect->prepare('INSERT INTO `heads` (
+                    url,
+                    title_q,
+                    description_q,
+                    keys_q,
+                    name_q
+                    ) VALUES ( ?,?,?,?,?)');
+                $sth->execute(array(
+                    $sting_sql["url"],
+                    $sting_sql["title"],
+                    $sting_sql["description"],
+                    $sting_sql["keys"],
+                    $sting_sql["name"]
+                ));
+                $h["install"]["msg"] [] ="[ + ] " .$sting_sql["url"] ." Установлен  heads";
+            }else{
+                $sth2 = $h["sql"]["db_connect"]->db_connect->prepare("UPDATE `heads` SET  title_q = ?, description_q = ?, keys_q = ?, name_q = ? WHERE `url` = ? ");
+                $sth2->execute(array($sting_sql["title"], $sting_sql["description"], $sting_sql["keys"], $sting_sql["name"], $sting_sql["url"]));
+                $h["install"]["msg"] [] ="[ ! ] " .$sting_sql["url"] ." Обнавлен heads!";
+            }
         }
 
         return $h;
