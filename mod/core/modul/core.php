@@ -18,15 +18,19 @@ Class Core{
             $h =  new \Mod\Core\Modul\Install($h);
         }
 
+        //Помощь view
+        $h["view"] = [];
+        $h["view"]["lists"] = [];
+
+        $router = new \Mod\Core\Modul\Router();
+        $h = $router->main($h);  
+
 /*
         //юзер        
         $h["cookie"] = [];
         $usr = new \Mod\User\Modul\User;        
         $h = $usr->metka($h);
         
-        //Помощь view
-        $h["view"] = [];
-        $h["view"]["lists"] = [];
 
         //Вызов Роутера
         $fw = new \Mod\Core\Modul\Router();
