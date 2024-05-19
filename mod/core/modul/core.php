@@ -8,7 +8,7 @@ Class Core{
         $h["error"] = []; 
         $h = $this->get_url_page($h); 
         $h["cache"] = [];
-        $h["cache"]["job"] = true;
+        $h["cache"]["job"] = false;
         //Вызов sql
         $h['sql'] = [];
         $h['sql']["db_connect"] = new \Mod\Core\Modul\Sql;
@@ -30,12 +30,7 @@ Class Core{
         //юзер        
         $h["cookie"] = [];
         $usr = new \Mod\User\Modul\User;        
-        $h = $usr->metka($h);
-        
-
-        //Вызов Роутера
-        $fw = new \Mod\Core\Modul\Router();
-        $h = $fw->main($h);    
+        $h = $usr->metka($h);  
         
     */    
 
