@@ -52,19 +52,19 @@ Class Cfg{
         return $h;
     }
     public function build_head($h){
-        if(isset($h["head"]["sql_config"]["title_q"])){
+        if(!isset($h["head"]["sql_config"]["title_q"])){
             $h["head"]["title"] = $h["head"]["default_config"]->pre_title.$h["head"]["default_config"]->title.$h["head"]["default_config"]->post_title;
         }else{
             $h["head"]["title"] = $h["head"]["default_config"]->pre_title.$h["head"]["sql_config"]["title_q"].$h["head"]["default_config"]->post_title;
         }
 
-        if(isset($h["head"]["sql_config"]["description_q"])){
+        if(!isset($h["head"]["sql_config"]["description_q"])){
             $h["head"]["description"] = $h["head"]["default_config"]->pre_description.$h["head"]["default_config"]->description.$h["head"]["default_config"]->post_description;
         }else{
             $h["head"]["description"] = $h["head"]["default_config"]->pre_description.$h["head"]["sql_config"]["description_q"].$h["head"]["default_config"]->post_description;
         }
 
-        if(isset($h["head"]["sql_config"]["keys_q"])){
+        if(!isset($h["head"]["sql_config"]["keys_q"])){
             $h["head"]["key"] = $h["head"]["default_config"]->pre_keys.$h["head"]["default_config"]->keys.$h["head"]["default_config"]->post_keys;
         }else{
             $h["head"]["key"] = $h["head"]["default_config"]->pre_keys.$h["head"]["sql_config"]["keys_q"].$h["head"]["default_config"]->post_keys;
