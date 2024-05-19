@@ -113,11 +113,11 @@ abstract class Controller{
 
     public function cashe_start($h){
         $h["cache"]["isset"] = false;
-        if($h["cache"]["job"]) return $h;
+        if(!$h["cache"]["job"]) return $h;
         $file_name = md5($h["url"]["d_line"]."g".$h["url"]["d_of_get_line"]);
         $h["cache"]["filename"] = MYPOS.SLASH.'cache'.SLASH.$file_name.'.cache'; //         
 
-        if ($h["cache"]["filename"]) {
+        if (file_exists($h["cache"]["filename"])) {
             $h["cache"]["isset"] = true;
             $c = @file_get_contents($h["cache"]["filename"] );
             echo $c;
@@ -129,7 +129,7 @@ abstract class Controller{
     }
 
     public function cashe_end($h){
-        if($h["cache"]["job"]) return $h;
+        if(!$h["cache"]["job"]) return $h;
         $c = ob_get_contents();
         file_put_contents($h["cache"]["filename"], $c);
         return $h;

@@ -2,7 +2,7 @@
 $pass = "dasdasdasdasdasdasdas";
 echo $pass;
 echo "<br>";
-$hash = password_hash($pass, PASSWORD_BCRYPT, ["cost" => 14]);
+$hash = password_hash($pass, PASSWORD_BCRYPT, ["cost" => 16]);
 echo $hash;
 echo "<br>";
 
