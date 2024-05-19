@@ -111,6 +111,28 @@ abstract class Controller{
         return $h;
     }
 
+    public function cashe_start($h){
+        $file_name = md5($h["url"]["d_line"]."g".$h["url"]["d_of_get_line"]);
+        $h["cache_file_name"] = MYPOS.SLASH.'cache'.SLASH.$file_name.'.cache'; // 
+        $h["cache_isset"] = false;
+
+        if (file_exists($h["cache_file_name"])) {
+            $h["cache_isset"] = true;
+            $c = @file_get_contents($h["cache_file_name"]);
+            echo $c;
+            return $h;
+        } 
+
+        ob_start();
+        return $h;
+    }
+
+    public function cashe_end($h){
+        $c = ob_get_contents();
+        file_put_contents($h["cache_file_name"], $c);
+        return $h;
+    }
+
 
 
 }
