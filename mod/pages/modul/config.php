@@ -33,7 +33,7 @@ Class Config{
         $this->сss_list["ajax"] = [""];
         $this->сss_list["api"] = [""];
         $this->сss_list["errors"] = [
-            "\src\css\mobile.css",
+            "\src\css\style.css",
             "\src\css\mobile.css"
         ];
     }
