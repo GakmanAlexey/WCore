@@ -48,8 +48,8 @@ Class Router{
 
     public function e404($h){
         http_response_code(404);
-        $e404 = new \Mod\Core\Controller\Errors;
-        $e404->e404($h);
+        $e404 = new \Mod\Core\Controller\E404;
+        $e404->index($h);
     }
    
 }
