@@ -7,7 +7,8 @@ Class Core{
         $h = [];
         $h["error"] = []; 
         $h = $this->get_url_page($h); 
-
+        $h["cache"] = [];
+        $h["cache"]["job"] = true;
         //Вызов sql
         $h['sql'] = [];
         $h['sql']["db_connect"] = new \Mod\Core\Modul\Sql;

@@ -112,13 +112,14 @@ abstract class Controller{
     }
 
     public function cashe_start($h){
+        $h["cache"]["isset"] = false;
+        if($h["cache"]["job"]) return $h;
         $file_name = md5($h["url"]["d_line"]."g".$h["url"]["d_of_get_line"]);
-        $h["cache_file_name"] = MYPOS.SLASH.'cache'.SLASH.$file_name.'.cache'; // 
-        $h["cache_isset"] = false;
+        $h["cache"]["filename"] = MYPOS.SLASH.'cache'.SLASH.$file_name.'.cache'; //         
 
-        if (file_exists($h["cache_file_name"])) {
-            $h["cache_isset"] = true;
-            $c = @file_get_contents($h["cache_file_name"]);
+        if ($h["cache"]["filename"]) {
+            $h["cache"]["isset"] = true;
+            $c = @file_get_contents($h["cache"]["filename"] );
             echo $c;
             return $h;
         } 
@@ -128,8 +129,9 @@ abstract class Controller{
     }
 
     public function cashe_end($h){
+        if($h["cache"]["job"]) return $h;
         $c = ob_get_contents();
-        file_put_contents($h["cache_file_name"], $c);
+        file_put_contents($h["cache"]["filename"], $c);
         return $h;
     }
 

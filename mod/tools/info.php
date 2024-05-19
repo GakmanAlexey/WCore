@@ -3,10 +3,10 @@
 namespace Mod\Abstract;
 
 Class Info{
-    public $name        = "Абстракт";
+    public $name        = "Инструменты";
     public $version     = "0.1.1";
     public $author      = "GakMan";
     public $site        = "gakman.ru";
-    public $sub         = "Хранилище абстрактных классов";
+    public $sub         = "Базовые инструменты";
     public $ico         = "ico.png"; // view/ico.png
 }
