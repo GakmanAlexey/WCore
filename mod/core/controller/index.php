@@ -4,8 +4,9 @@ namespace Mod\Core\Controller;
 
 Class Index extends \Mod\Abstract\Controller{
     public function index($h){
+        $this->type_show = "default";
         $cfg = new \Mod\Pages\Modul\Cfg;
-        $h = $cfg->take_head($h);
+        $h = $cfg->take_head($h,$this->type_show );
 
         $h["view"]["lists"][] = MYPOS."/mod/pages/view/index.php";
         $h = $this->show($h);

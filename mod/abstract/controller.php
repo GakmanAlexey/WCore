@@ -6,8 +6,7 @@ abstract class Controller{
     //Определитель способа отображения.
     public $type_show;
 
-    public function show($h, $type = "default", $cash = false){
-        $this->type_show = $type ;
+    public function show($h,  $cash = false){
         $h["view"]["pagetype"] = $this->type_show;
         $h["logclass"] = new \Mod\Core\Modul\Logs;
 

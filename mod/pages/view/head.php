@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="\src\css\style.css">
-    <link rel="stylesheet" href="\src\css\mobile.css">
+    <?php
+    foreach($h["head"]["css"] as $element_css){
+        echo '<link rel="stylesheet" href="'.$element_css.'">';
+    }
+    ?>
+    
     <title><?php echo $h["head"]["title"];?></title>
     <meta name="description" content="<?php echo $h["head"]["description"];?>">
     <link rel="icon" sizes="<?php echo $h["head"]["formanico"];?>" href="<?php echo $h["head"]["ico"];?>">

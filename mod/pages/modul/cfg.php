@@ -4,9 +4,13 @@ namespace Mod\Pages\Modul;
 
 Class Cfg{
     
-    public function take_head($h){
+    public $type_show;
+
+    public function take_head($h,$param){
+        $this->type_show = $param;
         $h = $this->load_default_config($h);
         $h = $this->load_sql_conf($h);
+        $h = $this->build_css($h);
         $h = $this->build_head($h);
         return $h;
     }
@@ -24,10 +28,30 @@ Class Cfg{
         return $h;
     }
 
-    public function build_head($h){
-        var_dump("<pre>",$h["head"]["sql_config"]);
-        var_dump($h["head"]["default_config"],"</pre>");
+    public function build_css($h){switch ($this->type_show ) {
+        case "default":
+            $h["head"]["css"] = $h["head"]["default_config"]->сss_list["delault"];
+            break;
+        case "empty":
+            $h["head"]["css"] = $h["head"]["default_config"]->сss_list["empty"];
+            break;
+        case "admin":
+            $h["head"]["css"] = $h["head"]["default_config"]->сss_list["admin"];
+            break;
+        case "ajax":
+            $h["head"]["css"] = $h["head"]["default_config"]->сss_list["ajax"];
+            break;
+        case "api":
+            $h["head"]["css"] = $h["head"]["default_config"]->сss_list["api"];
+            break;
+        case "errors":
+            $h["head"]["css"] = $h["head"]["default_config"]->сss_list["errors"];
+            break;
+    }
 
+        return $h;
+    }
+    public function build_head($h){
         if(isset($h["head"]["sql_config"]["title_q"])){
             $h["head"]["title"] = $h["head"]["default_config"]->pre_title.$h["head"]["default_config"]->title.$h["head"]["default_config"]->post_title;
         }else{

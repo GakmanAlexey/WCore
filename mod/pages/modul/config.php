@@ -23,4 +23,19 @@ Class Config{
 
     public $сss_list = [];
 
+    public function __construct(){
+        $this->сss_list["delault"] = [
+            "\src\css\style.css",
+            "\src\css\mobile.css"
+        ];
+        $this->сss_list["empty"] = [""];
+        $this->сss_list["admin"] = [""];
+        $this->сss_list["ajax"] = [""];
+        $this->сss_list["api"] = [""];
+        $this->сss_list["errors"] = [
+            "\src\css\mobile.css",
+            "\src\css\mobile.css"
+        ];
+    }
+
 }
