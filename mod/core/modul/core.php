@@ -5,8 +5,8 @@ namespace Mod\Core\Modul;
 Class Core{
     public function __construct(){
         $h = [];
-        $h = $this->get_url_page($h); 
         $h["error"] = []; 
+        $h = $this->get_url_page($h); 
 
         //Вызов sql
         $h['sql'] = [];
@@ -22,7 +22,7 @@ Class Core{
         $h["view"] = [];
         $h["view"]["lists"] = [];
 
-        $router = new \Mod\Core\Modul\Router();
+        $router = new \Mod\Core\Modul\Router();        
         $h = $router->main($h);  
 
 /*

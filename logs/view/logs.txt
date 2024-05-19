@@ -1,0 +1,10 @@
+[19.05.2024 10:14:41] system: Не найдет файл: /var/www/WCore/mod/pages/view/head.php
+[19.05.2024 10:14:41] system: Не найдет файл: /var/www/WCore/mod/pages/view/header.php
+[19.05.2024 10:14:41] system: Не найдет файл: /var/www/WCore/mod/pages/view/index.php
+[19.05.2024 10:14:41] system: Не найдет файл: /var/www/WCore/mod/pages/view/contacts.php
+[19.05.2024 10:14:41] system: Не найдет файл: /var/www/WCore/mod/pages/view/footer.php
+[19.05.2024 10:14:59] system: Не найдет файл: /var/www/WCore/mod/pages/view/head.php
+[19.05.2024 10:14:59] system: Не найдет файл: /var/www/WCore/mod/pages/view/header.php
+[19.05.2024 10:14:59] system: Не найдет файл: /var/www/WCore/mod/pages/view/index.php
+[19.05.2024 10:14:59] system: Не найдет файл: /var/www/WCore/mod/pages/view/contacts.php
+[19.05.2024 10:14:59] system: Не найдет файл: /var/www/WCore/mod/pages/view/footer.php
