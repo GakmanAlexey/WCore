@@ -21,10 +21,6 @@ Class Config{
     public $generator = "";
     public $themeColor = "";
 
-    public $ss_list = [];
+    public $сss_list = [];
 
-    public function __construct($h){
-
-        return $h;
-    }
 }
