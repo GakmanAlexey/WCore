@@ -9,16 +9,15 @@ Class Config{
     public $pass_min  = 8;
     public $pass_max  = 64;
 
-    public $login_min_msg  = 4;
-    public $login_max_msg  = 20;
-    public $pass_min_msg  = 8;
-    public $pass_max_msg  = 64;
+    public $login_min_msg  = "Минимальная длинна логина 4";
+    public $login_max_msg  = "Максимальная длина логина 20";
+    public $pass_min_msg  = "Минимальная длина пароля 8";
+    public $pass_max_msg  = "Максимальная длина пароля 64";
+    public $mail_error_msg  = "Ошибка в написание почты";
+    public $login_not_free_msg  = "Логин занят";
+    public $pass_not_pass2  = "Пароли не совпадают";
+    public $err_its_auth = "У вас уже есть учетная запись";
 
 
 
-    public $congig = [];
-
-    public function __construct(){
-        
-    }
 }
