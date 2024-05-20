@@ -3,7 +3,7 @@
         <div class="container">
             <div class="footer_box">
                 <div class="logo_box">
-                    <img src="src/img/logowh.svg" alt="">
+                    <img src="/src/img/logowh.svg" alt="">
                 </div>
                 <div class="link_box">
                     <a href="" class="link_item">
