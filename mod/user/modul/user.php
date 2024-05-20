@@ -162,7 +162,16 @@ Class User{
     }
 
     public function senmail_conf_reg($h){
-            //TODO
+            $sub = "Регистрация на сайте";
+            $texz = '
+            '.$h["user"]["data_reg"]["login"].', вы зарегестрировались на сайте!
+            Для подтверждения регистрации перейдите по ссылке:
+            <a href="http://wcore.loc/user/mailconfirm/?i='.$h["user"]["data_reg"]["hex"].'">http://wcore.loc/user/mailconfirm/?i='.$h["user"]["data_reg"]["hex"].'</a>
+            Если это были не вы, то просто проигнорируйте.
+            ';
+            
+            $mail = new \Mod\Mail\Modul\Mail;
+            $mail->send($h,$h["user"]["data_reg"]["mail"],$h["user"]["data_reg"]["login"],$sub,$texz);
         return $h;
     }
 
