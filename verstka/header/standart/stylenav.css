@@ -1,0 +1,61 @@
+@font-face {
+    font-family: 'inter-medium';
+    src: url(src/font/Inter-Medium.woff2);
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background: #F0F0F0;
+    font-family: 'inter-medium';
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+}
+
+
+.nav {
+    margin-top: 15px;
+}
+.container {
+    width: 1160px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+.nav_box {
+    height: 66px;
+    width: calc(100% - 30px);
+    border-radius: 20px;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    background: #fff;
+}
+.logo_box {
+    width: 65px;
+}
+.navigatin {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+.nav_item {
+    color: #332428;
+    text-decoration: none;
+}
+.btn {
+    padding: 7px 26px;
+    background: #2F6BF2;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+}
+
+
+.flex{
+    flex: 1;
+    width: 100%;
+}

@@ -1,0 +1,49 @@
+@font-face {
+    font-family: 'inter-medium';
+    src: url(src/font/Inter-Medium.woff2);
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background: #F0F0F0;
+    font-family: 'inter-medium';
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+}
+
+
+
+.container {
+    width: 1160px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.yvedoml{
+    margin-top: 20vh;
+}
+
+.yvedoml_box{
+    margin: 0 auto;
+}
+
+
+.title_block {
+    font-size: 36px;
+    text-align: center;
+}
+
+.text{
+    font-size: 18px;
+    text-align: center;
+}
+
+
+
+.flex{
+    flex: 1;
+    width: 100%;
+}

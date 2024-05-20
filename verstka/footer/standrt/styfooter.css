@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'inter-medium';
+    src: url(src/font/Inter-Medium.woff2);
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background: #F0F0F0;
+    font-family: 'inter-medium';
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+}
+
+
+
+.container {
+    width: 1160px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.footer {
+    background: #111111;
+    width: 100%;
+    padding: 40px 0 10px 0;
+}
+
+.footer_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.logo_box {
+}
+
+.link_box {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.link_item {
+    width: 230px;
+    color: #A1A1A1;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+
+.flex{
+    flex: 1;
+    width: 100%;
+}
