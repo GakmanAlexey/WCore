@@ -1,5 +1,4 @@
 <?php
-/*
 $pass = "dasdasdasdasdasdasdas";
 echo $pass;
 echo "<br>";
@@ -23,15 +22,4 @@ if (password_verify($pass, $hash2)) {
     echo 'Пароль неправильный.';
 }
 
-*/
 ?>
-    <div class="yvedoml flex">
-        <div class="container">
-            <div class="yvedoml_box">
-                <div class="title_block">
-                    Главная страница
-                </div>
-                
-            </div>
-        </div>
-    </div>

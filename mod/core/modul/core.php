@@ -16,7 +16,7 @@ Class Core{
         //Установка
         if(false){
             $h["install"] = [];
-            $h =  new \Mod\Core\Modul\Install($h);
+            $res =  new \Mod\Core\Modul\Install($h);
         }
 
         //Помощь view
