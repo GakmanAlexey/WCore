@@ -8,6 +8,8 @@ Class Config{
     public $login_max  = 20;
     public $pass_min  = 8;
     public $pass_max  = 64;
+    public $start_status  = "new";
+    public $hash_cost = 10;
 
     public $login_min_msg  = "Минимальная длинна логина 4";
     public $login_max_msg  = "Максимальная длина логина 20";

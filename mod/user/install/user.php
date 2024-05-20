@@ -6,7 +6,7 @@ Class User extends \Mod\Abstract\Install{
 
     public function install_BD($h){
         $h["install"]["table"][] = '
-        CREATE TABLE Users (
+        CREATE TABLE users (
         id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
         PRIMARY KEY(id),
         login VARCHAR(255) NOT NULL, 

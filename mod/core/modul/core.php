@@ -14,7 +14,7 @@ Class Core{
         $h['sql']["db_connect"] = new \Mod\Core\Modul\Sql;
 
         //Установка
-        if(true){
+        if(false){
             $h["install"] = [];
             $res =  new \Mod\Core\Modul\Install($h);
         }

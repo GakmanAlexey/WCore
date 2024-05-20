@@ -8,7 +8,7 @@ Class Regconfirm extends \Mod\Abstract\Controller{
         $cfg = new \Mod\Pages\Modul\Cfg;
         $h = $cfg->take_head($h,$this->type_show );
 
-        $h["view"]["lists"][] = MYPOS."/mod/user/view/index.php";
+        $h["view"]["lists"][] = MYPOS."/mod/user/view/regconfirm.php";
         $h = $this->show($h);
         return $h;
     }
