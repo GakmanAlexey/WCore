@@ -6,7 +6,7 @@ Class Config{
     public $host = "ssl://smtp.yandex.ru";
     public $port = 465;
     public $login = "gakman@ya.ru";
-    public $password = "123456";
+    public $password = "12345633323";
     public $encoding = 'UTF-8';
     public $name_from = 'Сайт тест';
 
