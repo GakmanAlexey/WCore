@@ -90,7 +90,7 @@ Class Install {
             $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `router` WHERE `url` = ? LIMIT 1");
             $sth1->execute(array($sting_sql["url"]));
             $res = $sth1->fetch(\PDO::FETCH_ASSOC);
-            if(isset($res["id"]) ){
+            if(!isset($res["id"]) ){
                 $sth = $h["sql"]["db_connect"]->db_connect->prepare('INSERT INTO `router` (
                     url,
                     class,

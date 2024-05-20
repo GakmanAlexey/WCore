@@ -20,7 +20,7 @@ Class Router extends \Mod\Abstract\Install{
     public function install_Router($h){
         $array = [
             "url"           => "/",
-            "class"         => "Mod\pages\Controller\Index",
+            "class"         => "Mod\Core\Controller\Index",
             "function"      => "index",
             "title"         => "Главная страница",
             "description"   => "Описание главной страницы",
