@@ -71,6 +71,7 @@ Class Install {
             } catch (\PDOException $e) {
                 $msg = "";
                 $msg = $e->getMessage();
+                //echo $msg;
                 $error = 1;
             }
             if($error == 1){

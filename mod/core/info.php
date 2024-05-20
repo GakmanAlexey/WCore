@@ -4,7 +4,7 @@ namespace Mod\Core;
 
 Class Info{
     public $name        = "Ядро";
-    public $version     = "0.1.8";
+    public $version     = "0.1.7";
     public $author      = "GakMan";
     public $site        = "gakman.ru";
     public $sub         = "Основное ядро сайта.";

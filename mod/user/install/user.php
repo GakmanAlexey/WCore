@@ -14,7 +14,7 @@ Class User extends \Mod\Abstract\Install{
         email VARCHAR(255) NOT NULL,
         status_a VARCHAR(255) NOT NULL,
         reg_ip VARCHAR(255) NOT NULL,
-        reg_time VARCHAR(255) NOT NULL
+        reg_time VARCHAR(255) NOT NULL,
         auth_ip VARCHAR(255) NOT NULL,
         auth_time VARCHAR(255) NOT NULL,
         hash_reg VARCHAR(255) NOT NULL
