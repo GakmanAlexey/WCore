@@ -31,7 +31,16 @@ if (password_verify($pass, $hash2)) {
                 <div class="title_block">
                     Главная страница
                 </div>
-                
+<?php
+$f = new \Mod\Tools\Modul\Forma;
+$f->init($h, "post", "\\", "noclass", "");
+$f->add_input($h, "name", "text", "noclass2", "ggg","id1", "222");
+$f->add_button($h, "go", "", "", "yes", "вперед");
+$f->buils($h);
+echo $f->build; 
+
+
+?>
             </div>
         </div>
     </div>

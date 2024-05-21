@@ -10,8 +10,8 @@ Class Forma{
 
     public $input = [];
     public $button = [];
-    public $custom = "";
-    public $html = "";
+    public $custom = " ";
+    public $html = " ";
     public $build = "";
 
     public function init($h, $method, $action, $class, $id){
@@ -62,14 +62,13 @@ Class Forma{
     }
     public function buils($h){
         $this->build = "";
-        $build = $this->buils_head($h);
-        $build = $this->buils_input($h);
-        $build .=$this->custom;
-        $build = $this->buils_button($h);
-        $build .=$this->html;
-        $build .= "
+        $this->buils_head($h);
+        $this->buils_input($h);
+        $this->build .= $this->custom;
+        $this->buils_button($h);
+        $this->build .= $this->html;
+        $this->build .= "
         </form>";
-
         return $h;
     }
 
