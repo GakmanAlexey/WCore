@@ -8,7 +8,10 @@ Class Mailconfirm extends \Mod\Abstract\Controller{
         $cfg = new \Mod\Pages\Modul\Cfg;
         $h = $cfg->take_head($h,$this->type_show );
 
-        $h["view"]["lists"][] = MYPOS."/mod/user/view/index.php";
+        $conf = new \Mod\User\Modul\Mailconfirm;
+        $h = $conf->start_confirm($h);
+
+        $h["view"]["lists"][] = MYPOS."/mod/user/view/mailconfirm.php";
         $h = $this->show($h);
         return $h;
     }
