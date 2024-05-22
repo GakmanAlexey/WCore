@@ -117,6 +117,21 @@ Class User extends \Mod\Abstract\Install{
             "priority_s"    => 0.5
         ];
         $h["install"]["line"][] = $array;
+
+        $array = [
+            "url"           => "/user/recover/",
+            "class"         => "Mod\User\Controller\Recover",
+            "function"      => "index",
+            "title"         => "Востановление пароля",
+            "description"   => "Востановление пароля",
+            "keys"          => "Востановление пароля",
+            "name"          => "Востановление пароля",
+            "add_to_sitemap"=> true,
+            "lastmod_s"     => time(),
+            "change_s"      => "monthly",
+            "priority_s"    => 0.5
+        ];
+        $h["install"]["line"][] = $array;
         return $h;
     }
 
