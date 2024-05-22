@@ -37,7 +37,7 @@ Class Mailconfirm{
         $sth2 = $h["sql"]["db_connect"]->db_connect->prepare("UPDATE `users` SET  status_a = ? WHERE `hash_reg` = ? ");
         $sth2->execute(array($h["user"]["cfg"]->status_confirm_email, $h["url"]["get"]["i"]));
 
-        $h["reg_mail_confirm"]["mail_text"] = "Емаил подтвержден! Авторизуйтесь!";
+        $h["reg_mail_confirm"]["mail_text"] = 'Емаил подтвержден! Авторизуйтесь!<br> <a href="/user/login/">Авторизация</a>';
         return $h;
     }
 
