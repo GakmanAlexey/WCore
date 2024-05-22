@@ -13,13 +13,20 @@ foreach($h["user"]["error"] as $item_error){
 ?>
 
                 </p>
-                <form class="form_login" action="/user/register/" method="post">
-                    <input class="input" type="text" name ="login" placeholder="Логин">
-                    <input class="input" type="email" name ="mail"  placeholder="Электронная почта">
-                    <input class="input" type="password" name ="password" placeholder="Пароль">
-                    <input class="input" type="password" name ="password2" placeholder="Повторить пароль">
-                    <button class="btn_form btn" name="go_reg" value="yes">Отправить</button>
-                </form>
+<?php
+$f = new \Mod\Tools\Modul\Forma;
+$f->init($h, "post", "/user/register/", "form_login", "");
+$f->add_input($h, "login", "text", "input", "Логин","", "");
+$f->add_input($h, "mail", "email", "input", "Электронная почта","", "");
+$f->add_input($h, "password", "password", "input", "Логин","Пароль", "");
+$f->add_input($h, "password2", "password", "input", "Логин","Повторить пароль", "");
+$f->add_button($h, "go_reg", "btn_form btn", "", "yes", "Отправить");
+$f->completion($h);
+$f->buils($h);
+echo $f->build; 
+
+
+?>
             </div>
         </div>
     </div>
