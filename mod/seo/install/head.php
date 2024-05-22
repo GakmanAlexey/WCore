@@ -23,5 +23,10 @@ Class Head extends \Mod\Abstract\Install{
         
         return $h;
     }
+
+    public function install_Congif($h){
+
+        return $h;
+    }
     
 }

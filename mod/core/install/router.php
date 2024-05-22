@@ -34,5 +34,10 @@ Class Router extends \Mod\Abstract\Install{
         $h["install"]["line"][] = $array;
         return $h;
     }
+
+    public function install_Congif($h){
+
+        return $h;
+    }
     
 }

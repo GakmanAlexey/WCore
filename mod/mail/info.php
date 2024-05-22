@@ -4,7 +4,7 @@ namespace Mod\Abstract;
 
 Class Info{
     public $name        = "Почта";
-    public $version     = "0.0.1";
+    public $version     = "0.0.2";
     public $author      = "GakMan";
     public $site        = "gakman.ru";
     public $sub         = "Служба отправки сообщений";

@@ -18,7 +18,7 @@ Class Install {
 
     public function seach_files($h){
         $stadiya = 0;
-        while($stadiya < 2){
+        while($stadiya < 3){
             foreach($h["install"]["dir_list"] as $mod_dir){
                 $dir_list = scandir(MYPOS.SLASH."mod".SLASH.$mod_dir);
                 array_splice($dir_list , 0 ,  2);            
@@ -42,9 +42,15 @@ Class Install {
                             }
 
                             if($stadiya == 1){
-                            $funct2  = "install_router";
-                            $h = $result->$funct2($h);                        
-                            $h = $this->install_router($h);
+                                $funct2  = "install_router";
+                                $h = $result->$funct2($h);                        
+                                $h = $this->install_router($h);
+                            }
+
+                            if($stadiya == 2){
+                                $funct2  = "install_Congif";
+                                $h = $result->$funct2($h);                        
+                                $h = $this->install_router($h);
                             }
 
                             $h["install"]["table"] = [];
