@@ -34,8 +34,9 @@ if (password_verify($pass, $hash2)) {
 <?php
 $f = new \Mod\Tools\Modul\Forma;
 $f->init($h, "post", "\\", "noclass", "");
-$f->add_input($h, "name", "text", "noclass2", "ggg","id1", "222");
+$f->add_input($h, "line1", "text", "noclass2", "ggg","id1", "");
 $f->add_button($h, "go", "", "", "yes", "вперед");
+$f->completion($h);
 $f->buils($h);
 echo $f->build; 
 

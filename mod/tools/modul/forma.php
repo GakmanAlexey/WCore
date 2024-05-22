@@ -152,4 +152,22 @@ Class Forma{
 
         return $h;
     }
+    public function completion($h){
+        if(!isset($h["url"]["post"])) return $h;
+        $x = 0;
+        foreach($this->input as $a){
+            foreach($this->input[$x] as $item =>$item_value){
+                foreach($h["url"]["post"] as $key => $value){
+                    //echo '$item =>'.$item.'$item_value =>'.$item_value.'$key =>'.$key.'$value =>'.$value."<br>";
+                    if($item == "name"){
+                        if($item_value == $key ){
+                            $this->input[$x]["value"] = $value;
+                        }
+                    }
+                }
+            }
+            $x++;
+        }
+        return $h;
+    }
 }
