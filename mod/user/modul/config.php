@@ -17,7 +17,10 @@ Class Config{
     public $mail_error_msg  = "Ошибка в написание почты";
     public $login_not_free_msg  = "Логин занят";
     public $pass_not_pass2  = "Пароли не совпадают";
-    public $err_its_auth = "У вас уже есть учетная запись";
+    public $err_its_auth = "Вы авторизованы";
+    public $err_not_correct_lp= "Неверный логин или пароль";
+    public $err_need_conf= "Вы еще не подтвердили вашу почту";
+    public $err_other= "что-то пошло не так";
 
     public $start_status  = "new";
     public $status_confirm_email  = "job";
