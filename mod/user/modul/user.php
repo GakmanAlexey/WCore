@@ -86,7 +86,7 @@ Class User{
         if($h["user"]["error"] != []) return $h;
         $_SESSION["user_id"] = $h["user"]["auth_id"] ;
         $_SESSION["auth_login"] = $h["user"]["auth_login"] ;
-        header('Location: /', true, 303);
+        header('Location: /user/logconfirm/', true, 303);
         exit();
         return $h;
     }
