@@ -5,23 +5,17 @@ namespace Mod\Core\Modul;
 Class Core{
     public function __construct(){
         $h = [];
-        $h["error"] = []; 
+        $st = new \Mod\Core\Modul\Setting;
+        $h = $st->start($h);
         $h = $this->get_url_page($h); 
-        $h["cache"] = [];
-        $h["cache"]["job"] = false;
         //Вызов sql
         $h['sql'] = [];
         $h['sql']["db_connect"] = new \Mod\Core\Modul\Sql;
 
         //Установка
-        if(false){
-            $h["install"] = [];
+        if($h["setting"]->install){
             $res =  new \Mod\Core\Modul\Install($h);
         }
-
-        //Помощь view
-        $h["view"] = [];
-        $h["view"]["lists"] = [];
 
         $router = new \Mod\Core\Modul\Router();        
         $h = $router->main($h);  
