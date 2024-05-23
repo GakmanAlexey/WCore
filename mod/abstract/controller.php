@@ -74,6 +74,11 @@ abstract class Controller{
     }
 
     public function admin($h){
+        /*
+        Собрать левое меню.
+        Собрать уведомления
+
+        */
         $h["view"]["page_load"] = MYPOS."/mod/pages/view/admin/head.php";              
         $h = $this->links($h);
         $h["view"]["page_load"] = MYPOS."/mod/pages/view/admin/lmenu.php";              
