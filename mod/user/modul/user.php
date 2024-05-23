@@ -321,12 +321,15 @@ Class User{
 
     public function senmail_conf_reg($h){
             $sub = "Регистрация на сайте";
-            $texz = '
-            '.$h["user"]["data_reg"]["login"].', вы зарегестрировались на сайте!
-            Для подтверждения регистрации перейдите по ссылке:
+            $h["mail_builder"] = [];
+            $m_b = new \Mod\Mail\Modul\Build;
+            $h["mail_builder"]["head_img"] = "http://wcore.loc/src/img/img.jpg";
+            $h["mail_builder"]["head"] = $h["user"]["data_reg"]["login"]. ",<br> спасибо, что присоеденились!";
+            $h["mail_builder"]["text"] = 'Для подтверждения регистрации перейдите по ссылке:
             <a href="http://wcore.loc/user/mailconfirm/?i='.$h["user"]["data_reg"]["hex"].'">http://wcore.loc/user/mailconfirm/?i='.$h["user"]["data_reg"]["hex"].'</a>
-            Если это были не вы, то просто проигнорируйте.
-            ';
+            Если это были не вы, то просто проигнорируйте.';
+            $texz = $text_mail_to_send = $m_b->standart($h);
+
             
             $mail = new \Mod\Mail\Modul\Mail;
             $mail->send($h,$h["user"]["data_reg"]["mail"],$h["user"]["data_reg"]["login"],$sub,$texz);
