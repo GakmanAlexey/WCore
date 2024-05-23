@@ -77,8 +77,10 @@ abstract class Controller{
         /*
         Собрать левое меню.
         Собрать уведомления
-
         */
+        $build_l_menu = new \Mod\Pages\Modul\Builderlmenu;
+        $h = $build_l_menu ->build($h);
+
         $h["view"]["page_load"] = MYPOS."/mod/pages/view/admin/head.php";              
         $h = $this->links($h);
         $h["view"]["page_load"] = MYPOS."/mod/pages/view/admin/lmenu.php";              
