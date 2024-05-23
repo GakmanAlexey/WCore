@@ -132,6 +132,36 @@ Class User extends \Mod\Abstract\Install{
             "priority_s"    => 0.5
         ];
         $h["install"]["line"][] = $array;
+
+        $array = [
+            "url"           => "/user/reconfirmmsg/",
+            "class"         => "Mod\User\Controller\Reconfirmmsg",
+            "function"      => "index",
+            "title"         => "Востановление началось",
+            "description"   => "Востановление началось",
+            "keys"          => "Востановление началось",
+            "name"          => "Востановление началось",
+            "add_to_sitemap"=> true,
+            "lastmod_s"     => time(),
+            "change_s"      => "monthly",
+            "priority_s"    => 0.5
+        ];
+        $h["install"]["line"][] = $array;
+
+        $array = [
+            "url"           => "/user/reconfirm/",
+            "class"         => "Mod\User\Controller\Reconfirm",
+            "function"      => "index",
+            "title"         => "Востановление началось",
+            "description"   => "Востановление началось",
+            "keys"          => "Востановление началось",
+            "name"          => "Востановление началось",
+            "add_to_sitemap"=> true,
+            "lastmod_s"     => time(),
+            "change_s"      => "monthly",
+            "priority_s"    => 0.5
+        ];
+        $h["install"]["line"][] = $array;
         return $h;
     }
 

@@ -21,6 +21,8 @@ Class Config{
     public $err_not_correct_lp= "Неверный логин или пароль";
     public $err_need_conf= "Вы еще не подтвердили вашу почту";
     public $err_other= "что-то пошло не так";
+    public $not_isset_login= "Такой учетной записи не существует";
+    public $sys_rec_pass= "Сброс пароля осуществлен, новый направлен вам на почту";
 
     public $start_status  = "new";
     public $status_confirm_email  = "job";

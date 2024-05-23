@@ -58,8 +58,75 @@ Class User{
         return $h;
     }
 
+    public function recover($h){
+        $h["user"]["type"] = "rec";
+        //проверить нажата ли кнопка        
+        $h = $this->use_button_rec($h);
+        if($h["user"]["error"] != []) $this->error($h);
+        //Проверить данные на получены ли
+        //Проверить есть ли логин
+        $h = $this->cheak_isset_login($h);
+        if($h["user"]["error"] != []) $this->error($h);
+        //Подготовить
+        $h = $this->create_data_for_rec($h);
+        if($h["user"]["error"] != []) $this->error($h);
+        //Отправить емаил
+        $h = $this->send_rec_mail($h);
+        if($h["user"]["error"] != []) $this->error($h);
+        //Отправить сообщение о начале востановление
+        $h = $this->rec_redirect($h);
+        if($h["user"]["error"] != []) $this->error($h);
+        return $h;
+    }
     public function error($h){
         //TODO
+        return $h;
+    }
+    public function rec_redirect($h){
+        if($h["user"]["error"] != []) return $h;
+        header('Location: /user/reconfirmmsg/', true, 303);
+        exit();
+        
+        return $h;
+    }
+    public function send_rec_mail($h){
+        if($h["user"]["error"] != []) return $h;
+        $sub = "Востановление пароля";
+        $texz = '
+        '.$h["user"]["data_reg"]["login"].', вы пывтаетесь востановить пароль!
+        Для подтверждения востановления перейдите по ссылке:
+        <a href="http://wcore.loc/user/reconfirm/?i='.$h["user"]["data_reg"]["hex"].'">http://wcore.loc/user/reconfirm/?i='.$h["user"]["data_reg"]["hex"].'</a>
+        Если это были не вы, то просто проигнорируйте.
+        ';
+        
+        $mail = new \Mod\Mail\Modul\Mail;
+        $mail->send($h,$h["user"]["data_reg"]["mail"],$h["user"]["data_reg"]["login"],$sub,$texz);
+        return $h;
+    }
+
+    public function create_data_for_rec($h){
+        if($h["user"]["error"] != []) return $h;
+        $hex = new \Mod\Tools\Modul\Hex;
+        $h["user"]["data_reg"]["hex"] = "rec".$hex->create(60,5);
+        $sth2 = $h["sql"]["db_connect"]->db_connect->prepare("UPDATE `users` SET  hash_reg = ? WHERE `id` = ? ");
+        $sth2->execute(array($h["user"]["data_reg"]["hex"], $h["user"]["data_reg"]["id"]));
+        return $h;
+    }
+
+    public function cheak_isset_login($h){
+        if($h["user"]["error"] != []) return $h;
+        $h["user"]["data_reg"]["id"] = 0;
+        $h["user"]["data_reg"]["login"] = htmlspecialchars($h["url"]["post"]["login"]);
+        $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `users` WHERE `login` = ? LIMIT 1");
+        $sth1->execute(array($h["user"]["data_reg"]["login"]));
+        $res = $sth1->fetch(\PDO::FETCH_ASSOC);
+
+        if(!$res){
+            $h["user"]["error"][] = $h["user"]["cfg"]->not_isset_login;
+            return $h;
+        }
+        $h["user"]["data_reg"]["id"] = $res["id"];
+        $h["user"]["data_reg"]["mail"] = $res["email"];
         return $h;
     }
     public function uodate_auth_date($h){
@@ -136,6 +203,17 @@ Class User{
     public function use_button_login($h){
         if(isset($h["url"]["post"]["go_auth"])){
             if($h["url"]["post"]["go_auth"] != "yes"){
+                $h["user"]["error"][] = "no";
+            }   
+        }else{
+            $h["user"]["error"][] = "no";
+        }
+        return $h;
+    }
+
+    public function use_button_rec($h){
+        if(isset($h["url"]["post"]["go_repass"])){
+            if($h["url"]["post"]["go_repass"] != "yes"){
                 $h["user"]["error"][] = "no";
             }   
         }else{

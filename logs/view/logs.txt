@@ -21,3 +21,5 @@
 [19.05.2024 11:06:21] system: Не найдет файл: /var/www/WCore/mod/pages/view/e404.php
 [19.05.2024 11:07:54] system: Не найдет файл: /var/www/WCore/mod/pages/view/e404.php
 [19.05.2024 11:08:18] system: Не найдет файл: /var/www/WCore/mod/pages/view/index.php
+[23.05.2024 08:06:46] system: Не найдет файл: /var/www/WCore/mod/user/view/reconfirmmsg.php
+[23.05.2024 08:07:59] system: Не найдет файл: /var/www/WCore/mod/user/view/reconfirm.php
