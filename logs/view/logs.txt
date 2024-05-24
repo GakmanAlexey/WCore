@@ -23,3 +23,8 @@
 [19.05.2024 11:08:18] system: Не найдет файл: /var/www/WCore/mod/pages/view/index.php
 [23.05.2024 08:06:46] system: Не найдет файл: /var/www/WCore/mod/user/view/reconfirmmsg.php
 [23.05.2024 08:07:59] system: Не найдет файл: /var/www/WCore/mod/user/view/reconfirm.php
+[24.05.2024 10:34:31] system: Не найдет файл: /var/www/WCore/mod/pages/view/admin/head.php
+[24.05.2024 10:34:31] system: Не найдет файл: /var/www/WCore/mod/pages/view/admin/lmenu.php
+[24.05.2024 10:34:31] system: Не найдет файл: /var/www/WCore/mod/pages/view/admin/header.php
+[24.05.2024 10:34:31] system: Не найдет файл: /var/www/WCore/mod/pages/view/admin/index.php
+[24.05.2024 10:34:31] system: Не найдет файл: /var/www/WCore/mod/pages/view/admin/rmenu.php

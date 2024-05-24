@@ -29,7 +29,9 @@ Class Config{
             "\src\css\mobile.css"
         ];
         $this->сss_list["empty"] = [""];
-        $this->сss_list["admin"] = [""];
+        $this->сss_list["admin"] = [
+            "\src\admin\style-crm.css"
+        ];
         $this->сss_list["ajax"] = [""];
         $this->сss_list["api"] = [""];
         $this->сss_list["errors"] = [
