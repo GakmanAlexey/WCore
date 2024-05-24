@@ -39,7 +39,26 @@ Class Lmenu extends \Mod\Abstract\Lmenu{
             $h,                         //Хелпер
             "constructor",                        //Родитель   
             "constructor-index",              //Название на латинице
-            "Конструктор Главной страницы" ,     //Название на Русском
+            "Конструктор Главной" ,     //Название на Русском
+            "constructor-index",              //Url адрес
+            1,                          //Приоритет
+            1,                          //TODO Вид действия
+            $ico,                    //Иконка
+            "constructor.admin"         //Привелегии
+        );
+        $ico = '
+        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.37484 15.5834H10.6248C14.1665 15.5834 15.5832 14.1667 15.5832 10.6251V6.37508C15.5832 2.83341 14.1665 1.41675 10.6248 1.41675H6.37484C2.83317 1.41675 1.4165 2.83341 1.4165 6.37508V10.6251C1.4165 14.1667 2.83317 15.5834 6.37484 15.5834Z" stroke="#444444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7.0835 1.41675V15.5834" stroke="#444444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7.0835 6.02075H15.5835" stroke="#444444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7.0835 10.9792H15.5835" stroke="#444444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+        ';
+        $h = $h["lmenu"]["class"]->add_element(
+            $h,                         //Хелпер
+            "constructor",                        //Родитель   
+            "constructor-index",              //Название на латинице
+            "Конструктор остальных" ,     //Название на Русском
             "constructor-index",              //Url адрес
             1,                          //Приоритет
             1,                          //TODO Вид действия
