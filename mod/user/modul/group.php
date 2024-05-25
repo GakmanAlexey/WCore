@@ -97,8 +97,11 @@ Class Group{
     }
 
     public function show_list($h){
+        $pg = new \Mod\Tools\Modul\Pagin;
+        $h = $pg -> standart($h,"group_list");
+
         $h["admin"]["user"]["group_list"] = [];
-        $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `group_list` ");
+        $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `group_list` LIMIT ".$h["pagin"]["start_sql"] .",".$h["pagin"]["page_lim_sql"]." ");
         $sth1->execute(array());
         while($res = $sth1->fetch(\PDO::FETCH_ASSOC)){
             $h["admin"]["user"]["group_list"][] = $res;

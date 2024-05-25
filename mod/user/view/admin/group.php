@@ -57,26 +57,10 @@ if($x == 0){
     echo '
     <div class="stroka_element">Записи не найдены</div>
     ';
-}
+}/*
+$pag = new \Mod\Tools\Modul\Pagin;
+$h = $pag ->standart($h,"group_list");*/
 
-
-
-$j = 0;
-while($j < 153){
-    $sth = $h["sql"]["db_connect"]->db_connect->prepare('INSERT INTO `group_list` (
-        group_name,
-        name_ru,
-        prefix,
-        ico
-        ) VALUES ( ?,?,?,?)');
-    $sth->execute(array(
-        "test",
-        "test",
-        "test",
-        "test"
-    ));
-    $j++;
-}
 ?>
                             
                                                      
@@ -89,16 +73,23 @@ while($j < 153){
                         <div class="wrap_element_flex">
                             
 
-                            <p class="element_text_value">Всего страниц: 1</p>
+                            <p class="element_text_value">Всего страниц: <?php echo $h["pagin"]["page_count"];?></p>
                         </div>
 
                         
                         <div class="wrap_element_flex">
                             <div class="pagination">
-                                <a href="" class="pagination_element"><img src="/src/admin/img/pagi_left.svg" alt=""></a>
-                                <a href="" class="pagination_element">1</a>
-                                <a href="" class="pagination_element"><img src="/src/admin/img/pagi_right.svg" alt=""></a>
-                                <a href="" class="pagination_element">...</a>
+                                <?php
+                                foreach($h["pagin"]["page_line"] as $element){
+                                    if($element == "l") {
+                                        echo '<a href="?page=1" class="pagination_element"><img src="/src/admin/img/pagi_left.svg" alt=""></a>';
+                                    }elseif($element == "r") {
+                                        echo '<a href="?page='.$h["pagin"]["page_count"].'" class="pagination_element"><img src="/src/admin/img/pagi_right.svg" alt=""></a>';
+                                    }else{
+                                        echo '<a href="?page='.$element.'" class="pagination_element">'.$element.'</a>';
+                                    }                                    
+                                }
+                                ?>
                             </div>
 
                         </div>
