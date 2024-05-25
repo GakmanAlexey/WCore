@@ -162,6 +162,67 @@ Class User extends \Mod\Abstract\Install{
             "priority_s"    => 0.5
         ];
         $h["install"]["line"][] = $array;
+
+        $array = [
+            "url"           => "/admin/users/user/",
+            "class"         => "Mod\User\Controller\Admin\User",
+            "function"      => "index",
+            "title"         => "Пользователи",
+            "description"   => "Пользователи",
+            "keys"          => "Пользователи",
+            "name"          => "Пользователи",
+            "add_to_sitemap"=> true,
+            "lastmod_s"     => time(),
+            "change_s"      => "monthly",
+            "priority_s"    => 0.5
+        ];
+        $h["install"]["line"][] = $array;
+
+        $array = [
+            "url"           => "/admin/users/user/add/",
+            "class"         => "Mod\User\Controller\Admin\Useradd",
+            "function"      => "index",
+            "title"         => "Добавление пользователя",
+            "description"   => "Добавление пользователя",
+            "keys"          => "Добавление пользователя",
+            "name"          => "Добавление пользователя",
+            "add_to_sitemap"=> true,
+            "lastmod_s"     => time(),
+            "change_s"      => "monthly",
+            "priority_s"    => 0.5
+        ];
+        $h["install"]["line"][] = $array;
+
+        $array = [
+            "url"           => "/admin/users/user/edit/",
+            "class"         => "Mod\User\Controller\Admin\Useredit",
+            "function"      => "index",
+            "title"         => "Редактировать пользователя",
+            "description"   => "Редактировать пользователя",
+            "keys"          => "Редактировать пользователя",
+            "name"          => "Редактировать пользователя",
+            "add_to_sitemap"=> true,
+            "lastmod_s"     => time(),
+            "change_s"      => "monthly",
+            "priority_s"    => 0.5
+        ];
+        $h["install"]["line"][] = $array;
+
+        $array = [
+            "url"           => "/admin/users/user/delet/",
+            "class"         => "Mod\User\Controller\Admin\Userdelet",
+            "function"      => "index",
+            "title"         => "Удаление пользователя",
+            "description"   => "Удаление пользователя",
+            "keys"          => "Удаление пользователя",
+            "name"          => "Удаление пользователя",
+            "add_to_sitemap"=> true,
+            "lastmod_s"     => time(),
+            "change_s"      => "monthly",
+            "priority_s"    => 0.5
+        ];
+        $h["install"]["line"][] = $array;
+
         return $h;
     }
 

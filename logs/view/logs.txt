@@ -28,3 +28,6 @@
 [24.05.2024 10:34:31] system: Не найдет файл: /var/www/WCore/mod/pages/view/admin/header.php
 [24.05.2024 10:34:31] system: Не найдет файл: /var/www/WCore/mod/pages/view/admin/index.php
 [24.05.2024 10:34:31] system: Не найдет файл: /var/www/WCore/mod/pages/view/admin/rmenu.php
+[25.05.2024 10:46:57] system: Не найдет файл: /var/www/WCore/mod/admin/view/admin/group.php
+[25.05.2024 11:11:53] system: Не найдет файл: /var/www/WCore/mod/admin/view/admin/group.php
+[25.05.2024 11:12:12] system: Не найдет файл: /var/www/WCore/mod/admin/view/admin/group.php

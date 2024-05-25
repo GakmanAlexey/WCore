@@ -20,6 +20,7 @@ Class Setting{
         $h["view"]["lists"] = [];
         $h["setting"] = $this;
         $h["group"] = [];
+        $h["admin"] = [];
         return $h;
     }
 }

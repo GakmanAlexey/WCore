@@ -89,10 +89,20 @@ Class Group{
         return $h;
     }
 
-    public function remove_to_group($h,$user_id){
-        
+    public function remove_to_group($h,$user_id){        
         $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("DELETE FROM `group_party` WHERE `user_id` = ? ");
         $sth1->execute(array($user_id));
+
+        return $h;
+    }
+
+    public function show_list($h){
+        $h["admin"]["user"]["group_list"] = [];
+        $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `group_list` ");
+        $sth1->execute(array());
+        while($res = $sth1->fetch(\PDO::FETCH_ASSOC)){
+            $h["admin"]["user"]["group_list"][] = $res;
+        }
         return $h;
     }
 
