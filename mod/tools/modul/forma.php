@@ -14,6 +14,13 @@ Class Forma{
     public $html = " ";
     public $build = "";
 
+    public $block_2_active = false;
+    public $block_2_html = [];
+    public $block_2_name1 = [];
+    public $block_2_name2 = [];
+    public $block_2_val1 = [];
+    public $block_2_val2 = [];
+
     public function init($h, $method, $action, $class, $id){
         $this->method = $method;
         $this->action = $action;
@@ -50,13 +57,13 @@ Class Forma{
         return $h;
     }
     public function custom($h, $text){
-        $this->custom = $text;
+        $this->custom .= $text;
 
         return $h;
     }
 
     public function add_html($h, $text){
-        $this->html = $text;
+        $this->html .= $text;
 
         return $h;
     }
@@ -166,6 +173,50 @@ Class Forma{
                     }
                 }
             }
+            $x++;
+        }
+        return $h;
+    }
+
+    public function add_block_2($h,$html,$name1,$val1_def,$name2,$val2_def){
+        $this->block_2_active = true;
+        $this->block_2_html[] = $html;
+        $this->block_2_name1[] = $name1;
+        $this->block_2_name2[] =  $name2;
+        $this->block_2_val1[] =  $val1_def;
+        $this->block_2_val2[] =  $val2_def;
+        return $h;
+    }
+    public function completion_block_2($h){
+        if(!isset($h["url"]["post"])) return $h;
+            foreach($h["url"]["post"] as $key => $value){
+                $y = 0;
+                foreach($this->block_2_name1 as $el_html){
+                    if($key == $el_html){
+                        $this->block_2_val1[$y] = $value;
+                    }
+                    $y++;
+                }
+                $y = 0;
+                foreach($this->block_2_name2 as $el_html){
+                    if($key == $el_html){
+                        $this->block_2_val2[$y] = $value;
+                    }
+                    $y++;
+                }
+                
+            }
+        return $h;
+    }
+
+    public function build_block_2($h){
+        $x = 0;
+        foreach($this->block_2_html as $el){
+            $this->block_2_html[$x]= str_replace("%name1%", $this->block_2_name1[$x], $this->block_2_html[$x]);
+            $this->block_2_html[$x]= str_replace("%name2%", $this->block_2_name2[$x], $this->block_2_html[$x]);
+            $this->block_2_html[$x]= str_replace("%val1%", $this->block_2_val1[$x], $this->block_2_html[$x]);
+            $this->block_2_html[$x]= str_replace("%val2%", $this->block_2_val2[$x], $this->block_2_html[$x]);
+            $this->custom .= $this->block_2_html[$x];
             $x++;
         }
         return $h;
