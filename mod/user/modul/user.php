@@ -336,6 +336,19 @@ Class User{
         return $h;
     }
 
+    public function show_list($h){
+
+        $pg = new \Mod\Tools\Modul\Pagin;
+        $h = $pg -> standart($h,"users");
+
+        $h["admin"]["user"]["group_list"] = [];
+        $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `users` LIMIT ".$h["pagin"]["start_sql"] .",".$h["pagin"]["page_lim_sql"]." ");
+        $sth1->execute(array());
+        while($res = $sth1->fetch(\PDO::FETCH_ASSOC)){
+            $h["admin"]["user"]["user_list"][] = $res;
+        }
+        return $h;
+    }
 
 
 }
