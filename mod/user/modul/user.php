@@ -350,5 +350,48 @@ Class User{
         return $h;
     }
 
+    public function add_from_admin($h){
+        if(!isset($h["url"]["post"]["add_user"])){
+            $h["group"]["use"] = "new";
+            return $h;
+        }
+        $h["url"]["post"]["password2"] = $h["url"]["post"]["password"];
+        $h = $this->ckeak_data($h);
+        if($h["user"]["error"] != []) $this->error($h);    
+        //Проверить свободен ли логин
+        $h = $this->ckeak_free_login($h);
+        if($h["user"]["error"] != []) $this->error($h); 
+        //Обработать данные
+        $h = $this->clear_data_html($h);
+        //сохранить данные
+        $h = $this->save_user_data($h);
+        $h = $this->ceng_status($h);
+        $h = $this->update_group($h);
+        return $h;
+    }
+
+    public function ceng_status($h){
+        if($h["url"]["post"]["status"] == 1){
+            $status = $h["user"]["cfg"]->start_status;
+        }else if($h["url"]["post"]["status"] == 2){
+            $status = $h["user"]["cfg"]->status_confirm_email;
+        }else{
+            $status = $h["user"]["cfg"]->status_ban;
+        }
+
+        $sth2 = $h["sql"]["db_connect"]->db_connect->prepare("UPDATE `users` SET  status_a = ? WHERE `login` = ? ");
+        $sth2->execute(array($status, $h["url"]["post"]["login"]));
+        return $h;
+    }
+
+    public function update_group($h){
+        $gb = new \Mod\User\Modul\Group;
+        $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `users` WHERE `login` = ? LIMIT 1");
+        $sth1->execute(array($h["url"]["post"]["login"]));
+        $res = $sth1->fetch(\PDO::FETCH_ASSOC);
+        $h = $gb->add_to_group($h,$res["id"], $h["url"]["post"]["roll"]);
+        return $h;
+    }
+
 
 }

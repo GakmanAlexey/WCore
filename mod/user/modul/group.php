@@ -56,22 +56,22 @@ Class Group{
 
     public function add_to_group($h,$user_id, $group_name){
         $h["group"]["error"] = "";        
-        $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `group_party` WHERE `user_id` = ? LIMIT 1");
-        $sth1->execute(array($user_id,));
+        $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `group_party` WHERE `id_user` = ? LIMIT 1");
+        $sth1->execute(array($user_id));
         $res = $sth1->fetch(\PDO::FETCH_ASSOC);
         if($res != []){
             $h["group"]["error"] = "Уже состоит в группе";
             return $h;
         }        
         $sth2 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `users` WHERE `id` = ? LIMIT 1");
-        $sth2->execute(array($user_id,));
+        $sth2->execute(array($user_id));
         $res2 = $sth2->fetch(\PDO::FETCH_ASSOC);
-        if($res2 != []){
+        if(!($res2 != [])){
             $h["group"]["error"] = "Пользователя не существует";
             return $h;
         }     
         $sth3 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `group_list` WHERE `group_name` = ? LIMIT 1");
-        $sth3->execute(array($group_name,));
+        $sth3->execute(array($group_name));
         $res3 = $sth2->fetch(\PDO::FETCH_ASSOC);
         if($res3 != []){
             $h["group"]["error"] = "Группы не существует";
@@ -102,6 +102,18 @@ Class Group{
 
         $h["admin"]["user"]["group_list"] = [];
         $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `group_list` LIMIT ".$h["pagin"]["start_sql"] .",".$h["pagin"]["page_lim_sql"]." ");
+        $sth1->execute(array());
+        while($res = $sth1->fetch(\PDO::FETCH_ASSOC)){
+            $h["admin"]["user"]["group_list"][] = $res;
+        }
+        return $h;
+    }
+
+
+    public function show_list_all($h){
+
+        $h["admin"]["user"]["group_list"] = [];
+        $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `group_list` ");
         $sth1->execute(array());
         while($res = $sth1->fetch(\PDO::FETCH_ASSOC)){
             $h["admin"]["user"]["group_list"][] = $res;
