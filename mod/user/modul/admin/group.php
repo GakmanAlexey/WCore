@@ -56,6 +56,21 @@ Class Group{
         return $h;
     }
 
+    public function get_delet_group($h){
+        if(isset($h["url"]["post"]["go_del"]) ){
+            $gp = new \Mod\User\Modul\Group;
+            $h = $gp->delet_group($h,$h["url"]["post"]["id"]);
+            $h["group"]["use"] = "dell_comp";
+            return $h;
+        }
+        if(!isset($h["url"]["get"]["id"])) {
+            $h["group"]["use"] = "error";
+            return $h;
+        } 
+        $h["group"]["use"] = "what";
+        return $h;
+    }
+
     
 
 

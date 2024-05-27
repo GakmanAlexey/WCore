@@ -45,7 +45,7 @@ foreach($h["admin"]["user"]["group_list"] as $item){
                                 <div class="stroka_redactor_dopoln stroka_text_elem stroka_text_elem_2in">'.$item["prefix"].'</div>
                                 <div class="redact_3">
                                     <a href="/admin/users/group/edit/?id='.$item["id"].'"><img src="/src/admin/img/redact.svg" alt=""></a>
-                                    <a href="//admin/users/group/delet/"?id='.$item["id"].'"><img src="/src/admin/img/delet.svg" alt=""></a>
+                                    <a href="/admin/users/group/delet/?id='.$item["id"].'"><img src="/src/admin/img/delet.svg" alt=""></a>
                                   
                                 </div>
                             </div>

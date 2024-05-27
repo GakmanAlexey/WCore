@@ -28,9 +28,9 @@ Class Group{
         return $h;
     }
 
-    public function delet_group($h,$group_name){
-        $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("DELETE FROM `group_list` WHERE `group_name` = ? LIMIT 1");
-        $sth1->execute(array($group_name));
+    public function delet_group($h,$group_id){
+        $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("DELETE FROM `group_list` WHERE `id` = ? LIMIT 1");
+        $sth1->execute(array($group_id));
         return $h;
     }
 
