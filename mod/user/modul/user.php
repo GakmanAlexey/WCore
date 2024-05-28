@@ -457,4 +457,31 @@ Class User{
         return $h;
     }
 
+    public function delete_user($h){
+        if(isset($h["url"]["get"]["id"])){
+                $h["user"]["del_step"] = 1;
+             return $h;     
+        }else{
+            if(isset($h["url"]["post"]["id"])){
+                $h["user"]["del_step"] = 2;
+                $h = $this->remove_user_data($h);
+                // удалить пользователя и группу
+            }else {
+                $h["user"]["del_step"] = 3;
+            }
+        }
+
+        return $h;
+    }
+
+    public function remove_user_data($h){
+
+        $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("DELETE FROM `users` WHERE `id` = ? LIMIT 1");
+        $sth1->execute(array($h["url"]["post"]["id"]));
+
+        $gb = new \Mod\User\Modul\Group;
+        $h = $gb->remove_to_group($h,$h["url"]["post"]["id"]);
+        return $h;
+    }
+
 }
