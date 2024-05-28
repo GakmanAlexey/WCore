@@ -43,12 +43,12 @@
             echo '<p class="menu_crm_item_name">'.$elemet_menu["name_ru"].'</p>';   
             echo '</a>';  
         }else if($type_menu == 2){
+            if(($h["url"]["d_array"][2] == $h["lmenu"]["class"]->build_lvl1[$father]["url"]) and ($h["url"]["d_array"][3] == $elemet_menu["url"])) {
+                $focus = "crm_link_active_podmenu";
+            }else{
+                $focus = "";
+            }
             if($lvl2_start == 0){
-                if(($h["url"]["d_array"][2] == $h["lmenu"]["class"]->build_lvl1[$father]["url"]) and ($h["url"]["d_array"][3] == $elemet_menu["url"])) {
-                    $focus = "crm_link_active_podmenu";
-                }else{
-                    $focus = "";
-                }
                 echo '<div id="myDropdown" class="menu_crm_podmenu">';
             }
             $lvl2_start ++;
