@@ -393,5 +393,68 @@ Class User{
         return $h;
     }
 
+    public function take_date_for_user($h){
+
+        $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `users` WHERE `id` = ? LIMIT 1");
+        $sth1->execute(array($h["url"]["get"]["id"]));
+        $res = $sth1->fetch(\PDO::FETCH_ASSOC);
+        $h["user"]["data_one_user"] = $res;
+        return $h;
+    }
+    public function take_group_for_user($h){
+
+        $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `group_party` WHERE `id_user` = ? LIMIT 1");
+        $sth1->execute(array($h["url"]["get"]["id"]));
+        $res = $sth1->fetch(\PDO::FETCH_ASSOC);
+        $h["user"]["group_one_user"] = $res;
+        return $h;
+    }
+
+    public function save_grom_admin_edit($h){
+        //Проверим изменен ли пароль
+        //Зашифруем его есл иизменен
+        //
+        //СОхраним данные
+        //Обновим группу
+        //
+        if($h["url"]["post"]["status"] == 1){
+            $status = $h["user"]["cfg"]->start_status;
+        }else if($h["url"]["post"]["status"] == 2){
+            $status = $h["user"]["cfg"]->status_confirm_email;
+        }else{
+            $status = $h["user"]["cfg"]->status_ban;
+        }
+        if($h["url"]["post"]["password"] != "********"){
+            $h["url"]["post"]["password"] = password_hash(htmlspecialchars($h["url"]["post"]["password"]), PASSWORD_BCRYPT, ["cost" => $h["user"]["cfg"]->hash_cost]);
+
+            $sth2 = $h["sql"]["db_connect"]->db_connect->prepare("UPDATE `users` SET  pass = ?,email = ?,status_a = ? WHERE `login` = ? ");
+            $sth2->execute(array($h["url"]["post"]["password"], $h["url"]["post"]["mail"], $status,$h["url"]["post"]["login"]));
+        }else{
+
+            $sth2 = $h["sql"]["db_connect"]->db_connect->prepare("UPDATE `users` SET  email = ?,status_a = ? WHERE `login` = ? ");
+            $sth2->execute(array($h["url"]["post"]["mail"], $status, $h["url"]["post"]["login"]));
+        }
+
+        if($h["url"]["post"]["roll"] != 0){
+            $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `group_party` WHERE `id_user` = ? LIMIT 1");
+            $sth1->execute(array($h["url"]["post"]["login"]));
+            $res = $sth1->fetch(\PDO::FETCH_ASSOC);
+            if($res != []){
+                $gb = new \Mod\User\Modul\Group;
+                $h = $gb->add_to_group($h,$h["url"]["post"]["id"], $h["url"]["post"]["roll"]);
+            }else{
+
+                $gb = new \Mod\User\Modul\Group;
+                $h = $gb->remove_to_group($h,$h["url"]["post"]["id"]);
+                $h = $gb->add_to_group($h,$h["url"]["post"]["id"], $h["url"]["post"]["roll"]);
+            }
+        }else{
+
+            $gb = new \Mod\User\Modul\Group;
+            $h = $gb->remove_to_group($h,$h["url"]["post"]["id"]);
+        }
+
+        return $h;
+    }
 
 }

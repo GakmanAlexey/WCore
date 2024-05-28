@@ -32,7 +32,7 @@ $val2_def2 = $h["group"]["data_edit"]["ico"];
 $html = '
                                 <div class="wrap_contant margin_30_l_r">
                                     <div class="parent_inp parent_inp_floating width_520">
-                                        <input class="parent_inp_input" type="text" name="%name1%" placeholder="Moderator" value="%val1%">
+                                        <input class="parent_inp_input" type="text" name="%name1%" placeholder="Moderator" value="%val1%" >
                                         <label class="parent_inp_label" for="text">[en] Серверное название группы</label>
                                     </div>  
                                     <div class="parent_inp parent_inp_floating width_520">

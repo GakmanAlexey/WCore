@@ -90,7 +90,7 @@ Class Group{
     }
 
     public function remove_to_group($h,$user_id){        
-        $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("DELETE FROM `group_party` WHERE `user_id` = ? ");
+        $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("DELETE FROM `group_party` WHERE `id_user` = ? ");
         $sth1->execute(array($user_id));
 
         return $h;
