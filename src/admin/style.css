@@ -73,7 +73,7 @@ a{
     align-items: center;
 }
 
-.svg_color_blue{
+.icon_item_activ svg path{
     stroke: #2F6BF2;
 }
 
@@ -363,3 +363,24 @@ input {outline:none;}
     display: flex;
     gap: 30px;
 }
+
+[data-title] {
+    position: relative; /* Относительное позиционирование */ 
+  }
+  [data-title]::after {
+    content: attr(data-title); /* Выводим текст из атрибута data-title */
+    position: absolute; /* Абсолютное позиционирование */
+    left: 31px; top: -3px; /* Положение подсказки */
+    opacity: 0; /* Скрываем подсказку, делая её прозрачной */
+    transition: 0.5s; /* Время появления подсказки */
+    pointer-events: none; /* Подсказка не реагирует на курсор */
+    background:  #2e68f0;; /* Синий цвет фона */
+    color: #fff; /* Белый цвет текста */
+    padding: 0.5em; /* Поля вокруг текста */
+    z-index: 100;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  [data-title]:hover::after {
+    opacity: 1; /* Показываем подсказку */
+  }

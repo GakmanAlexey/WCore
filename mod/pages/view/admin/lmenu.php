@@ -12,14 +12,15 @@
 foreach($h["lmenu"]["class"]->build_lvl1 as $key => $elemet_menu){
     if(($key == 0) or ((intdiv($key, 10000)) == ($key / 10000))) {
         if($h["url"]["d_array"][1] == $elemet_menu["url"]){
-            $style = "icon_item_activ";
+            $style = "icon_item icon_item_activ";
         }else{
-            $style = "icon_item";
+            $style = "icon_item ";
         }
         echo '
+        <abbr data-title="'.$elemet_menu["name_ru"].'">
         <a href="/admin/'.$elemet_menu["url"].'/" class="'.$style.'">
         '.$elemet_menu["ico"].'
-            </a>
+            </a></abbr>
         ';
     }
 }
