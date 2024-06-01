@@ -171,7 +171,10 @@ margin-right: 5px;
 }
 
 .menu_crm_user_info{
+    margin-top: auto;
     margin-left: 10px;
+    margin-bottom:  20px;
+    width: 100%;
 
 }
 
@@ -265,7 +268,7 @@ margin-right: 5px;
 }
 
 .main_crm_header{
-    left: 300px;
+    left: 340px;
     height: 60px;
     background: #F0F0F0;
     position: fixed;

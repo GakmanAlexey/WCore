@@ -6,21 +6,19 @@ Class Lmenu extends \Mod\Abstract\Lmenu{
     
     public function build($h){
         $ico = '
-        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M15.2078 13.4584V3.54175C15.2078 2.12508 14.4995 1.41675 13.0828 1.41675H10.2495C8.83285 1.41675 8.12451 2.12508 8.12451 3.54175V13.4584C8.12451 14.8751 8.83285 15.5834 10.2495 15.5834H13.0828C14.4995 15.5834 15.2078 14.8751 15.2078 13.4584Z" stroke="#2F6BF2" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M8.12451 4.25H11.6662" stroke="#2F6BF2" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M8.12451 12.75H10.9578" stroke="#2F6BF2" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M8.12451 9.8811L11.6662 9.91652" stroke="#2F6BF2" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M8.12451 7.08325H10.2495" stroke="#2F6BF2" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M3.88866 1.41675C2.73408 1.41675 1.79199 2.35883 1.79199 3.50633V12.6863C1.79199 13.0051 1.92658 13.4867 2.08949 13.763L2.67033 14.7263C3.33616 15.8384 4.43408 15.8384 5.09991 14.7263L5.68074 13.763C5.84366 13.4867 5.97824 13.0051 5.97824 12.6863V3.50633C5.97824 2.35883 5.03616 1.41675 3.88866 1.41675Z" stroke="#2F6BF2" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M5.97824 4.95825H1.79199" stroke="#2F6BF2" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23.8333 8.95925V4.58258C23.8333 2.86008 23.14 2.16675 21.4175 2.16675H17.0408C15.3183 2.16675 14.625 2.86008 14.625 4.58258V8.95925C14.625 10.6817 15.3183 11.3751 17.0408 11.3751H21.4175C23.14 11.3751 23.8333 10.6817 23.8333 8.95925Z" stroke="#759FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M11.3748 9.23008V4.31175C11.3748 2.78425 10.6815 2.16675 8.959 2.16675H4.58234C2.85984 2.16675 2.1665 2.78425 2.1665 4.31175V9.21925C2.1665 10.7576 2.85984 11.3642 4.58234 11.3642H8.959C10.6815 11.3751 11.3748 10.7576 11.3748 9.23008Z" stroke="#759FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M11.3748 21.4175V17.0408C11.3748 15.3183 10.6815 14.625 8.959 14.625H4.58234C2.85984 14.625 2.1665 15.3183 2.1665 17.0408V21.4175C2.1665 23.14 2.85984 23.8333 4.58234 23.8333H8.959C10.6815 23.8333 11.3748 23.14 11.3748 21.4175Z" stroke="#759FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M15.7085 18.9583H22.2085" stroke="#759FFF" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M18.9585 22.2083V15.7083" stroke="#759FFF" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
         ';
         $h = $h["lmenu"]["class"]->add_element(
             $h,                         //Хелпер
             "/",                        //Родитель   
             "constructor",              //Название на латинице
-            "Конструктор страниц" ,     //Название на Русском
+            "Конструктор " ,     //Название на Русском
             "constructor",              //Url адрес
             1,                          //Приоритет
             1,                          //TODO Вид действия
