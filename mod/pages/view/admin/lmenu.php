@@ -39,12 +39,16 @@ $hd_2 = "hd";
 if(!isset($h["url"]["d_array"][2])){
     $hd_2 = "";
 }
+$url1 = "";
+$url2 = "";
+$url3 = "";
 foreach($h["lmenu"]["class"]->build_lvl1 as $key => $elemet_menu){
     if(($key == 0) or ((intdiv($key, 10000)) == ($key / 10000))) {
         if($bid_line_2 != ""){
             $bid_line_2_arr[] = $bid_line_2;
             $bid_line_2 = "";
         }
+        $url1 = $elemet_menu["url"];
         if($key == 0){
             if(!isset($h["url"]["d_array"][2])){
                 $bid_line_2 = '
@@ -62,7 +66,7 @@ foreach($h["lmenu"]["class"]->build_lvl1 as $key => $elemet_menu){
                 $bid_line_2 = '
                 <div class="wra_menu_twoo '.$hds.'">
                     <div class="menu_twoo_level_title">
-                        '.$elemet_menu["name_ru"].'
+                        <a href="/admin/'.$url1.'/">'.$elemet_menu["name_ru"].'</a>
                     </div>
                 ';
             }
@@ -81,22 +85,25 @@ foreach($h["lmenu"]["class"]->build_lvl1 as $key => $elemet_menu){
             </div>
             <div class="wra_menu_twoo '.$hds.'">
                 <div class="menu_twoo_level_title">
-                    '.$elemet_menu["name_ru"].'
+                <a href="/admin/'.$url1.'/">'.$elemet_menu["name_ru"].'</a>
                 </div>
             ';
         }
     }else if((intdiv($key, 100)) == ($key / 100)){
+        $url2 = $elemet_menu["url"];
         $bid_line_2 .= '
         <div class="menu_twoo_level_item">
             '.$elemet_menu["ico"].'
-            <p class="name_menu_item">'.$elemet_menu["name_ru"].'</p>
+            <p class="name_menu_item"><a href="/admin/'.$url1.'/'.$url2.'/">'.$elemet_menu["name_ru"].'</a></p>
         </div>
         ';
     } else{
+
+        $url3 = $elemet_menu["url"];
         $bid_line_2 .= '
         <div class="menu_three_level_item">
             '.$elemet_menu["ico"].'
-            <p class="name_menu_item">'.$elemet_menu["name_ru"].'</p>
+            <p class="name_menu_item"><a href="/admin/'.$url1.'/'.$url2.'/'.$url3.'/">'.$elemet_menu["name_ru"].'</a></p>
         </div>
         ';
     }
