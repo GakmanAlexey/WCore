@@ -384,3 +384,14 @@ input {outline:none;}
   [data-title]:hover::after {
     opacity: 1; /* Показываем подсказку */
   }
+
+  .wra_menu_twoo{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: start;
+  }
+
+  .hd{
+    display: none;
+  }

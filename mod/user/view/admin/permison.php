@@ -30,7 +30,7 @@
                         </div>
                         <div class="stroka_element_no_scroll">
 
-    <div class="stroka_element">
+                            <div class="stroka_element">
                                 <div class="stroka_redactor_uprav">
                                     <label class="parent_chek" for="checkbox">
                                         <input class="checkbox" type="checkbox" name="checkbox">
