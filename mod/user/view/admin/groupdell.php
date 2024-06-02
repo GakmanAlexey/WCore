@@ -3,14 +3,14 @@
             <div class="main_crm_parent">
 
                 <div class="bread">
-                    <a class="bread_element" href="/admin/users/group/">Список Групп</a>
+                    <a class="bread_element" href="/admin/system/users/group/">Список Групп</a>
                     <a class="bread_element">Добавление группы</a>
                 </div>
 
                     <div class="main_crm_content margin_20px_top ">
                     <div class="wrap_contant margin_10_30 linear_spase_between">
                     <h3 class="main_crm_content_h3">Добавление группы</h3>
-                        <a class="icon_button blue" href="/admin/users/group/add/">
+                        <a class="icon_button blue" href="/admin/system/users/group/add/">
                             <img src="/src/admin/img/add-square.svg" alt="">
                             Обновить
                         </a>
@@ -55,7 +55,7 @@ $html2 = '
                                 </div>  
 ';
 $f = new \Mod\Tools\Modul\Forma;
-$f->init($h, "post", "/admin/users/group/add/", "", "");
+$f->init($h, "post", "/admin/system/users/group/add/", "", "");
 $f->add_block_2($h,$html,'group_name',$val1_def,'name_ru',$val2_def);
 $f->add_block_2($h,$html2,'group_name2',$val1_def2,'name_ru2',$val2_def2);
 $f->add_button($h, "add_group", "crm_button blue", "", "yes", "Сохранить");

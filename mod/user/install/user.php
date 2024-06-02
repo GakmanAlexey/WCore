@@ -164,7 +164,7 @@ Class User extends \Mod\Abstract\Install{
         $h["install"]["line"][] = $array;
 
         $array = [
-            "url"           => "/admin/users/user/",
+            "url"           => "/admin/system/users/user/",
             "class"         => "Mod\User\Controller\Admin\User",
             "function"      => "index",
             "title"         => "Пользователи",
@@ -179,7 +179,7 @@ Class User extends \Mod\Abstract\Install{
         $h["install"]["line"][] = $array;
 
         $array = [
-            "url"           => "/admin/users/user/add/",
+            "url"           => "/admin/system/users/user/add/",
             "class"         => "Mod\User\Controller\Admin\Useradd",
             "function"      => "index",
             "title"         => "Добавление пользователя",
@@ -194,7 +194,7 @@ Class User extends \Mod\Abstract\Install{
         $h["install"]["line"][] = $array;
 
         $array = [
-            "url"           => "/admin/users/user/edit/",
+            "url"           => "/admin/system/users/user/edit/",
             "class"         => "Mod\User\Controller\Admin\Useredit",
             "function"      => "index",
             "title"         => "Редактировать пользователя",
@@ -209,7 +209,7 @@ Class User extends \Mod\Abstract\Install{
         $h["install"]["line"][] = $array;
 
         $array = [
-            "url"           => "/admin/users/user/delet/",
+            "url"           => "/admin/system/users/user/delet/",
             "class"         => "Mod\User\Controller\Admin\Userdelet",
             "function"      => "index",
             "title"         => "Удаление пользователя",

@@ -9,7 +9,7 @@
                 <div class="main_crm_content margin_20px_top ">
                     <div class="wrap_contant margin_10_30 linear_spase_between">
                     <h3 class="main_crm_content_h3">Пользователи</h3>
-                        <a class="icon_button blue" href="/admin/users/user/add/">
+                        <a class="icon_button blue" href="/admin/system/users/user/add/">
                             <img src="/src/admin/img/add-square.svg" alt="">
                              Добавить пользователя
                         </a>
@@ -44,8 +44,8 @@ foreach( $h["admin"]["user"]["user_list"] as $item){
                                 <div class="stroka_redactor_name stroka_text_elem stroka_text_elem_2in">'.$item["login"].'</div>
                                 <div class="stroka_redactor_dopoln stroka_text_elem stroka_text_elem_2in">'.$item["email"].'</div>
                                 <div class="redact_3">
-                                    <a href="/admin/users/user/edit/?id='.$item["id"].'"><img src="/src/admin/img/redact.svg" alt=""></a>
-                                    <a href="/admin/users/user/delet/?id='.$item["id"].'"><img src="/src/admin/img/delet.svg" alt=""></a>
+                                    <a href="/admin/system/users/user/edit/?id='.$item["id"].'"><img src="/src/admin/img/redact.svg" alt=""></a>
+                                    <a href="/admin/system/users/user/delet/?id='.$item["id"].'"><img src="/src/admin/img/delet.svg" alt=""></a>
                                   
                                 </div>
                             </div>

@@ -30,7 +30,7 @@ Class Group extends \Mod\Abstract\Install{
     public function install_Router($h){
 
         $array = [
-            "url"           => "/admin/users/group/",
+            "url"           => "/admin/system/users/group/",
             "class"         => "Mod\User\Controller\Admin\Group",
             "function"      => "index",
             "title"         => "Группы",
@@ -45,7 +45,7 @@ Class Group extends \Mod\Abstract\Install{
         $h["install"]["line"][] = $array;
 
         $array = [
-            "url"           => "/admin/users/group/add/",
+            "url"           => "/admin/system/users/group/add/",
             "class"         => "Mod\User\Controller\Admin\Groupadd",
             "function"      => "index",
             "title"         => "Добавление группы",
@@ -60,7 +60,7 @@ Class Group extends \Mod\Abstract\Install{
         $h["install"]["line"][] = $array;
 
         $array = [
-            "url"           => "/admin/users/group/edit/",
+            "url"           => "/admin/system/users/group/edit/",
             "class"         => "Mod\User\Controller\Admin\Groupedit",
             "function"      => "index",
             "title"         => "Редактирование группы",
@@ -75,7 +75,7 @@ Class Group extends \Mod\Abstract\Install{
         $h["install"]["line"][] = $array;
 
         $array = [
-            "url"           => "/admin/users/group/delet/",
+            "url"           => "/admin/system/users/group/delet/",
             "class"         => "Mod\User\Controller\Admin\Groupdelet",
             "function"      => "index",
             "title"         => "Удаление группы",

@@ -11,7 +11,7 @@ Class Permision extends \Mod\Abstract\Install{
     public function install_Router($h){
 
         $array = [
-            "url"           => "/admin/users/permison/",
+            "url"           => "/admin/system/users/permison/",
             "class"         => "Mod\User\Controller\Admin\Permison",
             "function"      => "index",
             "title"         => "Группы",
@@ -26,7 +26,7 @@ Class Permision extends \Mod\Abstract\Install{
         $h["install"]["line"][] = $array;
 
         $array = [
-            "url"           => "/admin/users/group/add/",
+            "url"           => "/admin/system/users/group/add/",
             "class"         => "Mod\User\Controller\Admin\Permisonadd",
             "function"      => "index",
             "title"         => "Добавление группы",
@@ -41,7 +41,7 @@ Class Permision extends \Mod\Abstract\Install{
         $h["install"]["line"][] = $array;
 
         $array = [
-            "url"           => "/admin/users/group/edit/",
+            "url"           => "/admin/system/users/group/edit/",
             "class"         => "Mod\User\Controller\Admin\Permisondit",
             "function"      => "index",
             "title"         => "Редактирование группы",
@@ -56,7 +56,7 @@ Class Permision extends \Mod\Abstract\Install{
         $h["install"]["line"][] = $array;
 
         $array = [
-            "url"           => "/admin/users/group/delet/",
+            "url"           => "/admin/system/users/group/delet/",
             "class"         => "Mod\User\Controller\Admin\Permisondelet",
             "function"      => "index",
             "title"         => "Удаление группы",

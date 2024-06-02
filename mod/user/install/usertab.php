@@ -11,7 +11,7 @@ Class Usertab extends \Mod\Abstract\Install{
     public function install_Router($h){
 
         $array = [
-            "url"           => "/admin/users/",
+            "url"           => "/admin/system/users/",
             "class"         => "Mod\User\Controller\Admin\Userstab",
             "function"      => "index",
             "title"         => "Пользователи",

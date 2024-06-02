@@ -3,14 +3,14 @@
             <div class="main_crm_parent">
 
                 <div class="bread">
-                    <a class="bread_element" href="/admin/users/group/">Список Групп</a>
+                    <a class="bread_element" href="/admin/system/users/group/">Список Групп</a>
                     <a class="bread_element">Редактирование внесены</a>
                 </div>
 
                     <div class="main_crm_content margin_20px_top ">
                     <div class="wrap_contant margin_10_30 linear_spase_between">
                     <h3 class="main_crm_content_h3">Редактирование группы</h3>
-                        <a class="icon_button blue" href="/admin/users/group/">
+                        <a class="icon_button blue" href="/admin/system/users/group/">
                             <img src="/src/admin/img/add-square.svg" alt="">
                             Назад
                         </a>

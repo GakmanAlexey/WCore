@@ -3,14 +3,14 @@
             <div class="main_crm_parent">
 
                 <div class="bread">
-                    <a class="bread_element" href="/admin/users/user/">Список пользователей</a>
+                    <a class="bread_element" href="/admin/system/users/user/">Список пользователей</a>
                     <a class="bread_element">Добавление пользователя</a>
                 </div>
 
                     <div class="main_crm_content margin_20px_top ">
                     <div class="wrap_contant margin_10_30 linear_spase_between">
                     <h3 class="main_crm_content_h3">Добавление пользователя</h3>
-                        <a class="icon_button blue" href="/admin/users/user/add/">
+                        <a class="icon_button blue" href="/admin/system/users/user/add/">
                             <img src="/src/admin/img/add-square.svg" alt="">
                             Обновить
                         </a>
@@ -92,7 +92,7 @@ $html3 = '
                                 </div>  
 ';
 $f = new \Mod\Tools\Modul\Forma;
-$f->init($h, "post", "/admin/users/user/add/", "", "");
+$f->init($h, "post", "/admin/system/users/user/add/", "", "");
 $f->add_block_2($h,$html,'login',$val1_def,'mail',$val2_def);
 $f->add_block_2($h,$html2,'password',$val1_def2,'roll',$val2_def2);
 $f->add_block_2($h,$html3,'block',$val3_def,'status',$val3_def2);
