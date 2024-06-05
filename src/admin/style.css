@@ -57,6 +57,7 @@ a{
     flex-direction: column;
     gap: 5px;
     align-items: start;
+    height: calc(100vh - 60px);
 }
 
 .menu_twoo_level_title{

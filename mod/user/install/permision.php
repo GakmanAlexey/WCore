@@ -9,7 +9,7 @@ Class Permision extends \Mod\Abstract\Install{
     }
 
     public function install_Router($h){
-
+/*
         $array = [
             "url"           => "/admin/system/users/permison/",
             "class"         => "Mod\User\Controller\Admin\Permison",
@@ -69,7 +69,7 @@ Class Permision extends \Mod\Abstract\Install{
             "priority_s"    => 0.5
         ];
         $h["install"]["line"][] = $array;
-
+*/
         return $h;
     }
 
