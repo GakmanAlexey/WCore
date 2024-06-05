@@ -9,22 +9,22 @@ Class Permision extends \Mod\Abstract\Install{
     }
 
     public function install_Router($h){
-/*
+
         $array = [
             "url"           => "/admin/system/users/permison/",
             "class"         => "Mod\User\Controller\Admin\Permison",
             "function"      => "index",
-            "title"         => "Группы",
-            "description"   => "Группы",
-            "keys"          => "Группы",
-            "name"          => "Группы",
+            "title"         => "Привелегии",
+            "description"   => "Привелегии",
+            "keys"          => "Привелегии",
+            "name"          => "Привелегии",
             "add_to_sitemap"=> true,
             "lastmod_s"     => time(),
             "change_s"      => "monthly",
             "priority_s"    => 0.5
         ];
         $h["install"]["line"][] = $array;
-
+/*
         $array = [
             "url"           => "/admin/system/users/group/add/",
             "class"         => "Mod\User\Controller\Admin\Permisonadd",
