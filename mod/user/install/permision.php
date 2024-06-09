@@ -5,6 +5,16 @@ namespace Mod\User\Install;
 Class Permision extends \Mod\Abstract\Install{
 
     public function install_BD($h){
+        $h["install"]["table"][] = '
+        CREATE TABLE permission_list (
+        id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+        PRIMARY KEY(id),
+        type_s VARCHAR(255) NOT NULL, 
+        id_name VARCHAR(255) NOT NULL,
+        per_on TEXT,
+        per_off TEXT 
+       )
+    ';
         return $h;
     }
 
@@ -24,9 +34,9 @@ Class Permision extends \Mod\Abstract\Install{
             "priority_s"    => 0.5
         ];
         $h["install"]["line"][] = $array;
-/*
+
         $array = [
-            "url"           => "/admin/system/users/group/add/",
+            "url"           => "/admin/system/users/permison/add/",
             "class"         => "Mod\User\Controller\Admin\Permisonadd",
             "function"      => "index",
             "title"         => "Добавление группы",
@@ -41,7 +51,7 @@ Class Permision extends \Mod\Abstract\Install{
         $h["install"]["line"][] = $array;
 
         $array = [
-            "url"           => "/admin/system/users/group/edit/",
+            "url"           => "/admin/system/users/permison/edit/",
             "class"         => "Mod\User\Controller\Admin\Permisondit",
             "function"      => "index",
             "title"         => "Редактирование группы",
@@ -56,7 +66,7 @@ Class Permision extends \Mod\Abstract\Install{
         $h["install"]["line"][] = $array;
 
         $array = [
-            "url"           => "/admin/system/users/group/delet/",
+            "url"           => "/admin/system/users/permison/delet/",
             "class"         => "Mod\User\Controller\Admin\Permisondelet",
             "function"      => "index",
             "title"         => "Удаление группы",
@@ -69,7 +79,7 @@ Class Permision extends \Mod\Abstract\Install{
             "priority_s"    => 0.5
         ];
         $h["install"]["line"][] = $array;
-*/
+
         return $h;
     }
 

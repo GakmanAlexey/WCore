@@ -32,3 +32,4 @@
 [25.05.2024 11:11:53] system: Не найдет файл: /var/www/WCore/mod/admin/view/admin/group.php
 [25.05.2024 11:12:12] system: Не найдет файл: /var/www/WCore/mod/admin/view/admin/group.php
 [27.05.2024 10:51:43] system: Не найдет файл: /var/www/WCore/mod/user/view/admin/useradd.php
+[09.06.2024 14:15:57] system: Не найдет файл: /var/www/WCore/mod/user/view/admin/permisonadd.php
