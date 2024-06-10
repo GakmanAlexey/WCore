@@ -1169,17 +1169,15 @@
         </a>
     </div>
 
-<div class="main_contant_box">
-    <form action="">
+<div class="main_contant_box">     
+    
+    <form action="" class="form_flex">
             <div class="parent_inp parent_inp_50_procent">
                 <select name="%name2%" id=""  class="parent_inp_input" value="">
                     <option value="0">Без группы</option>
                 </select>
                 <label class="parent_inp_label" for="tex11t">Заголовок поля текста</label>
             </div>  
-    </form>        
-    
-    <form action="" class="form_flex">
             <div class="parent_inp parent_inp_50_procent">
                 <input class="parent_inp_input" type="text" name="tex11t" placeholder="Простой текст">
                 <label class="parent_inp_label" for="tex11t">Заголовок поля текста</label>
@@ -1199,6 +1197,42 @@
                 <label class="parent_inp_label" for="tex11t">Заголовок поля текста</label>
             </div>
 
+        <div class="flag flag_50_procent">
+            <div class="flag_element">
+                <input type="radio" id="huey" name="drone" value="huey" checked />
+                <label for="huey">Huey</label>
+            </div>
+            <div class="flag_element">
+                <input type="radio" id="huey" name="drone" value="huey" checked />
+                <label for="huey">HueyHueyHueyHueyHueyHueyHuey HueyHuey</label>
+            </div>
+            <div class="flag_element">
+                <input type="radio" id="huey" name="drone" value="huey" checked />
+                <label for="huey">Huey HueyHuey Huey</label>
+            </div>
+        </div>
+        <div class="free_space">
+        </div>
+        <p class="text_spase">
+            efeeerkfkegmkrmgkremgpoem,rgpolm, rgklyerklm,kemrkeimhkmhk lprthmekhmepkhmkhm ymhmkjh mhktmhktmhptmh hmkhemyphiokh, myhkmhktmhkmh hmtkhmpthm,ptl hmtkhmtkhm mhktemhktmhktiemhkthm
+        </p>
+
+        <div class="flag flag_50_procent">
+            <div class="flag_element">
+                <input type="checkbox" id="scales" name="scales" checked />
+                <label for="scales">Scales</label>
+            </div>
+            <div class="flag_element">
+                <input type="checkbox" id="scales" name="scales" checked />
+                <label for="scales">Scales</label>
+            </div>
+            <div class="flag_element">
+                <input type="checkbox" id="scales" name="scales" checked />
+                <label for="scales">Scales</label>
+            </div>
+        </div>
+
+        <button class="form_button blue">Отправить</button>
     </form>        
 </div>
 </div>

@@ -391,3 +391,56 @@ input {outline:none;}
   .hd{
     display: none;
   }
+
+  .flag{
+    margin-top: 10px;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    gap: 10px;
+    flex-direction: column;
+    padding: 0 10px;
+  }
+
+  .flag_50_procent{
+    max-width: 530px;
+    min-width: 520px;
+    flex-grow: 1;
+  }
+
+
+  .free_space{
+    margin-top: 10px;
+    padding: 0 10px;
+    max-width: 530px;
+    min-width: 520px;
+    flex-grow: 1;
+  }
+
+
+.form_button{
+    padding: 10px 25px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    margin: 10px 0;
+    text-decoration: none;
+    margin-top: 20px;
+    height: 37px;
+
+}
+
+.blue{
+    background-color: #2F6BF2 !important;
+    color: #fff !important;
+
+}
+.text_spase{
+    margin-top: 10px;
+    padding: 0 10px;
+    max-width: 530px;
+    min-width: 520px;
+    flex-grow: 1;
+    font-size: 16px;
+}
