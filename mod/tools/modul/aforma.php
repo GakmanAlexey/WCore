@@ -33,7 +33,35 @@ Class Aforma{
      * type - input, textarea, selecter, radio,
      */
     public function add_element($h, $type, $name,){
-
+        switch ($i) {
+            case "input":                
+                $h = $this->add_input($h);
+                break;
+            case "textarea":
+                $h = $this->add_textarea($h);
+                break;
+            case "selecter":
+                $h = $this->add_selecter($h);
+                break;
+            case "radio":
+                $h = $this->add_radio($h);
+                break;
+            case "checkbox":
+                $h = $this->add_checkbox($h);
+                break;
+            case "emp":
+                $h = $this->add_emp($h);
+                break;
+            case "text":
+                $h = $this->add_text($h);
+                break;
+            case "button":
+                $h = $this->add_button($h);
+                break;
+            case "html":
+                $h = $this->add_html($h);
+                break;
+        }
         return $h;
     }
 }
