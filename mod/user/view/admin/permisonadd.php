@@ -1193,7 +1193,7 @@
 
             
             <div class="parent_inp parent_inp_50_procent_textarea">
-                <textarea class="parent_inp_input_textarea" name="" id="" cols="30" rows="10"></textarea>
+                <textarea class="parent_inp_input_textarea" name="" id="" cols="30" rows="10" placeholder="Простой текст"></textarea>
                 <label class="parent_inp_label" for="tex11t">Заголовок поля текста</label>
             </div>
 
