@@ -232,8 +232,7 @@ Class Aforma{
         return $h;
     }
 
-    public function build_head($h){
-        
+    public function build_head($h){        
         $build = "<form ";
         if($this->method != ""){
             $build .= 'method="'.$this->method .'" ';
@@ -249,9 +248,12 @@ Class Aforma{
         }
         $build .= " >";
 
-        $this->build  = $build; 
+        $this->build  .= $build;
+        return $h;
+    }
 
-
+    public function build_end($h){
+        $this->build .= '<form>';
         return $h;
     }
 }
