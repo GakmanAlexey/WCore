@@ -57,7 +57,7 @@ Class Aforma{
                 $h = $this->add_selecter($h,$name, $class, $id, $label, $target, $list_select);
                 break;
             case "radio":
-                $h = $this->add_radio($h,$name, $class, $id, $label, $target, $list_select);
+                $h = $this->add_radio($h,$name, $class, $id, $target, $list_select);
                 break;
             case "checkbox":
                 $h = $this->add_checkbox($h,$name, $class, $id, $label, $target, $list_select);
@@ -121,7 +121,7 @@ Class Aforma{
         return $h;
 
     }
-    public function add_radio($h,$name, $class, $id, $label, $target, $list_select){
+    public function add_radio($h,$name, $class, $id, $target, $list_select){
         $array = [
             "el_type" => "radio",
             "name" => $name,
@@ -309,13 +309,6 @@ Class Aforma{
         if(isset($item["label"]) and $item["label"] != ""){
             $build .= ' <label class="parent_inp_label" for="'.$item["name"].'">'.$item["label"].'</label>'; 
         }
-        /*
-                <textarea class="parent_inp_input_textarea" name="" id="" cols="30" rows="10" placeholder="Простой текст"></textarea>
-                <label class="parent_inp_label" for="tex11t">Заголовок поля текста</label>
-            
-
-        $this->add_textarea($h,$name, $class, $placeholder, $id, $value, $label);
-        */
 
         $build .= '</div> ';
 
@@ -323,9 +316,55 @@ Class Aforma{
         return $h;
     }
     public function build_selecter ($h,$item){
+
+        $build = '<div class="parent_inp parent_inp_50_procent">';
+
+        $build .='<select ';
+        if(isset($item["class"]) and $item["class"] != ""){
+            $build .= ' class="'.$item["class"].'" '; 
+        }
+        if(isset($item["name"]) and $item["name"] != ""){
+            $build .= ' name="'.$item["name"].'" '; 
+        }
+        if(isset($item["id"]) and $item["id"] != ""){
+            $build .= ' id="'.$item["id"].'"'; 
+        }
+        foreach($list_select as  $key => $val){
+            if($key == $target){
+                $foc = " selected ";
+            }else{
+                $foc = "";
+            }
+            $build .= '<option value="'.$key.'" '.$foc.' >'.$val.'</option>';
+        }
+        $build .= '</select> ';
+        if(isset($item["label"]) and $item["label"] != ""){
+            $build .= ' <label class="parent_inp_label" for="'.$item["name"].'">'.$item["label"].'</label>'; 
+        }
+        $build .= '</div> ';
+
+        $this->build  .= $build;
         return $h;
     }
     public function build_radio ($h,$item){
+
+        $build = '<div class="lag flag_50_procent">';
+        
+        foreach($list_select as  $key => $val){
+            if($key == $target){
+                $foc = " checked ";
+            }else{
+                $foc = "";
+            }
+            $build .= '
+                <div class="flag_element">
+                    <input type="radio" id="'.$item["id"].'" name="'.$item["name"].'" value="'.$key.'" '.$foc.' />
+                    <label for="'.$item["name"].'">'.$val.'</label>
+                </div>
+                ';
+        }
+        $build .= '</div> ';
+        $this->build  .= $build;
         return $h;
     }
     public function build_checkbox ($h,$item){
