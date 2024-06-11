@@ -128,7 +128,6 @@ Class Aforma{
             "class" => $class,
             "id" => $id,
             "target" => $target,
-            "label" => $label,
             "list_select" => $list_select
         ];
         $this->input[] = $array;
@@ -142,7 +141,6 @@ Class Aforma{
             "class" => $class,
             "id" => $id,
             "target" => $target,
-            "label" => $label,
             "list_select" => $list_select
         ];
         $this->input[] = $array;
@@ -174,13 +172,14 @@ Class Aforma{
 
     public function add_button($h, $name, $class, $id, $value, $text){
         $array = [
+            "el_type" => "button",
             "name" => $name,
             "class" => $class,
             "id" => $id,
             "value" => $value,
             "text" => $text
         ];
-        $this->button[] = $array;
+        $this->input[] = $array;
 
         return $h;
     }
@@ -188,7 +187,7 @@ Class Aforma{
     public function add_html($h,$html){
         $array = [
             "el_type" => "html",
-            "text" => $html
+            "html" => $html
         ];
         $this->input[] = $array;
         return $h;
@@ -329,8 +328,8 @@ Class Aforma{
         if(isset($item["id"]) and $item["id"] != ""){
             $build .= ' id="'.$item["id"].'"'; 
         }
-        foreach($list_select as  $key => $val){
-            if($key == $target){
+        foreach($item["list_select"] as  $key => $val){
+            if($key == $item["target"] ){
                 $foc = " selected ";
             }else{
                 $foc = "";
@@ -350,8 +349,8 @@ Class Aforma{
 
         $build = '<div class="flag flag_50_procent">';
         
-        foreach($list_select as  $key => $val){
-            if($key == $target){
+        foreach($item["list_select"] as  $key => $val){
+            if($key == $item["target"] ){
                 $foc = " checked ";
             }else{
                 $foc = "";
@@ -371,8 +370,8 @@ Class Aforma{
 
         $build = '<div class="flag flag_50_procent">';
         
-        foreach($list_select as  $key => $val){
-            if($key == $target){
+        foreach($item["list_select"] as  $key => $val){
+            if($key == $item["target"] ){
                 $foc = " checked ";
             }else{
                 $foc = "";
@@ -395,12 +394,40 @@ Class Aforma{
         return $h;
     }
     public function build_text ($h,$item){
+        $build = '<p class="text_spase">'.$item["text"].'
+        </p>';
+        $this->build  .= $build;
         return $h;
     }
     public function build_button ($h,$item){
+            echo 999;
+            $button = "<button ";
+            if($item["name"] != ""){
+                $button .= 'name="'.$item["name"].'" ';
+            }
+            if($item["class"] != ""){
+                $button .= 'class="'.$item["class"].'" ';
+            }
+            if($item["id"] != ""){
+                $button .= 'id="'.$item["id"].'" ';
+            }
+            if($item["value"] != ""){
+                $button .= 'value="'.$item["value"].'" ';
+            }
+            $button .= ">";
+            if($item["text"] != ""){
+                $button .= " ".$item["text"]." ";
+            }
+            $this->build  .= "
+            "; 
+            $this->build  .= $button;
+            $this->build  .= "</button>";
+            
+
         return $h;
     }
     public function build_html ($h,$item){
+        $this->build  .= $item["html"];
         return $h;
     }
     public function build_head($h){        
