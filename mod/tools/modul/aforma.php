@@ -60,7 +60,7 @@ Class Aforma{
                 $h = $this->add_radio($h,$name, $class, $id, $target, $list_select);
                 break;
             case "checkbox":
-                $h = $this->add_checkbox($h,$name, $class, $id, $label, $target, $list_select);
+                $h = $this->add_checkbox($h,$name, $class, $id, $target, $list_select);
                 break;
             case "emp":
                 $h = $this->add_emp($h);
@@ -135,7 +135,7 @@ Class Aforma{
         return $h;
 
     }
-    public function add_checkbox($h,$name, $class, $id, $label, $target, $list_select){
+    public function add_checkbox($h,$name, $class, $id,  $target, $list_select){
         $array = [
             "el_type" => "checkbox",
             "name" => $name,
@@ -348,7 +348,7 @@ Class Aforma{
     }
     public function build_radio ($h,$item){
 
-        $build = '<div class="lag flag_50_procent">';
+        $build = '<div class="flag flag_50_procent">';
         
         foreach($list_select as  $key => $val){
             if($key == $target){
@@ -368,9 +368,30 @@ Class Aforma{
         return $h;
     }
     public function build_checkbox ($h,$item){
+
+        $build = '<div class="flag flag_50_procent">';
+        
+        foreach($list_select as  $key => $val){
+            if($key == $target){
+                $foc = " checked ";
+            }else{
+                $foc = "";
+            }
+            $build .= '
+                <div class="flag_element">
+                    <input type="checkbox" id="'.$item["id"].'" name="'.$item["name"].'" value="'.$key.'" '.$foc.' />
+                    <label for="'.$item["name"].'">'.$val.'</label>
+                </div>
+                ';
+        }
+
+        $build .= '</div> ';
+        $this->build  .= $build;
         return $h;
     }
     public function build_emp ($h,$item){
+        $build = '<div class="free_space"></div>';
+        $this->build  .= $build;
         return $h;
     }
     public function build_text ($h,$item){
