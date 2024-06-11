@@ -197,34 +197,36 @@ Class Aforma{
 
     public function build($h){
         $h = $this->build_head($h);
+        $h = $this->completion($h);
         foreach($this->input as $item){
+            //var_dump( $item);
             switch ($item["el_type"]) {
-                case "input":                
-                    $h = $this->build_input($h);
+                case "input":              
+                    $h = $this->build_input($h,$item);
                     break;
                 case "textarea":
-                    $h = $this->build_textarea($h,$name, $class, $placeholder, $id, $value, $label);
+                    $h = $this->build_textarea($h,$item);
                     break;
                 case "selecter":
-                    $h = $this->build_selecter($h,$name, $class, $id, $label, $target, $list_select);
+                    $h = $this->build_selecter($h,$item);
                     break;
                 case "radio":
-                    $h = $this->build_radio($h,$name, $class, $id, $label, $target, $list_select);
+                    $h = $this->build_radio($h,$item);
                     break;
                 case "checkbox":
-                    $h = $this->build_checkbox($h,$name, $class, $id, $label, $target, $list_select);
+                    $h = $this->build_checkbox($h,$item);
                     break;
                 case "emp":
-                    $h = $this->build_emp($h);
+                    $h = $this->build_emp($h,$item);
                     break;
                 case "text":
-                    $h = $this->build_text($h,$text);
+                    $h = $this->build_text($h,$item);
                     break;
                 case "button":
-                    $h = $this->build_button($h, $name, $class, $id, $value, $text);
+                    $h = $this->build_button($h,$item);
                     break;
                 case "html":
-                    $h = $this->build_html($h, $html);
+                    $h = $this->build_html($h,$item);
                     break;
             }  
         }
@@ -232,6 +234,77 @@ Class Aforma{
         return $h;
     }
 
+    public function completion($h){
+        if(!isset($h["url"]["post"])) return $h;
+        $x = 0;
+        foreach($this->input as $a){
+            foreach($this->input[$x] as $item =>$item_value){
+                foreach($h["url"]["post"] as $key => $value){
+                    if($item == "name"){
+                        if($item_value == $key ){
+                            $this->input[$x]["value"] = $value;
+                        }
+                    }
+                }
+            }
+            $x++;
+        }
+        return $h;
+    }
+
+    public function build_input ($h,$item){
+        $build = '<div class="parent_inp parent_inp_50_procent">';
+        $build .='<input ';
+        if(isset($item["class"]) and $item["class"] != ""){
+            $build .= ' class="'.$item["class"].'" '; 
+        }
+        if(isset($item["type"]) and $item["type"] != ""){
+            $build .= ' type="'.$item["type"].'" '; 
+        }
+        if(isset($item["name"]) and $item["name"] != ""){
+            $build .= ' name="'.$item["name"].'" '; 
+        }
+        if(isset($item["placeholder"]) and $item["placeholder"] != ""){
+            $build .= ' placeholder="'.$item["placeholder"].'" '; 
+        }
+        if(isset($item["id"]) and $item["id"] != ""){
+            $build .= ' id="'.$item["id"].'"'; 
+        }
+        if(isset($item["value"]) and $item["value"] != ""){
+            $build .= ' value="'.$item["value"].'" '; 
+        }
+        if(isset($item["label"]) and $item["label"] != ""){
+            $build .= ' <label class="parent_inp_label" for="'.$item["name"].'">'.$item["label"].'</label>'; 
+        }
+        $build .= '</div> ';
+
+        $this->build  .= $build;
+        return $h;
+    }
+    public function build_textarea ($h,$item){
+        return $h;
+    }
+    public function build_selecter ($h,$item){
+        return $h;
+    }
+    public function build_radio ($h,$item){
+        return $h;
+    }
+    public function build_checkbox ($h,$item){
+        return $h;
+    }
+    public function build_emp ($h,$item){
+        return $h;
+    }
+    public function build_text ($h,$item){
+        return $h;
+    }
+    public function build_button ($h,$item){
+        return $h;
+    }
+    public function build_html ($h,$item){
+        return $h;
+    }
     public function build_head($h){        
         $build = "<form ";
         if($this->method != ""){
@@ -253,7 +326,12 @@ Class Aforma{
     }
 
     public function build_end($h){
-        $this->build .= '<form>';
+        $this->build .= '</form>';
+        return $h;
+    }
+
+    public function render($h){
+        echo $this->build;
         return $h;
     }
 }

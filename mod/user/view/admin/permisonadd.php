@@ -1170,7 +1170,8 @@
     </div>
 
 <div class="main_contant_box">     
-    
+ <?php
+ /*   
     <form action="" class="form_flex">
             <div class="parent_inp parent_inp_50_procent">
                 <select name="%name2%" id=""  class="parent_inp_input" value="">
@@ -1233,7 +1234,15 @@
         </div>
 
         <button class="form_button blue">Отправить</button>
-    </form>        
+    </form>  
+    */
+
+    $af = new \Mod\Tools\Modul\Aforma;
+    $h = $af->init($h, "post", "", "form_flex", "");
+    $h = $af->add_input($h, "name", "text", "parent_inp_input", "plas", 3, 23, "lable");
+    $h = $af->build($h);
+    $h = $af->render($h);
+    ?>      
 </div>
 </div>
 
