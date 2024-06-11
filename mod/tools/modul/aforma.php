@@ -194,4 +194,64 @@ Class Aforma{
         return $h;
 
     }
+
+    public function build($h){
+        $h = $this->build_head($h);
+        foreach($this->input as $item){
+            switch ($item["el_type"]) {
+                case "input":                
+                    $h = $this->build_input($h);
+                    break;
+                case "textarea":
+                    $h = $this->build_textarea($h,$name, $class, $placeholder, $id, $value, $label);
+                    break;
+                case "selecter":
+                    $h = $this->build_selecter($h,$name, $class, $id, $label, $target, $list_select);
+                    break;
+                case "radio":
+                    $h = $this->build_radio($h,$name, $class, $id, $label, $target, $list_select);
+                    break;
+                case "checkbox":
+                    $h = $this->build_checkbox($h,$name, $class, $id, $label, $target, $list_select);
+                    break;
+                case "emp":
+                    $h = $this->build_emp($h);
+                    break;
+                case "text":
+                    $h = $this->build_text($h,$text);
+                    break;
+                case "button":
+                    $h = $this->build_button($h, $name, $class, $id, $value, $text);
+                    break;
+                case "html":
+                    $h = $this->build_html($h, $html);
+                    break;
+            }  
+        }
+        $h = $this->build_end($h);
+        return $h;
+    }
+
+    public function build_head($h){
+        
+        $build = "<form ";
+        if($this->method != ""){
+            $build .= 'method="'.$this->method .'" ';
+        }
+        if($this->action != ""){
+            $build .= 'action="'.$this->action .'" ';
+        }
+        if($this->class != ""){
+            $build .= 'class="'.$this->class .'" ';
+        }
+        if($this->id != ""){
+            $build .= 'id="'.$this->id .'" ';
+        }
+        $build .= " >";
+
+        $this->build  = $build; 
+
+
+        return $h;
+    }
 }
