@@ -1128,6 +1128,7 @@
            
         </div>
 */
+
 ?>
 <div class="main_contant">
 <div class="etap_block">
@@ -1306,7 +1307,33 @@
                 <label class="parent_inp_label" for="tex11t">Заголовок поля текста</label>
             </div>
 
-    </form>        
+    </form>   
+    <?php
+    
+$test_arr = [
+    "el1"=>"val1",
+    "el2"=>"val2",
+    "el3"=>"val3",
+    "el4"=>"val4",
+    "el5"=>"val5",
+    "el6"=>"val6",
+    "el7"=>"val7"
+];
+$af = new \Mod\Tools\Modul\Aforma;
+$h = $af->init($h, "post", "", "form_flex", "");
+$h = $af->add_input($h, "name", "text", "parent_inp_input", "plas", 3, 23, "lable");
+$h = $af->add_textarea($h,"text_area_1", "parent_inp_input_textarea", "plas", "", "тут какой-то текст", "Заголовок лейбла");
+$h = $af->add_selecter($h,"add_selecter", "parent_inp_input", "id3", "заголовок выпадашки", "el1", $test_arr);
+$h = $af->add_radio($h,"add_radio", "", "id4", "el2", $test_arr);
+$h = $af->add_checkbox($h,"add_checkbox", "", "id5", "el1", $test_arr);
+$h = $af->add_emp($h);
+$h = $af->add_text($h,"тут какой=то текс");
+$h = $af->add_emp($h);
+$h = $af->add_button($h, "go_auth", "form_button blue", "", "yes", "Вперед");
+$h = $af->add_html($h, "<br><br><br><br><br><br><br><br>");
+$h = $af->build($h);
+$h = $af->render($h);
+?>     
 </div>
 </div>
 

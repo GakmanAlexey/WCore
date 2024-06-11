@@ -1249,7 +1249,7 @@
     $h = $af->init($h, "post", "", "form_flex", "");
     $h = $af->add_input($h, "name", "text", "parent_inp_input", "plas", 3, 23, "lable");
     $h = $af->add_textarea($h,"text_area_1", "parent_inp_input_textarea", "plas", "", "тут какой-то текст", "Заголовок лейбла");
-    $h = $af->add_selecter($h,"add_selecter", "", "id3", "заголовок выпадашки", "el1", $test_arr);
+    $h = $af->add_selecter($h,"add_selecter", "parent_inp_input", "id3", "заголовок выпадашки", "el1", $test_arr);
     $h = $af->add_radio($h,"add_radio", "", "id4", "el2", $test_arr);
     $h = $af->add_checkbox($h,"add_checkbox", "", "id5", "el1", $test_arr);
     $h = $af->add_emp($h);

@@ -19,6 +19,12 @@ a{
 
 .menu_left{
     display: flex;
+    position: fixed;
+    z-index: 3;
+}
+
+.wrapper_lmenu{
+    width: 300px;
 }
 
 .menu_icon {

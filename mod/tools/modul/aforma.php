@@ -328,6 +328,7 @@ Class Aforma{
         if(isset($item["id"]) and $item["id"] != ""){
             $build .= ' id="'.$item["id"].'"'; 
         }
+        $build .= ' >';
         foreach($item["list_select"] as  $key => $val){
             if($key == $item["target"] ){
                 $foc = " selected ";
@@ -400,7 +401,6 @@ Class Aforma{
         return $h;
     }
     public function build_button ($h,$item){
-            echo 999;
             $button = "<button ";
             if($item["name"] != ""){
                 $button .= 'name="'.$item["name"].'" ';

@@ -4,7 +4,7 @@ namespace Mod\Abstract;
 
 Class Info{
     public $name        = "Инструменты";
-    public $version     = "0.1.17";
+    public $version     = "0.1.18";
     public $author      = "GakMan";
     public $site        = "gakman.ru";
     public $sub         = "Базовые инструменты";
