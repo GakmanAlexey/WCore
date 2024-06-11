@@ -1240,6 +1240,7 @@
     $af = new \Mod\Tools\Modul\Aforma;
     $h = $af->init($h, "post", "", "form_flex", "");
     $h = $af->add_input($h, "name", "text", "parent_inp_input", "plas", 3, 23, "lable");
+    $h = $af->add_textarea($h,"text_area_1", "parent_inp_input_textarea", "plas", "", "тут какой-то текст", "Заголовок лейбла");
     $h = $af->build($h);
     $h = $af->render($h);
     ?>      

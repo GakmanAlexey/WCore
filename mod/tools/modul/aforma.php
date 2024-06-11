@@ -282,6 +282,44 @@ Class Aforma{
         return $h;
     }
     public function build_textarea ($h,$item){
+        $build = '<div class="parent_inp parent_inp_50_procent_textarea">';
+        $build .='<textarea ';
+        if(isset($item["class"]) and $item["class"] != ""){
+            $build .= ' class="'.$item["class"].'" '; 
+        }
+        if(isset($item["type"]) and $item["type"] != ""){
+            $build .= ' type="'.$item["type"].'" '; 
+        }
+        if(isset($item["name"]) and $item["name"] != ""){
+            $build .= ' name="'.$item["name"].'" '; 
+        }
+        if(isset($item["placeholder"]) and $item["placeholder"] != ""){
+            $build .= ' placeholder="'.$item["placeholder"].'" '; 
+        }
+        if(isset($item["id"]) and $item["id"] != ""){
+            $build .= ' id="'.$item["id"].'"'; 
+        }
+        $build .= 'cols="30" rows="10" >';
+
+
+        if(isset($item["value"]) and $item["value"] != ""){
+            $build .= ''.$item["value"].'</textarea>'; 
+        }
+
+        if(isset($item["label"]) and $item["label"] != ""){
+            $build .= ' <label class="parent_inp_label" for="'.$item["name"].'">'.$item["label"].'</label>'; 
+        }
+        /*
+                <textarea class="parent_inp_input_textarea" name="" id="" cols="30" rows="10" placeholder="Простой текст"></textarea>
+                <label class="parent_inp_label" for="tex11t">Заголовок поля текста</label>
+            
+
+        $this->add_textarea($h,$name, $class, $placeholder, $id, $value, $label);
+        */
+
+        $build .= '</div> ';
+
+        $this->build  .= $build;
         return $h;
     }
     public function build_selecter ($h,$item){
