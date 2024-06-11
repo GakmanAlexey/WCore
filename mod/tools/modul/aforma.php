@@ -43,7 +43,8 @@ Class Aforma{
         $value =  null, 
         $label = "Стандартное поле",
         $target = "", 
-        $list_select = []
+        $list_select = [],
+        $text = ""
     ){
         switch ($type_el) {
             case "input":                
@@ -56,22 +57,22 @@ Class Aforma{
                 $h = $this->add_selecter($h,$name, $class, $id, $label, $target, $list_select);
                 break;
             case "radio":
-                $h = $this->add_radio($h);
+                $h = $this->add_radio($h,$name, $class, $id, $label, $target, $list_select);
                 break;
             case "checkbox":
-                $h = $this->add_checkbox($h);
+                $h = $this->add_checkbox($h,$name, $class, $id, $label, $target, $list_select);
                 break;
             case "emp":
                 $h = $this->add_emp($h);
                 break;
             case "text":
-                $h = $this->add_text($h);
+                $h = $this->add_text($h,$text);
                 break;
             case "button":
-                $h = $this->add_button($h);
+                $h = $this->add_button($h, $name, $class, $id, $value, $text);
                 break;
             case "html":
-                $h = $this->add_html($h);
+                $h = $this->add_html($h, $html);
                 break;
         }
         return $h;
@@ -115,6 +116,79 @@ Class Aforma{
             "target" => $target,
             "label" => $label,
             "list_select" => $list_select
+        ];
+        $this->input[] = $array;
+        return $h;
+
+    }
+    public function add_radio($h,$name, $class, $id, $label, $target, $list_select){
+        $array = [
+            "el_type" => "radio",
+            "name" => $name,
+            "class" => $class,
+            "id" => $id,
+            "target" => $target,
+            "label" => $label,
+            "list_select" => $list_select
+        ];
+        $this->input[] = $array;
+        return $h;
+
+    }
+    public function add_checkbox($h,$name, $class, $id, $label, $target, $list_select){
+        $array = [
+            "el_type" => "checkbox",
+            "name" => $name,
+            "class" => $class,
+            "id" => $id,
+            "target" => $target,
+            "label" => $label,
+            "list_select" => $list_select
+        ];
+        $this->input[] = $array;
+        return $h;
+
+    }
+    
+    public function add_emp($h){
+        $array = [
+            "el_type" => "emp"
+        ];
+        $this->input[] = $array;
+        return $h;
+
+    }
+
+
+    public function add_text($h,$text){
+        $array = [
+            "el_type" => "text",
+            "text" => $text
+        ];
+        $this->input[] = $array;
+        return $h;
+
+    }
+
+
+
+    public function add_button($h, $name, $class, $id, $value, $text){
+        $array = [
+            "name" => $name,
+            "class" => $class,
+            "id" => $id,
+            "value" => $value,
+            "text" => $text
+        ];
+        $this->button[] = $array;
+
+        return $h;
+    }
+
+    public function add_html($h,$html){
+        $array = [
+            "el_type" => "html",
+            "text" => $html
         ];
         $this->input[] = $array;
         return $h;
