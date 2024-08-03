@@ -1333,6 +1333,8 @@ $h = $af->add_button($h, "go_auth", "form_button blue", "", "yes", "Вперед
 $h = $af->add_html($h, "<br><br><br><br><br><br><br><br>");
 $h = $af->build($h);
 $h = $af->render($h);
+
+var_dump("<pre>",$h["pex"],"</pre>");
 ?>     
 </div>
 </div>

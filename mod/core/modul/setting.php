@@ -21,6 +21,9 @@ Class Setting{
         $h["setting"] = $this;
         $h["group"] = [];
         $h["admin"] = [];
+        $h["pex"] = [];
+        $h["pex"]["pre_allow"] = [];
+        $h["pex"]["pre_dis"] = [];
         return $h;
     }
 }

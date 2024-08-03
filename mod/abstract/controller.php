@@ -80,6 +80,8 @@ abstract class Controller{
         */
         $build_l_menu = new \Mod\Pages\Modul\Builderlmenu;
         $h = $build_l_menu ->build($h);
+        $build_pex = new \Mod\Admin\Modul\Pex;
+        $h = $build_pex ->seach_files($h);
 
         $h["view"]["page_load"] = MYPOS."/mod/pages/view/head.php";              
         $h = $this->links($h);
