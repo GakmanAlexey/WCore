@@ -3,7 +3,10 @@
 namespace Mod\User\Modul\Admin;
 
 Class Pex extends \Mod\Abstract\Pex{
-    
+    /*
+    $pex = new \Mod\User\Modul\Admin\Pex;
+    $h = $pex->allo($h, "gp");
+    */
     public function list_prem($h){ 
         $h["pex"]["pre_allow"][] = [
         "user.admin.user.show" => "Просмотр админ панели пользователей"
@@ -25,6 +28,8 @@ Class Pex extends \Mod\Abstract\Pex{
             $h["pex"]["active_list"][] = "Auth";
         }else{
             $h["pex"]["active_list"][] = "No_auth";
+            $h["pex"]["allow"][] = "No_auth";
+            $h["pex"]["dislow"] = [];
             return $h;
         }
         //вытащи ид пользователя
@@ -33,6 +38,7 @@ Class Pex extends \Mod\Abstract\Pex{
         $h = $this->take_group_pex($h);
         // получить список прав
         $h = $this->take_full_list($h);
+        echo 1;
         $h = $this->pex_sort($h);
         return $h;
     }
@@ -90,6 +96,27 @@ Class Pex extends \Mod\Abstract\Pex{
                 $h["pex"]["dislow"][] = trim($small_itm);
             }
             $array = [];
+        }
+        return $h;
+    }
+
+    public function allo($h, $pex){
+        $h = $this->take_list($h);
+        $stat = "dis";
+        foreach($h["pex"]["allow"] as $item){
+            if($item == $pex){
+                $stat = "allow";
+            }
+        }
+        foreach($h["pex"]["dislow"] as $item){
+            if($item == $pex){
+                $stat = "dis";
+            }
+        }
+        if($stat == "dis"){
+            $er = new \Mod\Core\Controller\E401;
+            $er->index($h);
+            die();
         }
         return $h;
     }

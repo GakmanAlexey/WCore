@@ -61,7 +61,6 @@ if($x == 0){
 }/*
 $pag = new \Mod\Tools\Modul\Pagin;
 $h = $pag ->standart($h,"group_list");*/
-
 ?>
                             
                                                      
