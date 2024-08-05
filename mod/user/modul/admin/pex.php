@@ -27,20 +27,70 @@ Class Pex extends \Mod\Abstract\Pex{
             $h["pex"]["active_list"][] = "No_auth";
             return $h;
         }
-        //вытащи права пользователя
+        //вытащи ид пользователя
         $h = $this->take_user_pex($h);
-        //Вытващи права группы
+        //Вытващи ид группы
         $h = $this->take_group_pex($h);
+        // получить список прав
+        $h = $this->take_full_list($h);
+        $h = $this->pex_sort($h);
         return $h;
     }
 
     public function take_user_pex($h){
-
+        $h["pex"]["search_id_user"] = [];
+        $h["pex"]["search_id_user"][] = $_SESSION["user_id"];
         return $h;
     }
 
     public function take_group_pex($h){
+        $gp = new \Mod\User\Modul\Group;
+        $h = $gp->take_group_user($h);
+        $h["pex"]["gp"] = [];
+        $h["pex"]["gp"][] = $h["pex"]["data_gp"]["id"];
+        return $h;
+    }
 
+    public function take_full_list($h){
+        $h["pex"]["grau_list"] = [];
+        foreach($h["pex"]["search_id_user"] as $item){
+            $sth2 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `permission_list` WHERE (`type_s` = ? and `id_name` = ?) ");
+            $sth2->execute(array("user",$item));
+            while($res2 = $sth2->fetch(\PDO::FETCH_ASSOC)){
+                $h["pex"]["grau_list_on"][] = $res2["per_on"];
+                $h["pex"]["grau_list_off"][] = $res2["per_off"];
+            }
+        }        
+        foreach($h["pex"]["gp"] as $item2){
+            $sth3 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `permission_list` WHERE (`type_s` = ? and `id_name` = ?) ");
+            $sth3->execute(array("group",$item2));
+            while($res3 = $sth3->fetch(\PDO::FETCH_ASSOC)){
+                $h["pex"]["grau_list_on"][] = $res3["per_on"];
+                $h["pex"]["grau_list_off"][] = $res3["per_off"];
+            }
+        }
+        return $h;
+    }
+
+    public function pex_sort($h){
+        $h["pex"]["allow"] = [];
+        $h["pex"]["dislow"] = [];
+        foreach($h["pex"]["grau_list_on"] as $item){
+            $array = explode(",", $item);
+            foreach($array as $small_itm){
+                $h["pex"]["allow"][] = trim($small_itm);
+            }
+            $array = [];
+        }
+
+
+        foreach($h["pex"]["grau_list_off"] as $item){
+            $array = explode(",", $item);
+            foreach($array as $small_itm){
+                $h["pex"]["dislow"][] = trim($small_itm);
+            }
+            $array = [];
+        }
         return $h;
     }
 }

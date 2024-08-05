@@ -1335,6 +1335,10 @@ $h = $af->build($h);
 $h = $af->render($h);
 
 var_dump("<pre>",$h["pex"],"</pre>");
+
+$pex = new \Mod\User\Modul\Admin\Pex;
+$h = $pex->take_list($h);
+var_dump("<pre>",$h["pex"],"</pre>");
 ?>     
 </div>
 </div>
