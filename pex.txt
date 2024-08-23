@@ -1,0 +1,8 @@
+Привелегии
+admin.panel                              Админ панель
+admin.panel.system                       Вкладка система
+admin.panel.system.user                  Работа с пользователями
+admin.panel.system.user.gp               Группы
+admin.panel.system.user.user             Пользователями
+admin.panel.system.user.pex.gp           Привелегии групп
+admin.panel.system.user.pex.user         Привелегии пользователей
