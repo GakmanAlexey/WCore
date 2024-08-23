@@ -9,10 +9,16 @@ Class Permisongpedit extends \Mod\Abstract\Controller{
         $h = $cfg->take_head($h,$this->type_show );
 
         $gp = new \Mod\User\Modul\Admin\Pex;
-        $h = $gp->show_list_group($h);
-        $h = $gp->show_list_person($h);
+        $h = $gp->take_item_for_id_gp($h);
 
-        $h["view"]["lists"][] = MYPOS."/mod/user/view/admin/permison.php";
+        if($h["admin"]["user"]["use_save_edit_gp"] == "error"){
+            $h["view"]["lists"][] = MYPOS."/mod/user/view/admin/permisongpediterror.php";
+        }elseif($h["admin"]["user"]["use_save_edit_gp"] == "save"){
+            $h["view"]["lists"][] = MYPOS."/mod/user/view/admin/permisongpeditsave.php";
+        }else{
+            $h["view"]["lists"][] = MYPOS."/mod/user/view/admin/permisongpedit.php";
+        }
+        
         $h = $this->show($h);
 
         return $h;

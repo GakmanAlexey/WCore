@@ -40,7 +40,7 @@ foreach( $h["admin"]["user"]["show_list_gp"] as $item){
                                 <div class="stroka_redactor_name stroka_text_elem width_flex">'.$item["id_name"].'</div>
                                 
                                 <div class="redact_3">
-                                    <a href="/admin/system/users/user/edit/?id='.$item["id"].'"><img src="/src/admin/img/redact.svg" alt=""></a>
+                                    <a href="/admin/system/users/permisongp/edit/?id='.$item["id"].'"><img src="/src/admin/img/redact.svg" alt=""></a>
                                     <a href="/admin/system/users/user/delet/?id='.$item["id"].'"><img src="/src/admin/img/delet.svg" alt=""></a>
                                   
                                 </div>
