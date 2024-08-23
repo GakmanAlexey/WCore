@@ -24,7 +24,7 @@
         <p class="tablica_title_element width_flex">
             Название группы
         </p>
-        <a class="icon_button blue" href="/admin/system/users/permison/add/">
+        <a class="icon_button blue" href="/admin/system/users/permisongp/add/">
             <img src="/src/admin/img/add-square.svg" alt="">
                 Создать 
         </a>

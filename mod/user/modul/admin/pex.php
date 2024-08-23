@@ -152,7 +152,67 @@ Class Pex extends \Mod\Abstract\Pex{
             $res["id_name"] = $res2["login"];
             $h["admin"]["user"]["show_list_gp"][] = $res;
         }
+
         return $h;
+    }
+
+    public function save_new_gp($h){
+        $h["admin"]["user"]["use_save_gp"] = false;
+        if(!isset($_POST["go_save_pex_gp"])){
+            return $h;
+        }
+        if($_POST["go_save_pex_gp"] != "yes"){
+            return $h;
+        }
+        $h["admin"]["user"]["use_save_gp"] = true;
+        $id_gp = $_POST["add_selecter"];
+        $pex_allow = $_POST["aloow"];
+        $pex_disslow = $_POST["disaloow"];
+
+        $sth = $h["sql"]["db_connect"]->db_connect->prepare('INSERT INTO `permission_list` (
+            type_s,
+            id_name,
+            per_on,
+            per_off
+            ) VALUES ( ?,?,?,?)');
+        $sth->execute(array(
+            "group",
+            $id_gp ,
+            $pex_allow ,
+            $pex_disslow
+        ));
+
+        return $h;
+    }
+
+    public function show_list_gp_target($h){
+        //Получить список групп
+        $h["admin"]["user"]["full_list_gp_pex"] = [];
+        $sth = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `group_list` ");
+        $sth->execute(array());
+        while($result_sql = $sth->fetch(\PDO::FETCH_ASSOC)){
+            $h["admin"]["user"]["full_list_gp_pex"][] = $result_sql;
+        }
+        
+        //получить список уже добавленых
+
+        $h["admin"]["user"]["lim_list_gp_pex"] = [];
+        $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `permission_list` WHERE `type_s` = ? ");
+        $sth1->execute(array("group"));
+        while($result_sql1 = $sth1->fetch(\PDO::FETCH_ASSOC)){
+            $h["admin"]["user"]["lim_list_gp_pex"][] = $result_sql1;
+        }
+        //почистить список
+
+        $x = 0;
+        foreach($h["admin"]["user"]["full_list_gp_pex"] as $item){
+            foreach( $h["admin"]["user"]["lim_list_gp_pex"] as $item2){
+                if($item["id"] == $item2["id_name"]){
+                    unset($h["admin"]["user"]["full_list_gp_pex"][$x]);
+                }
+            }
+            $x ++;
+        }
 
         return $h;
     }

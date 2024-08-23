@@ -7,12 +7,13 @@ Class Permisongpadd extends \Mod\Abstract\Controller{
         $this->type_show = "admin";
         $cfg = new \Mod\Pages\Modul\Cfg;
         $h = $cfg->take_head($h,$this->type_show );
-        $gp = new \Mod\User\Modul\Admin\Group;
-        $h = $gp->add_group($h);
-        if($h["group"]["use"]){
-            $h["view"]["lists"][] = MYPOS."/mod/user/view/admin/groupaddcompl.php";
+        $pex = new \Mod\User\Modul\Admin\Pex;
+        $h = $pex->save_new_gp($h);
+        if($h["admin"]["user"]["use_save_gp"]){
+            $h["view"]["lists"][] = MYPOS."/mod/user/view/admin/permisongpaddcomp.php";
         }else{
-            $h["view"]["lists"][] = MYPOS."/mod/user/view/admin/permisonadd.php";
+            $h = $pex->show_list_gp_target($h);
+            $h["view"]["lists"][] = MYPOS."/mod/user/view/admin/permisongpadd.php";
         }
         $h = $this->show($h);
 
