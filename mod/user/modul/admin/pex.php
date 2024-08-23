@@ -347,4 +347,67 @@ Class Pex extends \Mod\Abstract\Pex{
 
         return $h;
     }
+
+    public function go_delet_gp_pex($h){
+        $h["admin"]["user"]["use_pex_dell_gp"] = "error";
+        if(!isset($_GET["id"])){
+            return $h;
+        }
+
+        $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `permission_list` WHERE `type_s` = ? and `id` = ? ");
+        $sth1->execute(array("group", $_GET["id"]));
+        $result_sql1 = $sth1->fetch(\PDO::FETCH_ASSOC);
+        if($result_sql1 == []){
+            return $h;
+        }
+
+        if(!isset($_POST["go_dell_pex_gp"])){
+            $h["admin"]["user"]["use_pex_dell_gp"] = "show";
+            $sth = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `group_list` where `id` = ? ");
+            $sth->execute(array($result_sql1["id_name"]));
+            $result_sql = $sth->fetch(\PDO::FETCH_ASSOC);
+            $result_sql1["main_name"] = $result_sql["name_ru"];
+            $h["admin"]["user"]["use_save_edit_gp_data"] = $result_sql1;
+            //вытащи и выведи данные
+            
+        }else{
+            $h["admin"]["user"]["use_pex_dell_gp"] = "save";
+            $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("DELETE FROM `permission_list` WHERE `id` = ? LIMIT 1");
+            $sth1->execute(array($h["url"]["post"]["id"]));
+            //Сохрани
+            
+        }
+
+        return $h;
+    }
+
+    public function go_delet_us_pex($h){
+        $h["admin"]["user"]["use_save_dell_us"] = "error";
+        if(!isset($_GET["id"])){
+            return $h;
+        }
+        $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `permission_list` WHERE `type_s` = ? and `id` = ? ");
+        $sth1->execute(array("user", $_GET["id"]));
+        $result_sql1 = $sth1->fetch(\PDO::FETCH_ASSOC);
+        if($result_sql1 == []){
+            return $h;
+        }
+        if(!isset($_POST["go_dell_pex_us"])){
+            $h["admin"]["user"]["use_save_dell_us"] = "show";
+            //вытащи и выведи данные
+            $sth = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `users` where `id` = ? ");
+            $sth->execute(array($result_sql1["id_name"]));
+            $result_sql = $sth->fetch(\PDO::FETCH_ASSOC);
+            $result_sql1["main_name"] = $result_sql["login"];
+            $h["admin"]["user"]["use_dell_edit_us_data"] = $result_sql1;
+        }else{
+            $h["admin"]["user"]["use_save_dell_us"] = "save";
+            $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("DELETE FROM `permission_list` WHERE `id` = ? LIMIT 1");
+            $sth1->execute(array($h["url"]["post"]["id"]));
+            //Сохрани
+            
+        }
+
+        return $h;
+    }
 }

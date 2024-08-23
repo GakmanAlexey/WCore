@@ -41,7 +41,7 @@ foreach( $h["admin"]["user"]["show_list_gp"] as $item){
                                 
                                 <div class="redact_3">
                                     <a href="/admin/system/users/permisonus/edit/?id='.$item["id"].'"><img src="/src/admin/img/redact.svg" alt=""></a>
-                                    <a href="/admin/system/users/user/delet/?id='.$item["id"].'"><img src="/src/admin/img/delet.svg" alt=""></a>
+                                    <a href="/admin/system/users/permisonus/delet/?id='.$item["id"].'"><img src="/src/admin/img/delet.svg" alt=""></a>
                                   
                                 </div>
                             </div>

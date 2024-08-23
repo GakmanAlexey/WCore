@@ -9,12 +9,17 @@ Class Permisonusdelet extends \Mod\Abstract\Controller{
         $h = $cfg->take_head($h,$this->type_show );
 
         $gp = new \Mod\User\Modul\Admin\Pex;
-        $h = $gp->show_list_group($h);
-        $h = $gp->show_list_person($h);
+        $h = $gp->go_delet_us_pex($h);
 
-        $h["view"]["lists"][] = MYPOS."/mod/user/view/admin/permison.php";
+        if($h["admin"]["user"]["use_save_dell_us"] == "error"){
+            $h["view"]["lists"][] = MYPOS."/mod/user/view/admin/permisonusdellerror.php";
+        }elseif($h["admin"]["user"]["use_save_dell_us"] == "save"){
+            $h["view"]["lists"][] = MYPOS."/mod/user/view/admin/permisonusdellsave.php";
+        }else{
+            $h["view"]["lists"][] = MYPOS."/mod/user/view/admin/permisonusdell.php";
+        }
+
         $h = $this->show($h);
-
         return $h;
     }
 
