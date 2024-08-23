@@ -122,13 +122,39 @@ Class Pex extends \Mod\Abstract\Pex{
     }
 
     public function show_list_group($h){
+        $pg = new \Mod\Tools\Modul\Pagin;
+        $h = $pg -> standart($h,"permission_list");
 
-
+        $h["admin"]["user"]["show_list_gp"] = [];
+        $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `permission_list` WHERE `type_s` = ?  LIMIT ".$h["pagin"]["start_sql"] .",".$h["pagin"]["page_lim_sql"]." ");
+        $sth1->execute(array("group"));
+        while($res = $sth1->fetch(\PDO::FETCH_ASSOC)){
+            $sth2 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `group_list` WHERE `id` = ?  LIMIT 1 ");
+            $sth2->execute(array($res["id"] ));
+            $res2 = $sth2->fetch(\PDO::FETCH_ASSOC);
+            $res["id_name"] = $res2["name_ru"];
+            $h["admin"]["user"]["show_list_gp"][] = $res;
+        }
         return $h;
     }
     public function show_list_person($h){
 
+        $pg = new \Mod\Tools\Modul\Pagin;
+        $h = $pg -> standart($h,"permission_list");
+
+        $h["admin"]["user"]["show_list_gp"] = [];
+        $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `permission_list` WHERE `type_s` = ?  LIMIT ".$h["pagin"]["start_sql"] .",".$h["pagin"]["page_lim_sql"]." ");
+        $sth1->execute(array("user"));
+        while($res = $sth1->fetch(\PDO::FETCH_ASSOC)){
+            $sth2 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `users` WHERE `id` = ?  LIMIT 1 ");
+            $sth2->execute(array($res["id"] ));
+            $res2 = $sth2->fetch(\PDO::FETCH_ASSOC);
+            $res["id_name"] = $res2["login"];
+            $h["admin"]["user"]["show_list_gp"][] = $res;
+        }
+        return $h;
 
         return $h;
     }
+
 }

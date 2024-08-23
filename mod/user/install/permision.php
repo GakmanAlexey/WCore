@@ -82,7 +82,7 @@ Class Permision extends \Mod\Abstract\Install{
 
         $array = [
             "url"           => "/admin/system/users/permisonus/",
-            "class"         => "Mod\User\Controller\Admin\Permisongp",
+            "class"         => "Mod\User\Controller\Admin\Permisonus",
             "function"      => "index",
             "title"         => "Привелегии пользователя",
             "description"   => "Привелегии пользователя",

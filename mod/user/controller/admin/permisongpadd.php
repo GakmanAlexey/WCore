@@ -2,7 +2,7 @@
 
 namespace Mod\User\Controller\Admin;
 
-Class Permisonadd extends \Mod\Abstract\Controller{
+Class Permisongpadd extends \Mod\Abstract\Controller{
     public function index($h){
         $this->type_show = "admin";
         $cfg = new \Mod\Pages\Modul\Cfg;
