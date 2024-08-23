@@ -120,4 +120,15 @@ Class Pex extends \Mod\Abstract\Pex{
         }
         return $h;
     }
+
+    public function show_list_group($h){
+
+
+        return $h;
+    }
+    public function show_list_person($h){
+
+
+        return $h;
+    }
 }
