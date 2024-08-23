@@ -147,7 +147,7 @@ Class Pex extends \Mod\Abstract\Pex{
         $sth1->execute(array("user"));
         while($res = $sth1->fetch(\PDO::FETCH_ASSOC)){
             $sth2 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `users` WHERE `id` = ?  LIMIT 1 ");
-            $sth2->execute(array($res["id"] ));
+            $sth2->execute(array($res["id_name"] ));
             $res2 = $sth2->fetch(\PDO::FETCH_ASSOC);
             $res["id_name"] = $res2["login"];
             $h["admin"]["user"]["show_list_gp"][] = $res;
@@ -217,4 +217,66 @@ Class Pex extends \Mod\Abstract\Pex{
         return $h;
     }
 
+    public function save_new_us($h){
+        $h["admin"]["user"]["use_save_us"] = false;
+        if(!isset($_POST["go_save_pex_us"])){
+            return $h;
+        }
+        if($_POST["go_save_pex_us"] != "yes"){
+            return $h;
+        }
+        $h["admin"]["user"]["use_save_us"] = true;
+        $id_gp = $_POST["add_selecter"];
+        $pex_allow = $_POST["aloow"];
+        $pex_disslow = $_POST["disaloow"];
+
+        $sth = $h["sql"]["db_connect"]->db_connect->prepare('INSERT INTO `permission_list` (
+            type_s,
+            id_name,
+            per_on,
+            per_off
+            ) VALUES ( ?,?,?,?)');
+        $sth->execute(array(
+            "user",
+            $id_gp ,
+            $pex_allow ,
+            $pex_disslow
+        ));
+
+        return $h;
+    }
+
+    public function show_list_us_target($h){
+        //Получить список групп
+        $h["admin"]["user"]["full_list_gp_pex"] = [];
+        $sth = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `users` ");
+        $sth->execute(array());
+        while($result_sql = $sth->fetch(\PDO::FETCH_ASSOC)){
+            $h["admin"]["user"]["full_list_gp_pex"][] = $result_sql;
+        }
+        
+        //получить список уже добавленых
+
+        $h["admin"]["user"]["lim_list_gp_pex"] = [];
+        $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `permission_list` WHERE `type_s` = ? ");
+        $sth1->execute(array("user"));
+        while($result_sql1 = $sth1->fetch(\PDO::FETCH_ASSOC)){
+            $h["admin"]["user"]["lim_list_gp_pex"][] = $result_sql1;
+            
+        }
+        //var_dump($h["admin"]["user"]["full_list_gp_pex"]);
+        //почистить список
+
+        $x = 0;
+        foreach($h["admin"]["user"]["full_list_gp_pex"] as $item){
+            foreach( $h["admin"]["user"]["lim_list_gp_pex"] as $item2){
+                if($item["id"] == $item2["id_name"]){
+                    unset($h["admin"]["user"]["full_list_gp_pex"][$x]);                    
+                }
+            }
+            $x ++;
+        }
+
+        return $h;
+    }
 }
