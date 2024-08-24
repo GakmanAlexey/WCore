@@ -6,3 +6,8 @@ admin.panel.system.user.gp               Группы
 admin.panel.system.user.user             Пользователями
 admin.panel.system.user.pex.gp           Привелегии групп
 admin.panel.system.user.pex.user         Привелегии пользователей
+admin.panel.site                         Вкладка Сайт
+admin.panel.crm                          Вкладка СРМ
+admin.panel.shop                         Вкладка Магазин
+admin.panel.mp                           Вкладка Маркетплейс
+admin.panel.help                         Вкладка Помощ

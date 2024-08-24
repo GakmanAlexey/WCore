@@ -4,6 +4,9 @@ namespace Mod\User\Controller\Admin;
 
 Class Permisongpdelet extends \Mod\Abstract\Controller{
     public function index($h){
+
+        $pex = new \Mod\User\Modul\Admin\Pex;
+        $h = $pex->allo($h, "admin.panel.system.user.pex.gp");
         $this->type_show = "admin";
         $cfg = new \Mod\Pages\Modul\Cfg;
         $h = $cfg->take_head($h,$this->type_show );

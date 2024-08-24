@@ -122,12 +122,11 @@ Class Group{
     }
 
     public function take_group_user($h){
-        $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `group_party` WHERE `id` = ? LIMIT 1");
+        $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `group_party` WHERE `id_user` = ? LIMIT 1");
         $sth1->execute(array($_SESSION["user_id"]));
         $res = $sth1->fetch(\PDO::FETCH_ASSOC);
-
-        $sth2 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `group_list` WHERE `id` = ? LIMIT 1");
-        $sth2->execute(array($res["id"]));
+        $sth2 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `group_list` WHERE `group_name` = ? LIMIT 1");
+        $sth2->execute(array($res["id_group"]));
         $res2 = $sth2->fetch(\PDO::FETCH_ASSOC);
         $h["pex"]["data_gp"] = $res2;
         return $h;

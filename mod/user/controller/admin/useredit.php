@@ -4,6 +4,8 @@ namespace Mod\User\Controller\Admin;
 
 Class Useredit extends \Mod\Abstract\Controller{
     public function index($h){
+        $pex = new \Mod\User\Modul\Admin\Pex;
+        $h = $pex->allo($h, "admin.panel.system.user.user");
         $this->type_show = "admin";
         $cfg = new \Mod\Pages\Modul\Cfg;
         $h = $cfg->take_head($h,$this->type_show );
