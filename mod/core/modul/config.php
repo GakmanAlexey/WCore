@@ -5,11 +5,11 @@ namespace Mod\Core\Modul;
 Class Config{
     //sql
     public $host = "127.0.0.1";
-    public $detabase = "wcore";   
+    public $detabase = "gakman46_veles";   
     public $prefix = "rlh_";
-    public $login = "root";
-    public $pass = "QAsw12#$";    
+    public $login = "gakman46_veles";
+    public $pass = "MRw6b%Yg";    
     public $port = "3306";
 
-    public $install = false;
+    public $install = true;
 }

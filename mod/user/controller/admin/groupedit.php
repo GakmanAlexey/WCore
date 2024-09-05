@@ -2,7 +2,7 @@
 
 namespace Mod\User\Controller\Admin;
 
-Class Groupedit extends \Mod\Abstract\Controller{
+Class Groupedit extends \Mod\Abs\Controller{
     public function index($h){
         $pex = new \Mod\User\Modul\Admin\Pex;
         $h = $pex->allo($h, "admin.panel.system.user.gp");

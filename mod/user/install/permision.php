@@ -2,7 +2,7 @@
 
 namespace Mod\User\Install;
 
-Class Permision extends \Mod\Abstract\Install{
+Class Permision extends \Mod\Abs\Install{
 
     public function install_BD($h){
         $h["install"]["table"][] = '

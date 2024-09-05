@@ -2,7 +2,7 @@
 
 namespace Mod\User\Controller\Admin;
 
-Class Permisongp extends \Mod\Abstract\Controller{
+Class Permisongp extends \Mod\Abs\Controller{
     public function index($h){
 
         $pex = new \Mod\User\Modul\Admin\Pex;

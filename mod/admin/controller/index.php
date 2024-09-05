@@ -2,7 +2,7 @@
 
 namespace Mod\Admin\Controller;
 
-Class Index extends \Mod\Abstract\Controller{
+Class Index extends \Mod\Abs\Controller{
     public function index($h){
         $this->type_show = "admin";
         $cfg = new \Mod\Pages\Modul\Cfg;

@@ -2,7 +2,7 @@
 
 namespace Mod\Core\Controller;
 
-Class Index extends \Mod\Abstract\Controller{
+Class Index extends \Mod\Abs\Controller{
     public function index($h){
         $h = $this->cashe_start($h);
         if($h["cache"]["isset"]) return $h;

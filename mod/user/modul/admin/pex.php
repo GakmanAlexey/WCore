@@ -2,7 +2,7 @@
 
 namespace Mod\User\Modul\Admin;
 
-Class Pex extends \Mod\Abstract\Pex{
+Class Pex extends \Mod\Abs\Pex{
     /*
     $pex = new \Mod\User\Modul\Admin\Pex;
     $h = $pex->allo($h, "gp");

@@ -2,7 +2,7 @@
 
 namespace Mod\Core\Controller;
 
-Class E404 extends \Mod\Abstract\Controller{
+Class E404 extends \Mod\Abs\Controller{
     public function index($h){
         $h = $this->cashe_start($h);
         if($h["cache"]["isset"]) return $h;

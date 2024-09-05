@@ -2,7 +2,7 @@
 
 namespace Mod\Shop\Modul\Admin;
 
-Class Lmenu extends \Mod\Abstract\Lmenu{
+Class Lmenu extends \Mod\Abs\Lmenu{
     
     public function build($h){
         

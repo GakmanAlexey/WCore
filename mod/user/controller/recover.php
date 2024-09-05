@@ -2,7 +2,7 @@
 
 namespace Mod\User\Controller;
 
-Class Recover extends \Mod\Abstract\Controller{
+Class Recover extends \Mod\Abs\Controller{
     public function index($h){
         $user = new \Mod\User\Modul\User;
         $h = $user->start($h);

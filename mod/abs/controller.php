@@ -1,6 +1,6 @@
 <?php
 
-namespace Mod\Abstract;
+namespace Mod\Abs;
 
 abstract class Controller{
     //Определитель способа отображения.

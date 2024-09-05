@@ -2,7 +2,7 @@
 
 namespace Mod\Ztest\Install;
 
-Class Admin extends \Mod\Abstract\Install{
+Class Admin extends \Mod\Abs\Install{
 
     public function install_BD($h){
         return $h;

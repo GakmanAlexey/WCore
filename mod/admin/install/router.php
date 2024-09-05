@@ -2,7 +2,7 @@
 
 namespace Mod\Admin\Install;
 
-Class Router extends \Mod\Abstract\Install{
+Class Router extends \Mod\Abs\Install{
 
     public function install_BD($h){
         $h["install"]["table"][] = '

@@ -2,7 +2,7 @@
 
 namespace Mod\User\Controller;
 
-Class Regconfirm extends \Mod\Abstract\Controller{
+Class Regconfirm extends \Mod\Abs\Controller{
     public function index($h){
         $this->type_show = "default";
         $cfg = new \Mod\Pages\Modul\Cfg;

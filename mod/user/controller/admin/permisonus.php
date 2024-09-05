@@ -2,7 +2,7 @@
 
 namespace Mod\User\Controller\Admin;
 
-Class Permisonus extends \Mod\Abstract\Controller{
+Class Permisonus extends \Mod\Abs\Controller{
     public function index($h){
 
         $pex = new \Mod\User\Modul\Admin\Pex;

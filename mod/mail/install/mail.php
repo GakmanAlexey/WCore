@@ -2,7 +2,7 @@
 
 namespace Mod\Mail\Install;
 
-Class Mail extends \Mod\Abstract\Install{
+Class Mail extends \Mod\Abs\Install{
 
     public function install_BD($h){
         return $h;

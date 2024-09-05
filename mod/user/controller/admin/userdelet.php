@@ -2,7 +2,7 @@
 
 namespace Mod\User\Controller\Admin;
 
-Class Userdelet extends \Mod\Abstract\Controller{
+Class Userdelet extends \Mod\Abs\Controller{
     public function index($h){
         $pex = new \Mod\User\Modul\Admin\Pex;
         $h = $pex->allo($h, "admin.panel.system.user.user");

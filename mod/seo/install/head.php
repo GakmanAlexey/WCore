@@ -2,7 +2,7 @@
 
 namespace Mod\Seo\Install;
 
-Class Head extends \Mod\Abstract\Install{
+Class Head extends \Mod\Abs\Install{
 
     public function install_BD($h){
         $h["install"]["table"][] = '

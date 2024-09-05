@@ -2,7 +2,7 @@
 
 namespace Mod\Admin\Modul\Admin;
 
-Class Pex extends \Mod\Abstract\Pex{
+Class Pex extends \Mod\Abs\Pex{
     
     public function list_prem($h){
         $h["pex"]["pre_allow"][] = [

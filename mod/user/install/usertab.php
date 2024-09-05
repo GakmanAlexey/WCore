@@ -2,7 +2,7 @@
 
 namespace Mod\User\Install;
 
-Class Usertab extends \Mod\Abstract\Install{
+Class Usertab extends \Mod\Abs\Install{
 
     public function install_BD($h){
         return $h;
