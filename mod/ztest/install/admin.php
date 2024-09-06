@@ -98,6 +98,22 @@ Class Admin extends \Mod\Abs\Install{
             "priority_s"    => 0.5
         ];
         $h["install"]["line"][] = $array;
+
+
+        $array = [
+            "url"           => "/test/",
+            "class"         => "Mod\ztest\Controller\Index",
+            "function"      => "test",
+            "title"         => "Тест",
+            "description"   => "Тест",
+            "keys"          => "Тест",
+            "name"          => "Тест",
+            "add_to_sitemap"=> false,
+            "lastmod_s"     => time(),
+            "change_s"      => "monthly",
+            "priority_s"    => 0.5
+        ];
+        $h["install"]["line"][] = $array;
         return $h;
     }
 
