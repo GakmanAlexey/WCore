@@ -1,9 +1,11 @@
+
 <div class="login flex">
         <div class="container">
-            <div class="login_box">
-                <div class="title_block">
-                    Регистрация
-                </div>
+            <div class="login_par">
+                <div class="login_box">
+                    <div class="title_block_registr">
+                        Вход
+                    </div>
                 <p>
 <?php
 foreach($h["user"]["error"] as $item_error){
@@ -27,6 +29,7 @@ echo $f->build;
 
 
 ?>
+            </div>
             </div>
         </div>
     </div>

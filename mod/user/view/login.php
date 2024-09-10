@@ -1,9 +1,12 @@
-<div class="login flex">
+
+
+    <div class="login flex">
         <div class="container">
-            <div class="login_box">
-                <div class="title_block">
-                    Вход
-                </div>
+            <div class="login_par">
+                <div class="login_box">
+                    <div class="title_block_registr">
+                        Вход
+                    </div>
                 <p>
                 <?php
 foreach($h["user"]["error"] as $item_error){
@@ -11,6 +14,7 @@ foreach($h["user"]["error"] as $item_error){
     echo $item_error.'<br>';
 }
 ?>
+
 </p>
 <?php
 $f = new \Mod\Tools\Modul\Forma;
@@ -24,6 +28,11 @@ echo $f->build;
 
 
 ?>
+                    <a class="vost" href="/user/recover/">
+                        Забыли пароль?
+                    </a>
+                    <p class="form_link_box">Если у вас ещё нет аккаунта <a class="form_link" href="/user/register/">Зарегистрируйтесь</a></p>
             </div>
         </div>
+    </div>
     </div>

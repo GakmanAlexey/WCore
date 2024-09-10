@@ -1,7 +1,8 @@
 <div class="login flex">
         <div class="container">
-            <div class="login_box">
-                <div class="title_block">
+            <div class="login_par">
+                <div class="login_box">
+                    <div class="title_block_registr">
                     Востановление пароля
                 </div>
                 <p>
@@ -23,6 +24,7 @@ echo $f->build;
 
 
 ?>
+            </div>
             </div>
         </div>
     </div>

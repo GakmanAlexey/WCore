@@ -38,3 +38,6 @@
 [23.08.2024 21:26:35] system: Не найдет файл: /var/www/WCore/mod/user/view/admin/permisongpeditsave.php
 [23.08.2024 22:13:26] system: Не найдет файл: /var/www/WCore/mod/user/view/admin/permisonusediterror.php
 [23.08.2024 23:10:05] system: Не найдет файл: /var/www/WCore/mod/user/view/admin/permisongpdell.php
+[09.09.2024 12:42:57] system: Не найдет файл: /home/redlava/webserver/WCore/mod/shop/view/index.php
+[09.09.2024 12:44:42] system: Не найдет файл: /home/redlava/webserver/WCore/mod/shop/view/index.php
+[09.09.2024 12:47:50] system: Не найдет файл: /home/redlava/webserver/WCore/mod/shop/view/index.php
