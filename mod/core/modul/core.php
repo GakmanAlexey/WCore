@@ -17,8 +17,11 @@ Class Core{
             $res =  new \Mod\Core\Modul\Install($h);
         }
 
+        $trap = new \Mod\Tools\Modul\Trap;
+        $h = $trap->start($h);
         $router = new \Mod\Core\Modul\Router();        
         $h = $router->main($h);  
+
 
 /*
         //юзер        

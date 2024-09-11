@@ -24,6 +24,7 @@ Class Setting{
         $h["pex"] = [];
         $h["pex"]["pre_allow"] = [];
         $h["pex"]["pre_dis"] = [];
+        $h["cookie"] = [];
         return $h;
     }
 }

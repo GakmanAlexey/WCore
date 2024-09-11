@@ -1,8 +1,8 @@
 <?php
 
-namespace Mod\Shop\Modul;
+namespace Mod\Card\Modul;
 
-Class Shop{
+Class Card{
     //shead
     public $father_dir   = "/";
 
