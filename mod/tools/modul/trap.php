@@ -18,6 +18,7 @@ Class Trap{
         }
         //следить за юзером
         if (!isset($_COOKIE["trace"])){
+            //setcookie('trace', '', time() - 3600);
             header('Location: '.$_SERVER['REQUEST_URI']);
         }
         $h["cookie"]["trap"]["hex"] = $_COOKIE["trace"];
@@ -37,8 +38,10 @@ Class Trap{
     public function create_trap($h){
         $hex = new \Mod\Tools\Modul\Hex;
         //$h["cookie"]["trap"]["hex"] = $hex->create(40,5);
-
-        setcookie('trace', $hex->create(40,5), strtotime('+30 days'));
+        if(!isset($_SESSION["id"])){
+            $_SESSION["id"] = $hex->create(40,5);
+        }
+        setcookie('trace',$_SESSION["id"], strtotime('+30 days'));
 
 
         return $h;

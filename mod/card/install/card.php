@@ -40,6 +40,23 @@ Class Card extends \Mod\Abs\Install{
 
 
        
+        $array = [
+            "url"           => "/cardlistadd/",
+            "class"         => "Mod\Card\Controller\Index",
+            "function"      => "add_to_card",
+            "title"         => "корзина",
+            "description"   => "корзина",
+            "keys"          => "корзина",
+            "name"          => "корзина",
+            "add_to_sitemap"=> false,
+            "lastmod_s"     => time(),
+            "change_s"      => "monthly",
+            "priority_s"    => 0.5
+        ];
+        $h["install"]["line"][] = $array;
+
+
+       
         return $h;
     }
 
