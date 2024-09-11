@@ -19,6 +19,10 @@ Class Core{
 
         $trap = new \Mod\Tools\Modul\Trap;
         $h = $trap->start($h);
+
+        $usr = new \Mod\User\Modul\User;        
+        $h = $usr->take_id($h);  
+        
         $router = new \Mod\Core\Modul\Router();        
         $h = $router->main($h);  
 

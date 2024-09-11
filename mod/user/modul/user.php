@@ -484,4 +484,13 @@ Class User{
         return $h;
     }
 
+    public function take_id($h){
+        if(isset($_SESSION["user_id"])){
+            $h["user"]["id"] = $_SESSION["user_id"];
+        }else{
+            $h["user"]["id"]  = 0;
+        }
+        return $h;
+    }
+
 }

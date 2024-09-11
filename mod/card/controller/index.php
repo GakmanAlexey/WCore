@@ -4,9 +4,12 @@ namespace Mod\Card\Controller;
 
 Class Index extends \Mod\Abs\Controller{
 
-    public function show_card($h){
+    public function show_card($h){        
         
-        echo 11;
+            $card = new \Mod\Card\Modul\Card;
+            $h = $card ->index($h);
+
+            echo $h["card"]["show_caont"];
 
         return $h;
     }

@@ -38,7 +38,7 @@
                         ';
 
                     }
-                    //var_dump( $h["cookie"]);
+                    //var_dump( $h["cookie"]["trap"]["hex"]);
                     ?>
                     
                 </div>
