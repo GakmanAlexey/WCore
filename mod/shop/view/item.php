@@ -23,7 +23,7 @@
                         </div>
                     </div>
                     
-                    <a class="ct_btn aa_ct_btn aa_color_btn btn_card" href="">Добавить в корзину</a>
+                    <a class="ct_btn aa_ct_btn aa_color_btn btn_card" onclick="myFunctionz()" >Добавить в корзину</a>
                 </div>
             </div>
         </div>
@@ -33,3 +33,13 @@
        </div>
     </div>
     </div>
+
+    <script>
+
+              function myFunctionz() {
+                $("#card_list").load("/cardlistadd/?product=<?php echo $h["shop"]["item_info"]["id"];?>");
+                $("#card_list").load("/cardlist/");
+                }
+
+                
+            </script>

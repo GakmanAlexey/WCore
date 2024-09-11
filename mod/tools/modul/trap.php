@@ -18,7 +18,7 @@ Class Trap{
         }
         //следить за юзером
         if (!isset($_COOKIE["trace"])){
-            //setcookie('trace', '', time() - 3600);
+            
             header('Location: '.$_SERVER['REQUEST_URI']);
         }
         $h["cookie"]["trap"]["hex"] = $_COOKIE["trace"];

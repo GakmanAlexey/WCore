@@ -32,10 +32,21 @@ echo
                     </div>
                     <div class="ct_button_box d_flex gap_10">
                         <a class="ct_btn aa_ct_btn aa_color_btn" href="/'.$h["url"]["d_array"][1].'/'.$item["url"].'/">Подробнее</a>
-                        <a class="ct_btn aa_ct_btn aa_border_btn" href="/?add_card='.$item["id"].'">В корзину</a>
+                        <a class="ct_btn aa_ct_btn aa_border_btn" onclick="myFunction'.$item["id"].'()" >В корзину</a>
                     </div>
                 </div>
             </div>
+
+              <script>
+
+              function myFunction'.$item["id"].'() {
+
+                $("#card_list").load("/cardlistadd/?product='.$item["id"].'");
+                $("#card_list").load("/cardlist/");
+                }
+
+                
+            </script>
 
     ';
 }

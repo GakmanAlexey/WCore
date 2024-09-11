@@ -51,7 +51,7 @@ $h = $card ->index($h);
                     ) VALUES ( ?,?,?,?,?)');
                 $sth->execute(array(
                     "noauth",
-                    $h["cookie"]["trap"]["hex"],
+                    $_SESSION["id"],
                     $_GET["product"],
                     1,
                     time()
@@ -65,7 +65,7 @@ $h = $card ->index($h);
     public function take_card_no_auth($h){
 
         $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT count(*) FROM `card_user` WHERE ((`type_user` = ?) and  (`id_user` = ?)) ");
-        $sth1->execute(array("noauth", $h["cookie"]["trap"]["hex"]));
+        $sth1->execute(array("noauth", $_SESSION["id"]));
         $res = $sth1->fetch(\PDO::FETCH_ASSOC);
         $h["card"]["show_caont"] = $res["count(*)"];
         //var_dump($h["cookie"]["trap"]["hex"]);
