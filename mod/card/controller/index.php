@@ -32,6 +32,7 @@ Class Index extends \Mod\Abs\Controller{
         $h = $cfg->take_head($h,$this->type_show);
         $card = new \Mod\Card\Modul\Card;
         $h = $card ->list_full($h);
+        $h = $card ->take_full_list($h);
 
         $h["view"]["lists"][] = MYPOS."/mod/card/view/main.php";
         $h = $this->show($h);

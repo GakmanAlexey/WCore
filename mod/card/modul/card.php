@@ -51,7 +51,7 @@ $h = $card ->index($h);
                     ) VALUES ( ?,?,?,?,?)');
                 $sth->execute(array(
                     "noauth",
-                    $_SESSION["id"],
+                    $_COOKIE["trace"],
                     $_GET["product"],
                     1,
                     time()
@@ -73,14 +73,15 @@ $h = $card ->index($h);
 
 
     public function take_full_list($h){
-        // тип карты
-
-
-        // корзина товаров
-
-
-
-        // общая цена
+        $h["card_res"] = [];
+        $h["card_res"]["stoim"] = 0;
+        $h["card_res"]["skid"] = 0;
+        $h["card_res"]["itog"] = 0;
+        foreach($h["new_arr_card"] as $item){
+            $h["card_res"]["itog"] += $item["prise_i"]*$item["count"];
+            $h["card_res"]["stoim"] += $item["prise_old"]*$item["count"];
+            $h["card_res"]["skid"] += ($item["prise_old"] - $item["prise_i"])*$item["count"];
+        }
         return $h;
     }
 
@@ -118,6 +119,19 @@ $h = $card ->index($h);
             if(!$stat){
                 $h["new_arr_card"][] = $item;
             }
+        }
+
+        $y = 0;
+        foreach($h["new_arr_card"] as $item){
+            $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `shop_item` WHERE `id`=? ");
+            $sth1->execute(array($item["id_product"]));
+            $res = $sth1->fetch(\PDO::FETCH_ASSOC);
+
+            $h["new_arr_card"][$y]["name_s"] = $res["name_s"] ;
+            $h["new_arr_card"][$y]["img"] = $res["img"] ;
+            $h["new_arr_card"][$y]["prise_i"] = $res["prise_i"] ;
+            $h["new_arr_card"][$y]["prise_old"] = $res["prise_old"] ;
+            $y++;
         }
         //var_dump($h["card_array_full_list"]);
         return $h;

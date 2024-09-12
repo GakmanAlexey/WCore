@@ -29,7 +29,7 @@
 
                         </div>
                         <div class="all_price_row_element">
-                            200₽
+                            <?php  echo  $h["card_res"]["stoim"];?>₽
                         </div>
                     </div>
                     <div class="all_price_row">
@@ -41,7 +41,7 @@
                             
                         </div>
                         <div class="all_price_row_element">
-                            100₽
+                        <?php  echo  $h["card_res"]["skid"];?>₽
                         </div>
                     </div>
                     
@@ -54,7 +54,7 @@
                             
                         </div>
                         <div class="all_price_row_element itog_pay">
-                            100₽
+                        <?php  echo  $h["card_res"]["itog"];?>₽
                         </div>
                     </div>
                     <button class="btn_form btn">Оплатить</button>
@@ -64,17 +64,20 @@
         
         <div class="wrap_oplata col_6">
 
+        <div id ="loop"></div>
         <?php
+        $x = 0;
+        $scr="";
         foreach($h["new_arr_card"] as $item){
-            var_dump($item["id_product"]);
+            //var_dump($item);
             echo '
             <div class="oplata_tovar">
                 <div class="oplata_tovar_image">
-                    <img src="/src/img/1.png" alt="">
+                    <img  src="/src/img/itemshop/'.$item["img"].'"  alt="">
                 </div>
-                    <div class="oplata_tovar_name">Код активации Яндекс ОФД 1 месяц
+                    <div class="oplata_tovar_name">'.$item["name_s"].' 
 
-                        <div class="delite_tovar">
+                        <div class="delite_tovar" onclick="dell'.$x.'()">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M21 5.98047C17.67 5.65047 14.32 5.48047 10.98 5.48047C9 5.48047 7.02 5.58047 5.04 5.78047L3 5.98047" stroke="#7b7b7b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path d="M8.5 4.97L8.72 3.66C8.88 2.71 9 2 10.69 2H13.31C15 2 15.13 2.75 15.28 3.67L15.5 4.97" stroke="#7b7b7b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -88,23 +91,23 @@
                     <div class="oplata_tovar_price_numb">
                         <div class="oplata_tovar_card_price_box">
                             <div class="oplata_tovar_card_price">
-                                100 ₽
+                                '.$item["prise_i"]*$item["count"].' ₽
                             </div>
                             <div class="oplata_tovar_card_old_price">
-                                200 ₽
+                                '.$item["prise_old"]*$item["count"].' ₽
                             </div>
                         </div>
                         
                         <div class="oplata_tovar_numb">
-                            <div class="numb_item">
+                            <div class="numb_item"  onclick="minus'.$x.'()" >
                             -
                             </div>
 
-                            <div class="numb_count">
+                            <div class="numb_count"  >
                                 '.$item["count"].'
                             </div>
 
-                            <div class="numb_item">
+                            <div class="numb_item" onclick="plus'.$x.'()" >
                             +
                             </div>
                         </div>
@@ -112,6 +115,24 @@
 
             </div>
             ';
+
+
+    $scr .= '
+    function plus'.$x.'() {
+        $("#loop").load("/card/operation/?o=plus&id='.$item["id_product"].'");
+        location.reload();
+    }
+    function minus'.$x.'() {
+        $("#loop").load("/card/operation/?o=minus&id='.$item["id_product"].'");
+        location.reload();
+    }
+    function dell'.$x.'() {
+        $("#loop").load("/card/operation/?o=delet&id='.$item["id_product"].'");
+        location.reload();
+    }
+';
+$x++;
+
         }?>
             
 
@@ -119,4 +140,9 @@
         </div>
     </div>
   </div>
+<script>
+  <?php
+echo $scr;
+  ?>
+  </script>
     
