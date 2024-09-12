@@ -63,7 +63,9 @@ $h = $card ->index($h);
 
 
     public function take_card_no_auth($h){
-
+        if(!isset($_SESSION["id"])){
+            $_SESSION["id"] = $_COOKIE["trace"];
+        }
         $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT count(*) FROM `card_user` WHERE ((`type_user` = ?) and  (`id_user` = ?)) ");
         $sth1->execute(array("noauth", $_SESSION["id"]));
         $res = $sth1->fetch(\PDO::FETCH_ASSOC);
