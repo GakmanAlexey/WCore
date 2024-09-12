@@ -146,17 +146,67 @@ $h = $card ->index($h);
     }
 
     public function operation_plus($h){
-           
+        if($h["user"]["id"] != 0){
+            $sth = $h["sql"]["db_connect"]->db_connect->prepare('INSERT INTO `card_user` (
+                type_user,
+                id_user,
+                id_product,
+                count,
+                time_create
+                ) VALUES ( ?,?,?,?,?)');
+            $sth->execute(array(
+                "auth",
+                $h["user"]["id"],
+                $_GET["id"],
+                1,
+                time()
+            ));
+        }else{
+            $sth = $h["sql"]["db_connect"]->db_connect->prepare('INSERT INTO `card_user` (
+                type_user,
+                id_user,
+                id_product,
+                count,
+                time_create
+                ) VALUES ( ?,?,?,?,?)');
+            $sth->execute(array(
+                "noauth",
+                $_COOKIE["trace"],
+                $_GET["id"],
+                1,
+                time()
+            ));
+        }
         return $h;
     }
 
     public function operation_minus($h){
-           
+        if($h["user"]["id"] != 0){
+
+            $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("DELETE FROM `card_user` WHERE (`id_user` = ?  and `id_product` = ? ) LIMIT 1");
+            $sth1->execute(array($h["user"]["id"],$_GET["id"]));
+     
+        }else{
+            $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("DELETE FROM `card_user` WHERE (`id_user` = ?  and `id_product` = ? ) LIMIT 1");
+            $sth1->execute(array($_COOKIE["trace"],$_GET["id"]));
+        }
+
+        
+
+
         return $h;
     }
 
     public function operation_del($h){
-           
+        if($h["user"]["id"] != 0){
+
+            $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("DELETE FROM `card_user` WHERE (`id_user` = ?  and `id_product` = ? ) ");
+            $sth1->execute(array($h["user"]["id"],$_GET["id"]));
+     
+        }else{
+            $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("DELETE FROM `card_user` WHERE (`id_user` = ?  and `id_product` = ? ) ");
+            $sth1->execute(array($_COOKIE["trace"],$_GET["id"]));
+        }
         return $h;
     }
 
