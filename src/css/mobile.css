@@ -96,6 +96,15 @@
         height: 50vw;
     }
 
+    .oplata_box{
+        flex-direction: column-reverse;
+    }
+
+    .col_5{
+        flex: 1;
+        max-width: 100%;
+    }
+
 }
 
 @media screen and (max-width: 479px) {
@@ -195,4 +204,28 @@
         gap: 10px;
     }
 
+    .oplata_tovar_name{
+        font-size: 14px;
+    }
+
+
+    .oplata_tovar{
+        padding: 15px;
+
+        gap: 10px;
+    width: calc(100% - 30px);
+    }
+
+    .oplata_tovar_card_price_box{
+        gap: 10px;
+    }
+
+    .oplata_tovar_card_price_box{
+        flex-direction: column;
+    }
+
+    .oplata_tovar_card_old_price{
+        max-width: 54px;
+    }
+    
 }

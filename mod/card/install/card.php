@@ -56,6 +56,41 @@ Class Card extends \Mod\Abs\Install{
         $h["install"]["line"][] = $array;
 
 
+
+
+       
+        $array = [
+            "url"           => "/card/",
+            "class"         => "Mod\Card\Controller\Index",
+            "function"      => "show_full_card",
+            "title"         => "корзина",
+            "description"   => "корзина",
+            "keys"          => "корзина",
+            "name"          => "корзина",
+            "add_to_sitemap"=> false,
+            "lastmod_s"     => time(),
+            "change_s"      => "monthly",
+            "priority_s"    => 0.5
+        ];
+        $h["install"]["line"][] = $array;
+
+       
+       
+        $array = [
+            "url"           => "/card/operation/",
+            "class"         => "Mod\Card\Controller\Index",
+            "function"      => "operation",
+            "title"         => "корзина",
+            "description"   => "корзина",
+            "keys"          => "корзина",
+            "name"          => "корзина",
+            "add_to_sitemap"=> false,
+            "lastmod_s"     => time(),
+            "change_s"      => "monthly",
+            "priority_s"    => 0.5
+        ];
+        $h["install"]["line"][] = $array;
+
        
         return $h;
     }

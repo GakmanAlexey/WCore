@@ -706,13 +706,13 @@ width: 18px;
 height: 18px;
 position: absolute;
 left: 10px;
-background: url(src/img/rad1.svg) 0 0 no-repeat;
+background: url(/src/img/rad1.svg) 0 0 no-repeat;
 }
 
 
 /* Checked */
 .form_radio_btn input[type=radio]:checked + label:before {
-background: url(src/img/rad2.png) 0 0 no-repeat;
+background: url(/src/img/rad2.png) 0 0 no-repeat;
 }
 
 
@@ -853,4 +853,28 @@ font-size: 18px;
   align-items: center;
   justify-content: center;
   padding: 6px;
+}
+
+.oplata_tovar_numb{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 3px 5px;
+    border-radius: 6px;
+    border: #c9c9c9 solid 1px;
+    margin-top: 10px;
+}
+
+.numb_item{
+    font-size: 20px;
+    font-family: 'regular';
+}
+
+.delite_tovar{
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    color: #7b7b7b;
 }
