@@ -1,6 +1,6 @@
 <?php
 
-namespace Mod\Card\Install;
+namespace Mod\Lc\Install;
 
 Class Admin extends \Mod\Abs\Install{
 

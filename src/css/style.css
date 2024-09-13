@@ -878,3 +878,22 @@ font-size: 18px;
     margin-top: 5px;
     color: #7b7b7b;
 }
+
+
+.contacty_box{
+    display: flex;
+    flex-direction: column;
+}
+
+.cont_cont{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    color: #1F1F1F;
+}
+
+.cont_title{
+    font-size: 24px;
+    margin-bottom: 0;
+}

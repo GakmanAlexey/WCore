@@ -6,8 +6,8 @@
                     <a href="/" alt=""> LOGO</a>
                 </div>
                 <div class="navigatin">
-                    <a class="nav_item" href="">Контакты</a>
-                    <a class="nav_item" href="">О нас</a>
+                    <a class="nav_item" href="/contacts/">Контакты</a>
+                    <a class="nav_item" href="/onas/">О нас</a>
                 </div>
 
                 <div class="icon_box">
