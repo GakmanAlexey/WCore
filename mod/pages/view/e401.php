@@ -1,5 +1,5 @@
-
-<div class="container">
+<div class="flex">
+    <div class="container">
         <h1 class="title_block text_al_center error_title">
             401
         </h1>
@@ -11,3 +11,4 @@
         <a class="ct_btn aa_ct_btn aa_color_btn col_3 margin_0_auto" href="/">На главную</a>
 
     </div>
+</div>
