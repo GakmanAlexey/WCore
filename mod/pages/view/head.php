@@ -22,5 +22,10 @@
     header("Cache-control: no-cache");
     header("Pragma: no-cache");
     header("Expires: 0");
+
+    $lv = new \Mod\Tools\Modul\Lovecookie;
+    $lv ->start($h);
     ?>
+
+    
 </head>
