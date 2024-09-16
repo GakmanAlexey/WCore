@@ -55,6 +55,78 @@ Class Admin extends \Mod\Abs\Install{
             "priority_s"    => 0.5
         ];
         $h["install"]["line"][] = $array;
+
+
+
+
+
+
+
+
+
+
+        $array = [
+            "url"           => "/vozvrat/",
+            "class"         => "Mod\Pages\Controller\Admin\Index",
+            "function"      => "vozrat",
+            "title"         => "Возврат",
+            "description"   => "Возврат",
+            "keys"          => "Возврат",
+            "name"          => "Возврат",
+            "add_to_sitemap"=> true,
+            "lastmod_s"     => time(),
+            "change_s"      => "monthly",
+            "priority_s"    => 0.5
+        ];
+        $h["install"]["line"][] = $array;
+
+
+        $array = [
+            "url"           => "/nadtroikiodf/",
+            "class"         => "Mod\Pages\Controller\Admin\Index",
+            "function"      => "nastroiki",
+            "title"         => "Настройки ОФД",
+            "description"   => "Настройки ОФД",
+            "keys"          => "Настройки ОФД",
+            "name"          => "Настройки ОФД",
+            "add_to_sitemap"=> true,
+            "lastmod_s"     => time(),
+            "change_s"      => "monthly",
+            "priority_s"    => 0.5
+        ];
+        $h["install"]["line"][] = $array;
+
+
+        $array = [
+            "url"           => "/politic/",
+            "class"         => "Mod\Pages\Controller\Admin\Index",
+            "function"      => "polit",
+            "title"         => "Политика конфиденциальности",
+            "description"   => "Политика конфиденциальности",
+            "keys"          => "Политика конфиденциальности",
+            "name"          => "Политика конфиденциальности",
+            "add_to_sitemap"=> true,
+            "lastmod_s"     => time(),
+            "change_s"      => "monthly",
+            "priority_s"    => 0.5
+        ];
+        $h["install"]["line"][] = $array;
+
+
+        $array = [
+            "url"           => "/soglasie/",
+            "class"         => "Mod\Pages\Controller\Admin\Index",
+            "function"      => "sogl",
+            "title"         => "Пользовательское соглашение",
+            "description"   => "Пользовательское соглашение",
+            "keys"          => "Пользовательское соглашение",
+            "name"          => "Пользовательское соглашение",
+            "add_to_sitemap"=> true,
+            "lastmod_s"     => time(),
+            "change_s"      => "monthly",
+            "priority_s"    => 0.5
+        ];
+        $h["install"]["line"][] = $array;
         return $h;
     }
 
