@@ -15,18 +15,20 @@ Class Trap{
             $_SESSION["trace"] = $_COOKIE["trace"];
         }else{
             if(isset($_SESSION["trace"])){
-                setcookie('trace',$_SESSION["trace"], strtotime('+30 days'));
-                header('Location: '.$_SERVER['REQUEST_URI']);
+                setcookie('trace',$_SESSION["trace"],"/", strtotime('+30 days'));
+                //header('Location: '.$_SERVER['REQUEST_URI']);
             }else{
+                $hex = new \Mod\Tools\Modul\Hex;
                 $_SESSION["trace"] = $hex->create(40,5);
-                setcookie('trace',$_SESSION["trace"], strtotime('+30 days'));
-                header('Location: '.$_SERVER['REQUEST_URI']);
+                setcookie('trace',$_SESSION["trace"],"/", strtotime('+30 days'));
+                //header('Location: '.$_SERVER['REQUEST_URI']);
             }
-        }
-
-
-
-        
+        }  
+        $h["cookie"]["trap"] = $_SESSION["trace"];
+/*
+        echo $h["cookie"]["trap"]."<br>";
+        echo $_COOKIE["trace"]."<br>";
+        echo $_SESSION["trace"]."<br>";*/
         return $h;
     }
 

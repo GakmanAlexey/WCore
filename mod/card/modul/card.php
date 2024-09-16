@@ -51,7 +51,7 @@ $h = $card ->index($h);
                     ) VALUES ( ?,?,?,?,?)');
                 $sth->execute(array(
                     "noauth",
-                    $_COOKIE["trace"],
+                    $_SESSION["trace"],
                     $_GET["product"],
                     1,
                     time()
@@ -64,9 +64,10 @@ $h = $card ->index($h);
 
     public function take_card_no_auth($h){
         $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT count(*) FROM `card_user` WHERE ((`type_user` = ?) and  (`id_user` = ?)) ");
-        $sth1->execute(array("noauth", $_COOKIE["trace"]));
+        $sth1->execute(array("noauth", $_SESSION["trace"]));
         $res = $sth1->fetch(\PDO::FETCH_ASSOC);
         $h["card"]["show_caont"] = $res["count(*)"];
+        //echo $_SESSION["trace"];
         //var_dump($h["cookie"]["trap"]["hex"]);
         return $h;
     }
@@ -185,7 +186,7 @@ $h = $card ->index($h);
                 ) VALUES ( ?,?,?,?,?)');
             $sth->execute(array(
                 "noauth",
-                $_COOKIE["trace"],
+                $_SESSION["trace"],
                 $_GET["id"],
                 1,
                 time()
@@ -202,7 +203,7 @@ $h = $card ->index($h);
      
         }else{
             $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("DELETE FROM `card_user` WHERE (`id_user` = ?  and `id_product` = ? ) LIMIT 1");
-            $sth1->execute(array($_COOKIE["trace"],$_GET["id"]));
+            $sth1->execute(array($_SESSION["trace"],$_GET["id"]));
         }
 
         
@@ -219,7 +220,7 @@ $h = $card ->index($h);
      
         }else{
             $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("DELETE FROM `card_user` WHERE (`id_user` = ?  and `id_product` = ? ) ");
-            $sth1->execute(array($_COOKIE["trace"],$_GET["id"]));
+            $sth1->execute(array($_SESSION["trace"],$_GET["id"]));
         }
         return $h;
     }
