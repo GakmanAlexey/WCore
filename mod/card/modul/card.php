@@ -19,6 +19,14 @@ $h = $card ->index($h);
          }
         return $h;
     }
+
+    public function take_card_auth($h){
+        $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT count(*) FROM `card_user` WHERE ((`type_user` = ?) and  (`id_user` = ?)) ");
+        $sth1->execute(array("auth", $h["user"]["id"]));
+        $res = $sth1->fetch(\PDO::FETCH_ASSOC);
+        $h["card"]["show_caont"] = $res["count(*)"];
+        return $h;
+    }
     public function add_to_card($h){
         if(isset($_GET["product"]) and $_GET["product"] >= 1){
             $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `shop_item` WHERE `id` = ? ");
