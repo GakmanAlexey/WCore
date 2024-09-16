@@ -10,42 +10,27 @@ Class Trap{
     */
     public function start($h){
         $h["cookie"]["trap"] = [];
-        //проверить есть ли ловушка
-        $h = $this->cheak_user($h);
-        //создать если ее нет
-        if(!$h["cookie"]["trap"]["active"]){
-            $h = $this-> create_trap($h);
-        }
-        //следить за юзером
-        if (!isset($_COOKIE["trace"])){
-            
-            header('Location: '.$_SERVER['REQUEST_URI']);
-        }
-        $h["cookie"]["trap"]["hex"] = $_COOKIE["trace"];
-        return $h;
-    }
 
-    public function cheak_user($h){
-        if (isset($_COOKIE["trace"])){
-            $h["cookie"]["trap"]["active"] = true;
+        if(isset($_COOKIE["trace"])){
+            $_SESSION["trace"] = $_COOKIE["trace"];
         }else{
-            $h["cookie"]["trap"]["active"] = false;
+            if(isset($_SESSION["trace"])){
+                setcookie('trace',$_SESSION["trace"], strtotime('+30 days'));
+                header('Location: '.$_SERVER['REQUEST_URI']);
+            }else{
+                $_SESSION["trace"] = $hex->create(40,5);
+                setcookie('trace',$_SESSION["trace"], strtotime('+30 days'));
+                header('Location: '.$_SERVER['REQUEST_URI']);
+            }
         }
 
+
+
+        
         return $h;
     }
 
-    public function create_trap($h){
-        $hex = new \Mod\Tools\Modul\Hex;
-        //$h["cookie"]["trap"]["hex"] = $hex->create(40,5);
-        if(!isset($_SESSION["id"])){
-            $_SESSION["id"] = $hex->create(40,5);
-        }
-        setcookie('trace',$_SESSION["id"], strtotime('+30 days'));
-
-
-        return $h;
-    }
+    
 
 
 }
