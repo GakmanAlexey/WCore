@@ -18,7 +18,7 @@
                         <span class="korzina_link_span" id= "card_list"></span>
                     </a>
                     <?php
-                    if(!isset($_SESSION["id"])){
+                    if(!isset($h["user"]["id"])){
                         echo '
                         <a href="/user/login/">
                         <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
