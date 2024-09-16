@@ -13,6 +13,16 @@ Class Main{
             }
         return $h;
     }
+
+
+    public function art($h){
+        $h["articl"]["item"] = [];
+            $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `artic` WHERE ((`show_s` = ?) and  (`url_s` = ?))");
+            $sth1->execute(array(1,$h["url"]["d_array"][2]));
+            $h["articl"]["item"]= $sth1->fetch(\PDO::FETCH_ASSOC);
+        return $h;
+    }
+    
     
 
 }

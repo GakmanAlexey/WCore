@@ -1,18 +1,20 @@
-
+<?php
+//var_dump($h["url"]["d_array"][2]);
+?>
 <div class="container">
         <h1 class="title_block text_al_center">
-            заголовок статьи
+            <?php echo $h["articl"]["item"]["name_s"];?>
         </h1>
     </div>
     <div class="container">
         <div class="statia_image col_6 margin_0_auto">
-            <img src="/src/img/articl/1.png" alt="">
+            <img src="/src/img/articl/<?php echo $h["articl"]["item"]["img_s"];?>" alt="">
         </div>
     </div>
     <div class="flex">
         <div class="container">
            <div class="text_statiain col_6 margin_0_auto">
-            Повседневная практика показывает, что консультация с широким активом обеспечивает широкому кругу (специалистов) участие в формировании дальнейших направлений развития. Товарищи! дальнейшее развитие различных форм деятельности представляет собой интересный эксперимент проверки систем массового участия.
+           <?php echo $h["articl"]["item"]["text_s"];?>"
            </div>
         </div>
     </div>
