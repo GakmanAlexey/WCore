@@ -15,7 +15,7 @@
                     <div class="balance_par">
                         <div class="lk_box">    
                             <div class="balance">
-                                <p class="balance_title">Баланс: 3000₽</p>
+                                <p class="balance_title">Баланс: <?php echo $h["user"]["balance"]; ?>₽</p>
                                 <a class="balance_btn btn" href="">Пополнить баланс</a>
                             </div>
                         

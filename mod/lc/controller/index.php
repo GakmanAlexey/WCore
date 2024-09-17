@@ -27,6 +27,8 @@ Class Index extends \Mod\Abs\Controller{
         $cfg = new \Mod\Pages\Modul\Cfg;
         $h = $cfg->take_head($h,$this->type_show);
 
+        $lc = new \Mod\Lc\Modul\Lc;
+        $h = $lc ->show_balance($h);
         $h["view"]["lists"][] = MYPOS."/mod/lc/view/lcb.php";
         $h = $this->show($h);
         $h = $this->cashe_end($h);

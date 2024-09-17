@@ -9,7 +9,9 @@ Class Forma{
     public $id="";
 
     public $input = [];
+    public $pass = [];
     public $button = [];
+    public $js = " ";
     public $custom = " ";
     public $html = " ";
     public $build = "";
@@ -40,6 +42,20 @@ Class Forma{
             "value" => $value
         ];
         $this->input[] = $array;
+
+        return $h;
+    }
+
+    public function add_pass($h, $name, $type, $class, $placeholder,$id, $value){
+        $array = [
+            "name" => $name,
+            "type" => $type,
+            "class" => $class,
+            "placeholder" => $placeholder,
+            "id" => $id,
+            "value" => $value
+        ];
+        $this->pass[] = $array;
 
         return $h;
     }
@@ -125,7 +141,49 @@ Class Forma{
             $this->build  .= "
             "; 
             $this->build  .= $input;
-        }        
+        }    
+
+        foreach($this->pass as $item){
+            $input = "<input ";
+            if($item["name"] != ""){
+                $input .= 'name="'.$item["name"].'" ';
+            }
+            if($item["type"] != ""){
+                $input .= 'type="'.$item["type"].'" ';
+            }
+            if($item["class"] != ""){
+                $input .= 'class="'.$item["class"].'" ';
+            }
+            if($item["placeholder"] != ""){
+                $input .= 'placeholder="'.$item["placeholder"].'" ';
+            }
+            if($item["id"] != ""){
+                $input .= 'id="'.$item["id"].'" ';
+            }
+            if($item["value"] != ""){
+                $input .= 'value="'.$item["value"].'" ';
+            }
+            $input .= " />";
+            $this->build  .= "
+            "; 
+            $this->build  .= '
+                            <div class="password_parent">
+                                '.$input.'
+                                <a id="show_'.$item["id"].'" class="password_control view"></a>                     
+                            </div>
+                            ';
+             $this->js .="
+             $('#show_".$item["id"]."').click(function(){
+                            document.getElementById( 'show_".$item["id"]."' ).classList.toggle('view');
+                            var type = $(document.getElementById( '".$item["id"]."' )).attr('type');
+                            if(type == \"text\") {
+                                document.getElementById('".$item["id"]."').type = 'password';
+                            }else{
+                                document.getElementById('".$item["id"]."').type = 'text';
+                            }
+                        });
+                        ";
+        }     
 
         return $h;
     }

@@ -15,6 +15,18 @@ Class Lc extends \Mod\Abs\Install{
        )
     ';
 
+
+        $h["install"]["table"][] = '
+        CREATE TABLE user_data_lc (
+        id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+        PRIMARY KEY(id),
+        user_id VARCHAR(255) , 
+        user_name VARCHAR(255) , 
+        user_mail VARCHAR(255) , 
+        user_phone VARCHAR(255) 
+    )
+    ';
+
         return $h;
     }
 

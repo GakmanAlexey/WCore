@@ -17,19 +17,25 @@
             <div class="container">
                 <div class="lk_par">
                     <div class="lk_box">    
-                        <form class="form_login" action="">
-                            <label class="label" for="name">Имя</label>
-                            <input class="input" type="text" id="name" placeholder="Логин">
-                            <label class="label" for="pass">Пароль</label>
-                            <input class="input" type="password" id="pass" placeholder="Пароль">
-                            <label class="label" for="tel">Телефон</label>
-                            <input class="input" type="password" id="tel" placeholder="Пароль">
-                            <a class="vost" href="">
-                                Восстановить пароль
-                            </a>
-                            <button class="btn_form btn">Сохранить изменения</button>
-                        </form>
-                       
+                        
+
+                        <?php
+$f = new \Mod\Tools\Modul\Forma;
+$f->init($h, "post", "", "form_login", "");
+$f->add_input($h, "name", "text", "input", "Имя","", "");
+$f->add_input($h, "email", "text", "input", "Электронная почта","", "");
+$f->add_input($h, "phone", "text", "input", "Телефон","", "");
+$f->add_pass($h, "password", "password", "input", "Пароль","pas1", "");
+$f->add_pass($h, "password2", "password2", "input", "Повторите пароль","pas2", "");
+$f->add_button($h, "go_auth", "btn_form btn", "", "yes", "Сохранить");
+$f->completion($h);
+$f->buils($h);
+echo $f->build; 
+
+echo "<script>".$f->js."</script>"
+
+
+?>
                     </div>
                 </div>
             </div>

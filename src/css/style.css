@@ -573,7 +573,7 @@ justify-content: center;
 
 
 .lk_box {
-max-width: 440px;
+width: 440px;
 }
 
 .label{
@@ -978,4 +978,22 @@ font-size: 18px;
     font-size: 22px;
 
     margin-bottom: 40px;
+}
+
+.password_parent{
+    position: relative;
+}
+   
+   
+.password_control {
+    position: absolute;
+    top: 24px;
+    right: 14px;
+    display: inline-block;
+    width: 26px;
+    height: 20px;
+    background: url(/src/img/ey.svg) 0 0 no-repeat;
+}
+.password-control, .view {
+    background: url(/src/img/cley.svg) 0 0 no-repeat;
 }
