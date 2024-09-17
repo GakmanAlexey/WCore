@@ -993,7 +993,9 @@ font-size: 18px;
     width: 26px;
     height: 20px;
     background: url(/src/img/ey.svg) 0 0 no-repeat;
+    transition: background-image 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 .password-control, .view {
     background: url(/src/img/cley.svg) 0 0 no-repeat;
+    transition: background-image 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }

@@ -47,6 +47,62 @@ $h = $card ->index($h);
         $h["user"]["balance"] = 0;
         return $h;
     }
+
+    public function show_user_data($h){
+        $h["user"]["data_lc"] = [];
+
+        $sth_smap1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `user_data_lc` WHERE `user_id` = ? LIMIT 1");
+        $sth_smap1 ->execute(array($h["user"]["id"]));
+        $res1 = $sth_smap1 ->fetch(\PDO::FETCH_ASSOC) ;
+        if(!$res1){
+            $h = $this->create_user_data($h);
+        }else{
+            $h["user"]["data_lc"] = $res1;
+        }
+
+        return $h;
+    }
+
+    public function create_user_data($h){
+        $sth = $h["sql"]["db_connect"]->db_connect->prepare('INSERT INTO `user_data_lc` (
+            user_id,
+            user_name,
+            user_mail,
+            user_phone
+            ) VALUES ( ?,?,?,?)');
+        $sth->execute(array(
+            $h["user"]["id"],
+            "",
+            "",
+            ""
+        ));
+        $h["user"]["data_lc"]["user_name"]="";
+        $h["user"]["data_lc"]["user_mail"]="";
+        $h["user"]["data_lc"]["user_phone"]="";
+        return $h;
+    }
+
+    public function save_user_data($h){
+        if(!isset($_POST["go_save_lc"])){
+            return $h;
+        }else{
+            $this->go_save_user_data($h);
+        }
+        return $h;
+    }
     
+    public function go_save_user_data($h){
+        $name = $_POST["name"];
+        $email = $_POST["email"];
+        $phone = $_POST["phone"];
+        $password = $_POST["password"];
+        $password2 = $_POST["password2"];
+
+        $sth2 = $h["sql"]["db_connect"]->db_connect->prepare("UPDATE `user_data_lc` SET  user_name = ?, user_mail = ?, user_phone = ? WHERE `user_id` = ? ");
+        $sth2->execute(array($name,$email,$phone, $h["user"]["id"]));
+
+
+        return $h;
+    }
 
 }

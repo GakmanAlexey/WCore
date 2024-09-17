@@ -12,6 +12,10 @@ Class Index extends \Mod\Abs\Controller{
         $cfg = new \Mod\Pages\Modul\Cfg;
         $h = $cfg->take_head($h,$this->type_show);
 
+        $lc = new \Mod\Lc\Modul\Lc;
+        $h = $lc ->save_user_data($h);
+        $h = $lc ->show_user_data($h);
+        
         $h["view"]["lists"][] = MYPOS."/mod/lc/view/lc.php";
         $h = $this->show($h);
         $h = $this->cashe_end($h);

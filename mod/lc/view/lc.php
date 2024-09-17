@@ -22,12 +22,12 @@
                         <?php
 $f = new \Mod\Tools\Modul\Forma;
 $f->init($h, "post", "", "form_login", "");
-$f->add_input($h, "name", "text", "input", "Имя","", "");
-$f->add_input($h, "email", "text", "input", "Электронная почта","", "");
-$f->add_input($h, "phone", "text", "input", "Телефон","", "");
+$f->add_input($h, "name", "text", "input", "Имя","", $h["user"]["data_lc"]["user_name"]);
+$f->add_input($h, "email", "text", "input", "Электронная почта","", $h["user"]["data_lc"]["user_mail"]);
+$f->add_input($h, "phone", "text", "input", "Телефон","", $h["user"]["data_lc"]["user_phone"]);
 $f->add_pass($h, "password", "password", "input", "Пароль","pas1", "");
 $f->add_pass($h, "password2", "password2", "input", "Повторите пароль","pas2", "");
-$f->add_button($h, "go_auth", "btn_form btn", "", "yes", "Сохранить");
+$f->add_button($h, "go_save_lc", "btn_form btn", "", "yes", "Сохранить");
 $f->completion($h);
 $f->buils($h);
 echo $f->build; 
