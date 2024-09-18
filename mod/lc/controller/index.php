@@ -12,6 +12,8 @@ Class Index extends \Mod\Abs\Controller{
         $cfg = new \Mod\Pages\Modul\Cfg;
         $h = $cfg->take_head($h,$this->type_show);
 
+        $h["user"]["cfg"] = new \Mod\User\Modul\Config;
+        $h["user"]["error"] = [];
         $lc = new \Mod\Lc\Modul\Lc;
         $h = $lc ->save_user_data($h);
         $h = $lc ->show_user_data($h);

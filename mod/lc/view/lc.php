@@ -17,7 +17,15 @@
             <div class="container">
                 <div class="lk_par">
                     <div class="lk_box">    
-                        
+                    <p>
+                <?php
+foreach($h["user"]["error"] as $item_error){
+    if($item_error == "no") continue;
+    echo $item_error.'<br>';
+}
+?>
+
+</p>
 
                         <?php
 $f = new \Mod\Tools\Modul\Forma;
@@ -26,7 +34,7 @@ $f->add_input($h, "name", "text", "input", "Имя","", $h["user"]["data_lc"]["u
 $f->add_input($h, "email", "text", "input", "Электронная почта","", $h["user"]["data_lc"]["user_mail"]);
 $f->add_input($h, "phone", "text", "input", "Телефон","", $h["user"]["data_lc"]["user_phone"]);
 $f->add_pass($h, "password", "password", "input", "Пароль","pas1", "");
-$f->add_pass($h, "password2", "password2", "input", "Повторите пароль","pas2", "");
+$f->add_pass($h, "password2", "password", "input", "Повторите пароль","pas2", "");
 $f->add_button($h, "go_save_lc", "btn_form btn", "", "yes", "Сохранить");
 $f->completion($h);
 $f->buils($h);

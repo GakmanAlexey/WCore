@@ -86,20 +86,50 @@ $h = $card ->index($h);
         if(!isset($_POST["go_save_lc"])){
             return $h;
         }else{
-            $this->go_save_user_data($h);
+            $h = $this->go_save_user_data($h);
         }
         return $h;
     }
     
     public function go_save_user_data($h){
-        $name = $_POST["name"];
-        $email = $_POST["email"];
-        $phone = $_POST["phone"];
-        $password = $_POST["password"];
-        $password2 = $_POST["password2"];
+        if(isset($_POST["name"]) and $_POST["name"] != ""){
+            $sth2 = $h["sql"]["db_connect"]->db_connect->prepare("UPDATE `user_data_lc` SET  user_name = ? WHERE `user_id` = ? ");
+            $sth2->execute(array($_POST["name"], $h["user"]["id"]));
+        }
 
-        $sth2 = $h["sql"]["db_connect"]->db_connect->prepare("UPDATE `user_data_lc` SET  user_name = ?, user_mail = ?, user_phone = ? WHERE `user_id` = ? ");
-        $sth2->execute(array($name,$email,$phone, $h["user"]["id"]));
+        if(isset($_POST["email"]) and $_POST["email"] != ""){
+            $sth2 = $h["sql"]["db_connect"]->db_connect->prepare("UPDATE `user_data_lc` SET  user_mail = ? WHERE `user_id` = ? ");
+            $sth2->execute(array($_POST["email"], $h["user"]["id"]));
+        }
+
+        if(isset($_POST["phone"]) and $_POST["phone"] != ""){
+            $sth2 = $h["sql"]["db_connect"]->db_connect->prepare("UPDATE `user_data_lc` SET  user_phone = ? WHERE `user_id` = ? ");
+            $sth2->execute(array($_POST["phone"], $h["user"]["id"]));
+        }
+        if(isset($_POST["password"]) and ($_POST["password"] != "")){
+            $h["user"]["error"] = [];
+            if(isset($h["url"]["post"]["password"]) ){
+                if(mb_strlen($h["url"]["post"]["password"]) < $h["user"]["cfg"]->pass_min){
+                    $h["user"]["error"][] = $h["user"]["cfg"]->pass_min_msg;
+                    
+                }
+                if(mb_strlen($h["url"]["post"]["password"]) > $h["user"]["cfg"]->pass_max){
+                    $h["user"]["error"][] = $h["user"]["cfg"]->pass_max_msg;
+                }
+                if(!isset($h["url"]["post"]["password2"]) or ($h["url"]["post"]["password"] != $h["url"]["post"]["password2"])){
+                    $h["user"]["error"][] = $h["user"]["cfg"]->pass_not_pass2;
+                }
+                if($h["user"]["error"] != []){
+                    return $h;
+                }
+                //TODO обновить пароль
+                $h["url"]["post"]["password"] = password_hash(htmlspecialchars($h["url"]["post"]["password"]), PASSWORD_BCRYPT, ["cost" => $h["user"]["cfg"]->hash_cost]);
+
+                $sth2 = $h["sql"]["db_connect"]->db_connect->prepare("UPDATE `users` SET  pass = ? WHERE `id` = ? ");
+                $sth2->execute(array($h["url"]["post"]["password"],$h["user"]["id"]));
+                $h["user"]["error"][] = "Данные обновлены";
+            }
+        }
 
 
         return $h;
