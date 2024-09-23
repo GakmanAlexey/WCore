@@ -34,6 +34,8 @@ Class Index extends \Mod\Abs\Controller{
         $h = $card ->list_full($h);
         $h = $card ->take_full_list($h);
 
+        $Lc = new \Mod\Lc\Modul\Lc;
+        $h = $Lc ->show_balance($h);
         $h["view"]["lists"][] = MYPOS."/mod/card/view/main.php";
         $h = $this->show($h);
         $h = $this->cashe_end($h);
@@ -48,5 +50,21 @@ Class Index extends \Mod\Abs\Controller{
 
         return $h;
     }
+
+    public function res_by($h){
+        $h = $this->cashe_start($h);
+        if($h["cache"]["isset"]) return $h;
+        $this->type_show = "default";
+        $cfg = new \Mod\Pages\Modul\Cfg;
+        $h = $cfg->take_head($h,$this->type_show);
+        $card = new \Mod\Card\Modul\By;
+        $h = $card->index($h);
+
+        $h["view"]["lists"][] = MYPOS."/mod/card/view/by.php";
+        $h = $this->show($h);
+        $h = $this->cashe_end($h);
+
+    }
+
 
 }

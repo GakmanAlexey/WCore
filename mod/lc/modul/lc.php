@@ -4,8 +4,9 @@ namespace Mod\Lc\Modul;
 
 Class Lc{
 /*
-$Lc = new \Mod\Card\Modul\Lc;
-$h = $card ->index($h);
+$Lc = new \Mod\Lc\Modul\Lc;
+$h = $card ->show_balance($h);
+
 */
 
     public function index($h){

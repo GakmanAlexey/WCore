@@ -8,17 +8,24 @@
   <div class="container">
     <div class="oplata_box">
         <div class="wrap_oplata col_5">
-            <form action="">
+            <form action="/card/res/" method="post">
                 <div class="sposob_oplaty">
                     <div class="form_radio_btn">
                         <input id="radio-1" type="radio" name="radio" value="1" checked>
                         <label for="radio-1">Карта, телефон и т.д.</label>
                     </div>
-                     
-                    <div class="form_radio_btn">
+<?php
+if($h["user"]["id"] != 0){
+    echo'
+     <div class="form_radio_btn">
                         <input id="radio-2" type="radio" name="radio" value="2">
-                        <label for="radio-2">ОФД Кошелек (баланс 3000 ₽)</label>
+                        <label for="radio-2">ОФД Кошелек (баланс '. $h["user"]["balance"].' ₽)</label>
                     </div>
+    ';
+}
+
+?>
+                   
                 </div>
                 <div class="all_price">
                     <div class="all_price_row">
