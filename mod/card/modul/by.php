@@ -13,8 +13,12 @@ $h = $card ->index($h);
        if($h["user"]["id"] != 0){
         $h = $this->by_auth($h);
        }else{
-
         $h = $this->by_no_auth($h);
+       }
+
+       if($h["shop"]["status"]){
+        $card3 = new \Mod\Card\Modul\Addz;
+        $h = $card3 ->add_code($h);
        }
         return $h;
     }
@@ -54,6 +58,7 @@ $h = $card ->index($h);
             $h["shop"]["msg"] = "не достаточно балов, пополните баланс";
         }
 
+
         return $h;
     }
 
@@ -65,10 +70,8 @@ $h = $card ->index($h);
     }
 
     public function spis_balance($h){
-
         $sth2 = $h["sql"]["db_connect"]->db_connect->prepare("UPDATE `user_balance` SET  balance = (balance - ?) WHERE `id` = ? ");
         $sth2->execute(array($h["card_res"]["itog"],$h["user"]["id"] ));
-
         return $h;
     }
 

@@ -10,6 +10,11 @@
 <?php
 
 echo  $h["shop"]["msg"];
+echo "<br>";
+if(isset($h["shop"]["msg_kod_comp"])){
+    echo $h["shop"]["msg_kod_comp"];
+
+}
 ?>
             
 

@@ -9,6 +9,15 @@ $h = $card ->show_balance($h);
 
 */
 
+    public function show_kds_lc ($h){
+        $h["lc_cods"] = [];
+        $sth1 = $h["sql"]["db_connect"]->db_connect->prepare("SELECT * FROM `kods_baza_zakaz` WHERE `id_user` = ? ");
+            $sth1->execute(array($h["user"]["id"]));
+            while($res = $sth1->fetch(\PDO::FETCH_ASSOC)){
+                $h["lc_cods"][] = $res;
+            }
+        return $h;
+    }
     public function index($h){
         $h["card"]["show_caont"] = 0;
          if($h["user"]["id"] != 0){

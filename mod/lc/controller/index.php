@@ -50,6 +50,9 @@ Class Index extends \Mod\Abs\Controller{
         $cfg = new \Mod\Pages\Modul\Cfg;
         $h = $cfg->take_head($h,$this->type_show);
 
+
+        $Lc = new \Mod\Lc\Modul\Lc;
+        $h = $Lc -> show_kds_lc ($h);
         $h["view"]["lists"][] = MYPOS."/mod/lc/view/lcz.php";
         $h = $this->show($h);
         $h = $this->cashe_end($h);

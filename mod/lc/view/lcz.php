@@ -12,130 +12,48 @@
      <div class="cody_par flex">
         <div class="container">
             <div class="cody ">
-                <div class="cody_item col_10">
+                <?php
+                $js = "";
+                $x = 0;
+                $ar = array_reverse($h["lc_cods"]);
+                foreach($ar as $item){
+                    echo '
+                    <div class="cody_item col_10">
                     <div class="cody_elem zkaz_nomber">
-                        Заказ № 1667 
+                        Заказ № '.$item["id_zakaz"].'
                     </div>
                     
-                    <div class="cody_elem">
-                        Код активации Яндекс ОФД на 1 месяц
+                    <div class="cody_elem" >
+                        '.$item["id_product"].'
                     </div>
                     
-                    <div class="cody_elem">
-                        OFD01-5EJ3-TSG2-KLGZ-Q5LK
-                    </div>
+                    <div class="cody_elem"  id="cpt'.$x.'">'.$item["kod"].'</div>
                     
-                    <a class="cody_copy">
+                    <a class="cody_copy" id="cpb'.$x.'">
                         Копировать код
                     </a>
                 </div>
-                <div class="cody_item col_10">
-                    <div class="cody_elem zkaz_nomber">
-                        Заказ № 1667 
-                    </div>
-                    
-                    <div class="cody_elem">
-                        Код активации 
-                    </div>
-                    
-                    <div class="cody_elem">
-                        OFD01-5EJ3-TSG2-KLGZ-Q5LK
-                    </div>
-                    
-                    <a class="cody_copy">
-                        Копировать код
-                    </a>
-                </div>
-                <div class="cody_item col_10">
-                    <div class="cody_elem zkaz_nomber">
-                        Заказ № 1667 
-                    </div>
-                    
-                    <div class="cody_elem">
-                        Код активации Яндекс ОФД на 1 месяц
-                        Код активации Яндекс ОФД на 1 месяц
-                    </div>
-                        <div class="cody_elem">
-                            OFD01-5EJ3-TSG2-KLGZ-Q5LK
-                            OFD01-5EJ3-TSG2-KLGZ-Q5LK
-                        </div>
-                        
-                        <a class="cody_copy">
-                            Копировать код
-                        </a>
-                </div>
-                <div class="cody_item col_10">
-                    <div class="cody_elem zkaz_nomber">
-                        Заказ № 1667 
-                    </div>
-                    
-                    <div class="cody_elem">
-                        Код активации Яндекс ОФД на 1 месяц
-                        Код активации Яндекс ОФД на 1 месяц
-                    </div>
-                        <div class="cody_elem">
-                            OFD01-5EJ3-TSG2-KLGZ-Q5LK
-                            OFD01-5EJ3-TSG2-KLGZ-Q5LK
-                        </div>
-                        
-                        <a class="cody_copy">
-                            Копировать код
-                        </a>
-                </div>
-                <div class="cody_item col_10">
-                    <div class="cody_elem zkaz_nomber">
-                        Заказ № 1667 
-                    </div>
-                    
-                    <div class="cody_elem">
-                        Код активации Яндекс ОФД на 1 месяц
-                        Код активации Яндекс ОФД на 1 месяц
-                    </div>
-                        <div class="cody_elem">
-                            OFD01-5EJ3-TSG2-KLGZ-Q5LK
-                            OFD01-5EJ3-TSG2-KLGZ-Q5LK
-                        </div>
-                        
-                        <a class="cody_copy">
-                            Копировать код
-                        </a>
-                </div>
-                <div class="cody_item col_10">
-                    <div class="cody_elem zkaz_nomber">
-                        Заказ № 1667 
-                    </div>
-                    
-                    <div class="cody_elem">
-                        Код активации Яндекс ОФД на 1 месяц
-                        Код активации Яндекс ОФД на 1 месяц
-                    </div>
-                        <div class="cody_elem">
-                            OFD01-5EJ3-TSG2-KLGZ-Q5LK
-                            OFD01-5EJ3-TSG2-KLGZ-Q5LK
-                        </div>
-                        
-                        <a class="cody_copy">
-                            Копировать код
-                        </a>
-                </div>
-                <div class="cody_item col_10">
-                    <div class="cody_elem zkaz_nomber">
-                        Заказ № 1667 
-                    </div>
-                    
-                    <div class="cody_elem">
-                        Код активации Яндекс ОФД на 1 месяц
-                        Код активации Яндекс ОФД на 1 месяц
-                    </div>
-                        <div class="cody_elem">
-                            OFD01-5EJ3-TSG2-KLGZ-Q5LK
-                            OFD01-5EJ3-TSG2-KLGZ-Q5LK
-                        </div>
-                        
-                        <a class="cody_copy">
-                            Копировать код
-                        </a>
-                </div>
+                    ';
+
+                $js .='
+                document.querySelector("#cpb'.$x.'").addEventListener("click", function() { 
+                    var copyText = document.getElementById("cpt'.$x.'").innerHTML ;
+                    console.log(copyText);
+                    navigator.clipboard.writeText(copyText);
+                    //navigator.clipboard.writeText(document.querySelector("#cpt'.$x.'"))
+                });
+                ';
+                $x++;
+                }
+                ?>
+                
             </div>
         </div>
     </div>
+
+    <script>
+<?php echo $js; ?>
+        </script>
+
+
+
